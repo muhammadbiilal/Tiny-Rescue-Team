@@ -1,0 +1,5 @@
+# Revenue, Privacy, Naming and Store Plan
+
+Working title Tiny Rescue Team; verify Google Play/App Store, web, trademark, domains and confusingly similar games before finalizing app ID. ASO research should compare rescue game, tactical rescue, 2D strategy, offline missions, hero team, without false claims or competitor names. Prepare genuine screenshots/video from shipping gameplay, not mock action. Website SEO only if later authorized for publication.
+
+Ads optional and off in dev by default; no ad in mission planning, active simulation, pause, fail/retry or character upgrades. If enabled, limited between completed missions, offline no-op, no ad-gated missions/retries. Decide target age before selecting SDK and production behavior; verify current platform child/family and privacy rules. Keep consent and data disclosures accurate; do not claim compliance from a test ID. Consider an ads-off launch if policy review is incomplete. No manipulative paid randomness or energy system. Store submission and domain purchases require owner authorization.

@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "id": "M010",
+  "revision": 1,
+  "world": 1,
+  "slot": 10,
+  "title": "Busy Morning",
+  "brief": "Three calls at once from three branches of the harbor: a small fire in the Boat Yard beside the Chandlery, a tea house owner who needs care, and a pump house that needs two crates. Only two responders are free.",
+  "tutorial": [
+    "Three gear items, two hands: each responder carries one item. Choose which calls get gear.",
+    "Priorities decide who goes where first. Set them before dispatch."
+  ],
+  "strategies": [
+    "Rosa with the Extinguisher on \"Hazards first\", Tomi on \"People first\" steadies the owner, then crates.",
+    "Tomi with the Extinguisher; Rosa handles crates and escorts."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher",
+    "cargoSled",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "x": 400,
+      "y": 640,
+      "kind": "deploy",
+      "label": "Harbor Office"
+    },
+    {
+      "id": "south",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "South Gate"
+    },
+    {
+      "id": "depot",
+      "x": 400,
+      "y": 820,
+      "kind": "depot",
+      "label": "Supply Hut"
+    },
+    {
+      "id": "yj",
+      "x": 620,
+      "y": 520,
+      "label": "Yard Gate"
+    },
+    {
+      "id": "boat",
+      "x": 660,
+      "y": 300,
+      "label": "Boat Yard"
+    },
+    {
+      "id": "chand",
+      "x": 480,
+      "y": 250,
+      "label": "Chandlery"
+    },
+    {
+      "id": "tea",
+      "x": 140,
+      "y": 360,
+      "label": "Tea House"
+    },
+    {
+      "id": "tj",
+      "x": 170,
+      "y": 600,
+      "label": "Willow Lane"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 420,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "pj",
+      "x": 660,
+      "y": 820,
+      "label": "Pump Road"
+    },
+    {
+      "id": "pump",
+      "x": 680,
+      "y": 960,
+      "kind": "need",
+      "label": "Pump House"
+    }
+  ],
+  "edges": [
+    {
+      "id": "hub-depot",
+      "a": "hub",
+      "b": "depot",
+      "label": "Office Steps"
+    },
+    {
+      "id": "south-depot",
+      "a": "south",
+      "b": "depot",
+      "label": "South Road"
+    },
+    {
+      "id": "hub-yj",
+      "a": "hub",
+      "b": "yj",
+      "label": "Yard Road"
+    },
+    {
+      "id": "yj-boat",
+      "a": "yj",
+      "b": "boat",
+      "label": "Slip Lane"
+    },
+    {
+      "id": "boat-chand",
+      "a": "boat",
+      "b": "chand",
+      "label": "Chandlers Row"
+    },
+    {
+      "id": "chand-hall",
+      "a": "chand",
+      "b": "hall",
+      "label": "Rope Stair"
+    },
+    {
+      "id": "hub-hall",
+      "a": "hub",
+      "b": "hall",
+      "label": "Hall Walk"
+    },
+    {
+      "id": "hub-tj",
+      "a": "hub",
+      "b": "tj",
+      "label": "Willow Walk"
+    },
+    {
+      "id": "tj-tea",
+      "a": "tj",
+      "b": "tea",
+      "block": "debris",
+      "label": "Tea Garden Path"
+    },
+    {
+      "id": "tea-hall",
+      "a": "tea",
+      "b": "hall",
+      "label": "Garden Terrace"
+    },
+    {
+      "id": "depot-pj",
+      "a": "depot",
+      "b": "pj",
+      "label": "Pump Lane"
+    },
+    {
+      "id": "pj-pump",
+      "a": "pj",
+      "b": "pump",
+      "label": "Pump Yard"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "hub",
+      "capacity": 2
+    },
+    {
+      "node": "south"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "chand"
+    },
+    {
+      "id": "c2",
+      "node": "tea",
+      "needsCare": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 3
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_pump",
+      "node": "pump",
+      "count": 2
+    }
+  ],
+  "fires": [
+    {
+      "node": "boat",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 260,
+      "type": "spread",
+      "from": "boat",
+      "to": "chand"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_pump"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 336,
+  "goldTicks": 317,
+  "decor": [
+    "water:0,0,800,120",
+    "yard:560,160,200,220",
+    "plaza:330,560,140,140"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "hub",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "hub",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 317,
+    "hash": "6a7b75b6"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 18,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

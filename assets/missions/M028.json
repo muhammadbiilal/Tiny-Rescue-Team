@@ -1,0 +1,218 @@
+{
+  "schema": 1,
+  "id": "M028",
+  "revision": 1,
+  "world": 1,
+  "slot": 28,
+  "title": "Wind Splits the Crew",
+  "brief": "One job is the Pitch Fire that the wind will push onto the Boardwalk, then toward Pitch Hall. The other job is walking two fishers from the far boardwalk. The wind change is the reason you cannot treat this as one pile of work.",
+  "tutorial": [
+    "Assign a fire person and an escort person before dispatch. The third covers the leftover debris.",
+    "If the boardwalk burns, the fishers cannot walk it."
+  ],
+  "strategies": [
+    "Extinguisher on Rosa at Pitch Gate. Tomi and Bea start on the boardwalk side.",
+    "Bea holds the fire; Rosa clears; Tomi escorts only."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "pg",
+      "x": 160,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Pitch Gate"
+    },
+    {
+      "id": "bg",
+      "x": 640,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Boardwalk Gate"
+    },
+    {
+      "id": "pitch",
+      "x": 180,
+      "y": 620,
+      "label": "Pitch Fire"
+    },
+    {
+      "id": "walk",
+      "x": 400,
+      "y": 500,
+      "label": "Boardwalk"
+    },
+    {
+      "id": "far",
+      "x": 640,
+      "y": 360,
+      "kind": "pier",
+      "label": "Far Walk"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 220,
+      "kind": "shelter",
+      "label": "Pitch Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "pg-pitch",
+      "a": "pg",
+      "b": "pitch",
+      "label": "Pitch Road"
+    },
+    {
+      "id": "bg-far",
+      "a": "bg",
+      "b": "far",
+      "label": "Far Road"
+    },
+    {
+      "id": "pitch-walk",
+      "a": "pitch",
+      "b": "walk",
+      "label": "Fire Walk"
+    },
+    {
+      "id": "walk-far",
+      "a": "walk",
+      "b": "far",
+      "block": "debris",
+      "label": "Long Walk"
+    },
+    {
+      "id": "walk-hall",
+      "a": "walk",
+      "b": "hall",
+      "label": "Walk Hall"
+    },
+    {
+      "id": "far-hall",
+      "a": "far",
+      "b": "hall",
+      "label": "Far Hall"
+    },
+    {
+      "id": "pitch-hall",
+      "a": "pitch",
+      "b": "hall",
+      "label": "Pitch Hall Lane"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "pg"
+    },
+    {
+      "node": "bg",
+      "capacity": 2
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "far"
+    },
+    {
+      "id": "c2",
+      "node": "walk",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "pitch",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 70,
+      "type": "wind",
+      "note": "Wind turns onto the Boardwalk"
+    },
+    {
+      "at": 180,
+      "type": "spread",
+      "from": "pitch",
+      "to": "walk"
+    },
+    {
+      "at": 280,
+      "type": "spread",
+      "from": "walk",
+      "to": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "walk"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 216,
+  "goldTicks": 193,
+  "decor": [
+    "water:0,0,800,200",
+    "pitch:80,300,200,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "pg",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "medic",
+        "node": "bg"
+      },
+      {
+        "role": "engineer",
+        "node": "bg"
+      }
+    ],
+    "commands": [],
+    "ticks": 193,
+    "hash": "5466eb0d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 9,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

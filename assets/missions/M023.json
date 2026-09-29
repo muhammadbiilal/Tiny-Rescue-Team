@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "id": "M023",
+  "revision": 1,
+  "world": 1,
+  "slot": 23,
+  "title": "Hall Holds Two",
+  "brief": "Keep a walking route from South Gate to the Signal Mast. Harbor Hall holds only two people and is already the goal shelter. A third person must wait for the Signal Hut to open at 20 seconds.",
+  "tutorial": [
+    "Capacity two. The third person needs the hut after it opens.",
+    "The mast route is a separate objective from the people."
+  ],
+  "strategies": [
+    "Bea opens the mast road. Tomi and Rosa fill the hall first, then the hut.",
+    "Send the farthest person toward the hut early so they arrive as it opens."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 200,
+      "y": 980,
+      "kind": "deploy",
+      "label": "South Gate"
+    },
+    {
+      "id": "east",
+      "x": 640,
+      "y": 900,
+      "kind": "deploy",
+      "label": "East Stair"
+    },
+    {
+      "id": "sq",
+      "x": 320,
+      "y": 740,
+      "kind": "junction",
+      "label": "South Square"
+    },
+    {
+      "id": "hall",
+      "x": 320,
+      "y": 480,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "hut",
+      "x": 640,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Signal Hut"
+    },
+    {
+      "id": "mast",
+      "x": 640,
+      "y": 120,
+      "kind": "lookout",
+      "label": "Signal Mast"
+    },
+    {
+      "id": "west",
+      "x": 120,
+      "y": 400,
+      "label": "West Cottages"
+    },
+    {
+      "id": "mid",
+      "x": 480,
+      "y": 400,
+      "label": "Mast Road"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-sq",
+      "a": "gate",
+      "b": "sq",
+      "label": "South Road"
+    },
+    {
+      "id": "east-mid",
+      "a": "east",
+      "b": "mid",
+      "label": "Stair Road"
+    },
+    {
+      "id": "sq-hall",
+      "a": "sq",
+      "b": "hall",
+      "label": "Hall Steps"
+    },
+    {
+      "id": "sq-west",
+      "a": "sq",
+      "b": "west",
+      "label": "Cottage Lane"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "label": "Cottage Hall"
+    },
+    {
+      "id": "hall-mid",
+      "a": "hall",
+      "b": "mid",
+      "block": "debris",
+      "label": "Hall Mast"
+    },
+    {
+      "id": "mid-hut",
+      "a": "mid",
+      "b": "hut",
+      "label": "Hut Road"
+    },
+    {
+      "id": "hut-mast",
+      "a": "hut",
+      "b": "mast",
+      "label": "Mast Steps"
+    },
+    {
+      "id": "east-hut",
+      "a": "east",
+      "b": "hut",
+      "label": "East Hut"
+    },
+    {
+      "id": "west-mast",
+      "a": "west",
+      "b": "mast",
+      "block": "debris",
+      "label": "Long Mast"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "east"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "west"
+    },
+    {
+      "id": "c2",
+      "node": "mid",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "east",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "capacity": 2
+    },
+    {
+      "node": "hut",
+      "openAt": 200
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "gate",
+      "b": "mast"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 320,
+  "goldTicks": 314,
+  "decor": [
+    "water:0,0,800,110",
+    "mast:600,80,120,120"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "gate"
+      },
+      {
+        "role": "medic",
+        "node": "east"
+      },
+      {
+        "role": "engineer",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 314,
+    "hash": "1f7cf2ce"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 12,
+    "setupsWon": 12,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

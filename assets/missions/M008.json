@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "id": "M008",
+  "revision": 1,
+  "world": 1,
+  "slot": 8,
+  "title": "Lighthouse Point",
+  "brief": "The lighthouse keeper needs care before 25 seconds. The Keeper's Cottage is on the same point. The north road is short but blocked twice; the south road is longer and the Seawall Bend may slip.",
+  "tutorial": [
+    "Deadline: the keeper needs care before 25 seconds. Whoever brings care must get there; the other can open the way.",
+    "Two routes lead to the point. The forecast shows when the south road may close."
+  ],
+  "strategies": [
+    "Rosa clears the north road with the Cutter while Tomi waits one lane behind her.",
+    "Tomi takes the south road early before the Seawall Bend slips; Rosa follows for the cottage."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "cutter",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "g1",
+      "x": 420,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Harbor Gate"
+    },
+    {
+      "id": "g2",
+      "x": 700,
+      "y": 900,
+      "kind": "deploy",
+      "label": "Lifeboat House"
+    },
+    {
+      "id": "fork",
+      "x": 450,
+      "y": 780,
+      "kind": "junction",
+      "label": "Tar Fork"
+    },
+    {
+      "id": "n1",
+      "x": 430,
+      "y": 560,
+      "label": "Gull Lane"
+    },
+    {
+      "id": "n2",
+      "x": 400,
+      "y": 360,
+      "label": "Cliff Steps"
+    },
+    {
+      "id": "light",
+      "x": 330,
+      "y": 190,
+      "kind": "lookout",
+      "label": "Lighthouse"
+    },
+    {
+      "id": "cottage",
+      "x": 560,
+      "y": 220,
+      "label": "Keeper's Cottage"
+    },
+    {
+      "id": "s1",
+      "x": 700,
+      "y": 640,
+      "label": "Seawall"
+    },
+    {
+      "id": "s2",
+      "x": 700,
+      "y": 400,
+      "label": "Seawall Bend"
+    },
+    {
+      "id": "hall",
+      "x": 620,
+      "y": 800,
+      "kind": "shelter",
+      "label": "Lifeboat Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1-fork",
+      "a": "g1",
+      "b": "fork",
+      "label": "Gate Road"
+    },
+    {
+      "id": "g2-hall",
+      "a": "g2",
+      "b": "hall",
+      "label": "Boat Ramp"
+    },
+    {
+      "id": "fork-hall",
+      "a": "fork",
+      "b": "hall",
+      "label": "Hall Lane"
+    },
+    {
+      "id": "fork-n1",
+      "a": "fork",
+      "b": "n1",
+      "block": "debris",
+      "label": "Net Tangle"
+    },
+    {
+      "id": "n1-n2",
+      "a": "n1",
+      "b": "n2",
+      "label": "Gull Steps"
+    },
+    {
+      "id": "n2-light",
+      "a": "n2",
+      "b": "light",
+      "block": "debris",
+      "label": "Rockfall Path"
+    },
+    {
+      "id": "n2-cottage",
+      "a": "n2",
+      "b": "cottage",
+      "label": "Cottage Lane"
+    },
+    {
+      "id": "light-cottage",
+      "a": "light",
+      "b": "cottage",
+      "label": "Point Path"
+    },
+    {
+      "id": "hall-s1",
+      "a": "hall",
+      "b": "s1",
+      "label": "Seawall Road"
+    },
+    {
+      "id": "s1-s2",
+      "a": "s1",
+      "b": "s2",
+      "label": "Seawall Bend"
+    },
+    {
+      "id": "s2-cottage",
+      "a": "s2",
+      "b": "cottage",
+      "label": "Cottage Hill"
+    },
+    {
+      "id": "n1-s1",
+      "a": "n1",
+      "b": "s1",
+      "label": "Gull Cut"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g1",
+      "capacity": 2
+    },
+    {
+      "node": "g2"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "light",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "cottage",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "hazards": [
+    {
+      "at": 220,
+      "type": "collapse",
+      "edge": "s1-s2",
+      "note": "Seawall Bend may slip"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1",
+      "by": 250
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 565,
+  "goldTicks": 472,
+  "decor": [
+    "water:0,0,260,1040",
+    "water:0,0,800,120",
+    "rocks:120,120,200,220"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g2",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "g1"
+      }
+    ],
+    "commands": [],
+    "ticks": 472,
+    "hash": "90538f41"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 21,
+    "setupsWon": 9,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

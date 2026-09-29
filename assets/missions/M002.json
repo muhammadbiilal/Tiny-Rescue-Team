@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "id": "M002",
+  "revision": 1,
+  "world": 1,
+  "slot": 2,
+  "title": "Steady Hands",
+  "brief": "A boat builder and a stall keeper both need care before they can walk to Harbor Hall. Long shifts are tiring: every responder takes a breather after two tasks.",
+  "tutorial": [
+    "People marked with a care cross must be steadied by Tomi before anyone can guide them.",
+    "Fatigue: after two finished tasks a responder rests for four seconds. Plan who does what.",
+    "Give Rosa \"People first\" priority if you want her waiting to escort."
+  ],
+  "strategies": [
+    "Tomi starts at Crane Yard, next to the Boat Shed; Rosa at Dock Gate clears the Net Tangle.",
+    "Both at Dock Gate: Rosa escorts while Tomi rests between calls."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "nodes": [
+    {
+      "id": "g1",
+      "x": 420,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Dock Gate"
+    },
+    {
+      "id": "g2",
+      "x": 120,
+      "y": 820,
+      "kind": "deploy",
+      "label": "Crane Yard"
+    },
+    {
+      "id": "yard",
+      "x": 420,
+      "y": 780,
+      "kind": "junction",
+      "label": "Fish Yard"
+    },
+    {
+      "id": "shed",
+      "x": 130,
+      "y": 560,
+      "label": "Boat Shed"
+    },
+    {
+      "id": "stall",
+      "x": 660,
+      "y": 610,
+      "label": "Fish Stall"
+    },
+    {
+      "id": "hall",
+      "x": 420,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "slip",
+      "x": 640,
+      "y": 250,
+      "kind": "pier",
+      "label": "Slipway"
+    },
+    {
+      "id": "tide",
+      "x": 150,
+      "y": 260,
+      "label": "Tide Steps"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1-yard",
+      "a": "g1",
+      "b": "yard",
+      "label": "Dock Road"
+    },
+    {
+      "id": "g2-shed",
+      "a": "g2",
+      "b": "shed",
+      "label": "Crane Path"
+    },
+    {
+      "id": "g2-yard",
+      "a": "g2",
+      "b": "yard",
+      "label": "Yard Fence"
+    },
+    {
+      "id": "yard-stall",
+      "a": "yard",
+      "b": "stall",
+      "label": "Stall Row"
+    },
+    {
+      "id": "stall-hall",
+      "a": "stall",
+      "b": "hall",
+      "label": "Market Stair"
+    },
+    {
+      "id": "shed-hall",
+      "a": "shed",
+      "b": "hall",
+      "block": "debris",
+      "label": "Shed Path"
+    },
+    {
+      "id": "shed-tide",
+      "a": "shed",
+      "b": "tide",
+      "label": "Old Seawall"
+    },
+    {
+      "id": "tide-hall",
+      "a": "tide",
+      "b": "hall",
+      "label": "Tide Walk"
+    },
+    {
+      "id": "hall-slip",
+      "a": "hall",
+      "b": "slip",
+      "label": "Slip Road"
+    },
+    {
+      "id": "slip-stall",
+      "a": "slip",
+      "b": "stall",
+      "label": "Quay Walk"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g1",
+      "capacity": 2
+    },
+    {
+      "node": "g2"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "shed",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "slip",
+      "needsCare": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 481,
+  "goldTicks": 401,
+  "decor": [
+    "water:0,0,800,190",
+    "pier:560,90,120,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g1"
+      },
+      {
+        "role": "medic",
+        "node": "g1"
+      }
+    ],
+    "commands": [],
+    "ticks": 401,
+    "hash": "4d2bdcfa"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 3,
+    "setupsWon": 3,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

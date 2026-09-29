@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "id": "M027",
+  "revision": 1,
+  "world": 1,
+  "slot": 27,
+  "title": "Door, then the Dark Stair",
+  "brief": "Harbor Hall is jammed. Behind the unlit Clock Stair someone is waiting. Clock Arch is forecast to fall at 32 seconds. Repair the door, light the stair, and get people in.",
+  "tutorial": [
+    "Repair first or light first, but do not stand under Clock Arch after the forecast time.",
+    "Bea can repair without a Toolkit. The Toolkit is faster for Rosa."
+  ],
+  "strategies": [
+    "Toolkit on Rosa at the hall. Floodlight on Bea toward the stair. Tomi escorts.",
+    "Bea repairs; Rosa lights; ignore the arch and use the back lane."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "toolkit",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "g",
+      "x": 200,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Clock Gate"
+    },
+    {
+      "id": "back",
+      "x": 680,
+      "y": 900,
+      "kind": "deploy",
+      "label": "Back Lane"
+    },
+    {
+      "id": "sq",
+      "x": 320,
+      "y": 740,
+      "kind": "junction",
+      "label": "Clock Square"
+    },
+    {
+      "id": "hall",
+      "x": 320,
+      "y": 460,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "arch",
+      "x": 500,
+      "y": 460,
+      "label": "Clock Arch"
+    },
+    {
+      "id": "stair",
+      "x": 500,
+      "y": 240,
+      "label": "Clock Stair"
+    },
+    {
+      "id": "loft",
+      "x": 680,
+      "y": 240,
+      "label": "Clock Loft"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g-sq",
+      "a": "g",
+      "b": "sq",
+      "label": "Clock Road"
+    },
+    {
+      "id": "back-loft",
+      "a": "back",
+      "b": "loft",
+      "label": "Back Loft"
+    },
+    {
+      "id": "sq-hall",
+      "a": "sq",
+      "b": "hall",
+      "label": "Hall Door"
+    },
+    {
+      "id": "sq-arch",
+      "a": "sq",
+      "b": "arch",
+      "label": "Arch Walk"
+    },
+    {
+      "id": "arch-stair",
+      "a": "arch",
+      "b": "stair",
+      "label": "Clock Arch"
+    },
+    {
+      "id": "stair-loft",
+      "a": "stair",
+      "b": "loft",
+      "block": "dark",
+      "label": "Stair Dark"
+    },
+    {
+      "id": "hall-stair",
+      "a": "hall",
+      "b": "stair",
+      "block": "dark",
+      "label": "Hall Stair"
+    },
+    {
+      "id": "back-arch",
+      "a": "back",
+      "b": "arch",
+      "label": "Back Arch"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "label": "Loft Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g",
+      "capacity": 2
+    },
+    {
+      "node": "back"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "loft",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "sq",
+      "needsCare": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    }
+  ],
+  "hazards": [
+    {
+      "at": 320,
+      "type": "collapse",
+      "edge": "arch-stair",
+      "note": "Clock Arch may fall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 307,
+  "goldTicks": 217,
+  "decor": [
+    "water:0,0,800,80",
+    "clock:300,300,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "back",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "g"
+      },
+      {
+        "role": "engineer",
+        "node": "g",
+        "gear": "toolkit"
+      }
+    ],
+    "commands": [],
+    "ticks": 217,
+    "hash": "1735ad89"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 39,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

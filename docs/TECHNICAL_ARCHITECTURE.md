@@ -1,0 +1,9 @@
+# Flutter + Flame Technical Architecture v2
+
+Flutter: app shell, roster, upgrades, world map, settings, accessibility, ads and store UI. Flame: scene composition, sprite animation, camera, effects and input. Pure Dart simulation module: deterministic ticks, responder AI, pathfinding, action prerequisites, hazard evolution, resource capacity, objectives, event log and replay. Renderer subscribes to state/events; no gameplay outcome depends on animation frame rate. Match simulation tick and animation pacing with pause/slow support.
+
+Modules: `app`, `campaign`, `roster`, `economy`, `simulation`, `game_scene`, `progress`, `audio`, `ads`, `l10n`, `tooling`. Data contracts: mission ID/schema/revision, scene graph, deployment points, responder allowed set, hazards, objective predicates, initial resources, unlock prerequisites, witness trace, asset references and review state. Stable event IDs permit deterministic replay and diagnostics. Tests cover AI priority, path blocking, precedence, shared capacity, win/fail, economy free-player path, saved data migration, ad failure and 365-manifest completeness.
+
+Rendering: sprite atlases with asset caching and pooling, particles with caps, animation states driven from simulation events, UI overlay via Flutter. Device profiling for memory/frame time, battery, install size and loading. CI: format/analyze/unit/widget/integration/content validator/Android build; macOS CI for iOS build when available. Crash reporting/analytics only after privacy review, no mandatory account. Offline and ad failures never block play.
+
+Ads behind disabled/test/production adapter. Conservative between-mission placements, no ads during planning or response. Production config requires audience/privacy and current store policy decision. Do not hard-code production IDs or secrets. Asset-license audit is release gate. Use current package APIs compatible with installed toolchain.

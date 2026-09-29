@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "id": "M016",
+  "revision": 1,
+  "world": 1,
+  "slot": 16,
+  "title": "Wind Over the Smokehouse",
+  "brief": "Callers cannot see who is in the smokehouse lane. A small fire there will follow the wind onto the Net Walk at 18 seconds, then toward Harbor Hall if it is still burning.",
+  "tutorial": [
+    "Wind lines in the forecast tell you where fire wants to go next.",
+    "Light the dark lane first, then put the fire out before the second spread."
+  ],
+  "strategies": [
+    "Floodlight and Extinguisher on the same starter at Smoke Gate if you want one person to find and kill the fire.",
+    "Split: Bea lights, Rosa carries the Extinguisher, Tomi waits at the hall for anyone found."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "g1",
+      "x": 200,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Smoke Gate"
+    },
+    {
+      "id": "g2",
+      "x": 600,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Net Gate"
+    },
+    {
+      "id": "sq",
+      "x": 400,
+      "y": 780,
+      "kind": "junction",
+      "label": "Smoke Square"
+    },
+    {
+      "id": "smoke",
+      "x": 240,
+      "y": 500,
+      "label": "Smokehouse"
+    },
+    {
+      "id": "nets",
+      "x": 400,
+      "y": 500,
+      "label": "Net Walk"
+    },
+    {
+      "id": "hall",
+      "x": 560,
+      "y": 320,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "dark",
+      "x": 120,
+      "y": 320,
+      "label": "Ash Lane"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1-sq",
+      "a": "g1",
+      "b": "sq",
+      "label": "Smoke Road"
+    },
+    {
+      "id": "g2-sq",
+      "a": "g2",
+      "b": "sq",
+      "label": "Net Road"
+    },
+    {
+      "id": "sq-smoke",
+      "a": "sq",
+      "b": "smoke",
+      "label": "House Lane"
+    },
+    {
+      "id": "sq-nets",
+      "a": "sq",
+      "b": "nets",
+      "label": "Walk Approach"
+    },
+    {
+      "id": "smoke-nets",
+      "a": "smoke",
+      "b": "nets",
+      "label": "Smoke Walk"
+    },
+    {
+      "id": "nets-hall",
+      "a": "nets",
+      "b": "hall",
+      "label": "Hall Walk"
+    },
+    {
+      "id": "smoke-dark",
+      "a": "smoke",
+      "b": "dark",
+      "block": "dark",
+      "label": "Ash Dark"
+    },
+    {
+      "id": "dark-hall",
+      "a": "dark",
+      "b": "hall",
+      "block": "dark",
+      "label": "Ash Hall"
+    },
+    {
+      "id": "g2-hall",
+      "a": "g2",
+      "b": "hall",
+      "label": "East Bypass"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g1"
+    },
+    {
+      "node": "g2",
+      "capacity": 2
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "dark",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "nets",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "smoke",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 80,
+      "type": "wind",
+      "note": "Wind turns toward Net Walk"
+    },
+    {
+      "at": 180,
+      "type": "spread",
+      "from": "smoke",
+      "to": "nets"
+    },
+    {
+      "at": 280,
+      "type": "spread",
+      "from": "nets",
+      "to": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "smoke-dark",
+        "dark-hall"
+      ]
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 408,
+  "goldTicks": 299,
+  "decor": [
+    "water:0,0,800,120",
+    "smoke:200,300,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g1"
+      },
+      {
+        "role": "medic",
+        "node": "g2",
+        "gear": "floodlight"
+      },
+      {
+        "role": "engineer",
+        "node": "g2",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 299,
+    "hash": "aa57adf1"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 18,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

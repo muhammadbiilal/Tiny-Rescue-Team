@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "id": "M018",
+  "revision": 1,
+  "world": 1,
+  "slot": 18,
+  "title": "Warehouse and the Night Pier",
+  "brief": "Two separate jobs must finish: light and empty the Dark Warehouse, and bring the night-pier watch in. The warehouse lanes stay dark until someone lights them. The pier is a different street.",
+  "tutorial": [
+    "Do not send everyone into the warehouse. One responder can work the lit pier.",
+    "Hidden people in the warehouse count only after the dark lanes are opened."
+  ],
+  "strategies": [
+    "Floodlight on Bea into the warehouse. Tomi and Rosa take the pier watch.",
+    "Rosa lights; Bea clears the inner crate; Tomi stays with the pier."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "north",
+      "x": 200,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Warehouse Dock"
+    },
+    {
+      "id": "south",
+      "x": 600,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Pier Stair"
+    },
+    {
+      "id": "wh",
+      "x": 200,
+      "y": 400,
+      "label": "Warehouse Door"
+    },
+    {
+      "id": "inner",
+      "x": 200,
+      "y": 620,
+      "label": "Inner Aisle"
+    },
+    {
+      "id": "crate",
+      "x": 80,
+      "y": 620,
+      "label": "Crate Bay"
+    },
+    {
+      "id": "pier",
+      "x": 600,
+      "y": 500,
+      "kind": "pier",
+      "label": "Night Pier"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Night Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "north-wh",
+      "a": "north",
+      "b": "wh",
+      "label": "Dock Door"
+    },
+    {
+      "id": "wh-inner",
+      "a": "wh",
+      "b": "inner",
+      "block": "dark",
+      "label": "Dark Aisle"
+    },
+    {
+      "id": "inner-crate",
+      "a": "inner",
+      "b": "crate",
+      "block": "dark",
+      "label": "Crate Dark"
+    },
+    {
+      "id": "wh-hall",
+      "a": "wh",
+      "b": "hall",
+      "label": "Door Hall"
+    },
+    {
+      "id": "south-pier",
+      "a": "south",
+      "b": "pier",
+      "label": "Pier Steps"
+    },
+    {
+      "id": "pier-hall",
+      "a": "pier",
+      "b": "hall",
+      "label": "Pier Hall"
+    },
+    {
+      "id": "inner-hall",
+      "a": "inner",
+      "b": "hall",
+      "block": "debris",
+      "label": "Aisle Hall"
+    },
+    {
+      "id": "south-hall",
+      "a": "south",
+      "b": "hall",
+      "label": "Stair Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "north",
+      "capacity": 2
+    },
+    {
+      "node": "south"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "crate",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "inner",
+      "hidden": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "pier",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "wh-inner",
+        "inner-crate"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 360,
+  "goldTicks": 288,
+  "decor": [
+    "water:0,620,800,420",
+    "shed:80,80,280,220"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "north"
+      },
+      {
+        "role": "medic",
+        "node": "south"
+      },
+      {
+        "role": "engineer",
+        "node": "north",
+        "gear": "floodlight"
+      }
+    ],
+    "commands": [],
+    "ticks": 288,
+    "hash": "fb3e31ae"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 27,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

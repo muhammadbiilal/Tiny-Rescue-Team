@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "id": "M014",
+  "revision": 1,
+  "world": 1,
+  "slot": 14,
+  "title": "Long Shift at the Tar Works",
+  "brief": "A pot fire at the Tar Works will reach the Drying Racks. A crate is due at the Pump, and two people need guiding. After two finished tasks each responder must rest.",
+  "tutorial": [
+    "Fatigue: after two finished jobs a responder rests. Spread the work.",
+    "Three calls: fire, pump crates, and people. Priorities decide the order."
+  ],
+  "strategies": [
+    "Extinguisher on Bea at the works. Tomi people-first. Rosa takes the sled.",
+    "Rosa holds the fire; Bea clears the pump lane; Tomi escorts."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 360,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Works Gate"
+    },
+    {
+      "id": "side",
+      "x": 700,
+      "y": 860,
+      "kind": "deploy",
+      "label": "Rack Lane"
+    },
+    {
+      "id": "yard",
+      "x": 360,
+      "y": 760,
+      "kind": "junction",
+      "label": "Tar Yard"
+    },
+    {
+      "id": "works",
+      "x": 560,
+      "y": 520,
+      "label": "Tar Works"
+    },
+    {
+      "id": "racks",
+      "x": 700,
+      "y": 400,
+      "label": "Drying Racks"
+    },
+    {
+      "id": "depot",
+      "x": 200,
+      "y": 760,
+      "kind": "depot",
+      "label": "Pitch Store"
+    },
+    {
+      "id": "pump",
+      "x": 120,
+      "y": 400,
+      "kind": "need",
+      "label": "Pitch Pump"
+    },
+    {
+      "id": "loft",
+      "x": 360,
+      "y": 400,
+      "label": "Coil Loft"
+    },
+    {
+      "id": "hall",
+      "x": 360,
+      "y": 220,
+      "kind": "shelter",
+      "label": "Works Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-yard",
+      "a": "gate",
+      "b": "yard",
+      "label": "Works Road"
+    },
+    {
+      "id": "side-racks",
+      "a": "side",
+      "b": "racks",
+      "label": "Rack Path"
+    },
+    {
+      "id": "yard-works",
+      "a": "yard",
+      "b": "works",
+      "label": "Tar Lane"
+    },
+    {
+      "id": "works-racks",
+      "a": "works",
+      "b": "racks",
+      "label": "Rack Cut"
+    },
+    {
+      "id": "yard-depot",
+      "a": "yard",
+      "b": "depot",
+      "label": "Store Cut"
+    },
+    {
+      "id": "depot-pump",
+      "a": "depot",
+      "b": "pump",
+      "block": "debris",
+      "label": "Pump Lane"
+    },
+    {
+      "id": "yard-loft",
+      "a": "yard",
+      "b": "loft",
+      "label": "Loft Steps"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "label": "Hall Stair"
+    },
+    {
+      "id": "works-loft",
+      "a": "works",
+      "b": "loft",
+      "label": "Coil Walk"
+    },
+    {
+      "id": "racks-hall",
+      "a": "racks",
+      "b": "hall",
+      "label": "Rack Hall"
+    },
+    {
+      "id": "pump-hall",
+      "a": "pump",
+      "b": "hall",
+      "label": "Pump Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "side"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "racks"
+    },
+    {
+      "id": "c2",
+      "node": "loft",
+      "needsCare": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_pump",
+      "node": "pump",
+      "count": 2
+    }
+  ],
+  "fires": [
+    {
+      "node": "works",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 220,
+      "type": "spread",
+      "from": "works",
+      "to": "racks"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_pump"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "restTicks": 30,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 399,
+  "goldTicks": 295,
+  "decor": [
+    "water:0,0,800,100",
+    "works:480,200,220,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "side",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "gate",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "engineer",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 295,
+    "hash": "c3d91586"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 27,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

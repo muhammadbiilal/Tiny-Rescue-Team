@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "id": "M026",
+  "revision": 1,
+  "world": 1,
+  "slot": 26,
+  "title": "Tired Eyes in the Fog",
+  "brief": "Fog again, and a drum fire on the hidden Drum Pier. After two jobs everyone rests. Light the pier, put the fire out, and walk anyone you find to Drum Hall.",
+  "tutorial": [
+    "Fatigue plus fog: do not give one person light, fire, and escort.",
+    "The fire is on a hidden node. You must find it before you can fight it from an adjacent lit lane."
+  ],
+  "strategies": [
+    "Floodlight on Bea, Extinguisher on Rosa, Tomi reserved for escort after rest.",
+    "Rosa lights and fights if you accept her rest in the middle."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "g",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Drum Gate"
+    },
+    {
+      "id": "sq",
+      "x": 400,
+      "y": 740,
+      "kind": "junction",
+      "label": "Drum Square"
+    },
+    {
+      "id": "fog",
+      "x": 240,
+      "y": 460,
+      "label": "Fog Walk"
+    },
+    {
+      "id": "drum",
+      "x": 240,
+      "y": 240,
+      "kind": "pier",
+      "label": "Drum Pier"
+    },
+    {
+      "id": "hall",
+      "x": 560,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Drum Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g-sq",
+      "a": "g",
+      "b": "sq",
+      "label": "Drum Road"
+    },
+    {
+      "id": "sq-fog",
+      "a": "sq",
+      "b": "fog",
+      "block": "dark",
+      "label": "Fog Mouth"
+    },
+    {
+      "id": "fog-drum",
+      "a": "fog",
+      "b": "drum",
+      "block": "dark",
+      "label": "Drum Dark"
+    },
+    {
+      "id": "sq-hall",
+      "a": "sq",
+      "b": "hall",
+      "label": "Hall Road"
+    },
+    {
+      "id": "drum-hall",
+      "a": "drum",
+      "b": "hall",
+      "block": "dark",
+      "label": "Pier Hall"
+    },
+    {
+      "id": "fog-hall",
+      "a": "fog",
+      "b": "hall",
+      "label": "Fog Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g",
+      "capacity": 3
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "drum",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "fog",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "drum",
+      "intensity": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "sq-fog",
+        "fog-drum"
+      ]
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "restTicks": 35,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 486,
+  "goldTicks": 356,
+  "decor": [
+    "water:0,0,800,220",
+    "fog:100,240,600,280"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "medic",
+        "node": "g"
+      },
+      {
+        "role": "engineer",
+        "node": "g",
+        "gear": "floodlight"
+      }
+    ],
+    "commands": [],
+    "ticks": 356,
+    "hash": "39b398ed"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 13,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

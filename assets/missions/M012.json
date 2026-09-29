@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "id": "M012",
+  "revision": 1,
+  "world": 1,
+  "slot": 12,
+  "title": "One Cart on the Mole",
+  "brief": "Fog hides a caller on the Outer Mole. The mole keeper needs care. One cargo sled is the only cart that can haul the two lamp-oil crates to the Beacon.",
+  "tutorial": [
+    "One sled: only the carrier of the Cargo Sled can move crates. Everyone else must light, clear, or care.",
+    "Dark lanes hide the mole until they are lit or someone stands next to them."
+  ],
+  "strategies": [
+    "Sled on Rosa from the Store. Floodlight on Bea toward the mole. Tomi cares for the keeper.",
+    "Sled on Bea; Rosa lights; Tomi stays with the keeper until the mole is found."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cargoSled",
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 200,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Mole Gate"
+    },
+    {
+      "id": "storeS",
+      "x": 620,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Oil Store"
+    },
+    {
+      "id": "yard",
+      "x": 300,
+      "y": 760,
+      "kind": "junction",
+      "label": "Cart Yard"
+    },
+    {
+      "id": "keep",
+      "x": 160,
+      "y": 480,
+      "label": "Keeper Hut"
+    },
+    {
+      "id": "depot",
+      "x": 620,
+      "y": 760,
+      "kind": "depot",
+      "label": "Oil Shed"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 480,
+      "label": "Mole Root"
+    },
+    {
+      "id": "dark",
+      "x": 560,
+      "y": 280,
+      "kind": "pier",
+      "label": "Outer Mole"
+    },
+    {
+      "id": "beacon",
+      "x": 700,
+      "y": 180,
+      "kind": "need",
+      "label": "Beacon"
+    },
+    {
+      "id": "hall",
+      "x": 300,
+      "y": 300,
+      "kind": "shelter",
+      "label": "Mole Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-yard",
+      "a": "gate",
+      "b": "yard",
+      "label": "Gate Road"
+    },
+    {
+      "id": "storeS-depot",
+      "a": "storeS",
+      "b": "depot",
+      "label": "Store Ramp"
+    },
+    {
+      "id": "depot-yard",
+      "a": "depot",
+      "b": "yard",
+      "label": "Shed Lane"
+    },
+    {
+      "id": "yard-keep",
+      "a": "yard",
+      "b": "keep",
+      "label": "Hut Path"
+    },
+    {
+      "id": "yard-mid",
+      "a": "yard",
+      "b": "mid",
+      "label": "Mole Road"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "label": "Hall Cut"
+    },
+    {
+      "id": "keep-hall",
+      "a": "keep",
+      "b": "hall",
+      "label": "Hut Terrace"
+    },
+    {
+      "id": "mid-dark",
+      "a": "mid",
+      "b": "dark",
+      "block": "dark",
+      "label": "Fog Mole"
+    },
+    {
+      "id": "dark-beacon",
+      "a": "dark",
+      "b": "beacon",
+      "block": "dark",
+      "label": "Beacon Walk"
+    },
+    {
+      "id": "hall-beacon",
+      "a": "hall",
+      "b": "beacon",
+      "block": "debris",
+      "label": "Hall Beacon"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "storeS"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "keep",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "dark",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_beacon",
+      "node": "beacon",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_beacon"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 687,
+  "goldTicks": 407,
+  "decor": [
+    "water:0,0,800,200",
+    "mole:500,80,220,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "storeS",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "gate",
+        "gear": "floodlight"
+      },
+      {
+        "role": "engineer",
+        "node": "gate",
+        "gear": "firstAid"
+      }
+    ],
+    "commands": [],
+    "ticks": 407,
+    "hash": "f25183cd"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 102,
+    "setupsWon": 63,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

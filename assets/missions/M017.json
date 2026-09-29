@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "id": "M017",
+  "revision": 1,
+  "world": 1,
+  "slot": 17,
+  "title": "One Toolkit",
+  "brief": "Storm doors on both Harbor Hall and the Watch Loft are jammed. Only one Toolkit is in the van. Someone is still unaccounted for behind the unlit Watch Stair.",
+  "tutorial": [
+    "One Toolkit. Bea can repair without it, but slowly. Use her on one door.",
+    "The hidden caller appears when the dark stair is lit or a responder reaches the loft."
+  ],
+  "strategies": [
+    "Toolkit on Rosa for Harbor Hall. Bea repairs the loft. Tomi carries the Floodlight.",
+    "Bea does both doors if the others only escort. Slower, still possible."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "toolkit",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "a",
+      "x": 120,
+      "y": 960,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "c",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Center Post"
+    },
+    {
+      "id": "e",
+      "x": 680,
+      "y": 960,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 740,
+      "kind": "junction",
+      "label": "Post Square"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 480,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "loft",
+      "x": 160,
+      "y": 240,
+      "kind": "shelter",
+      "label": "Watch Loft"
+    },
+    {
+      "id": "stair",
+      "x": 160,
+      "y": 480,
+      "label": "Watch Stair"
+    },
+    {
+      "id": "cafe",
+      "x": 640,
+      "y": 480,
+      "label": "Night Café"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a-mid",
+      "a": "a",
+      "b": "mid",
+      "label": "West Road"
+    },
+    {
+      "id": "c-mid",
+      "a": "c",
+      "b": "mid",
+      "label": "Center Road"
+    },
+    {
+      "id": "e-mid",
+      "a": "e",
+      "b": "mid",
+      "label": "East Road"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "label": "Hall Approach"
+    },
+    {
+      "id": "mid-stair",
+      "a": "mid",
+      "b": "stair",
+      "label": "Stair Lane"
+    },
+    {
+      "id": "stair-loft",
+      "a": "stair",
+      "b": "loft",
+      "block": "dark",
+      "label": "Watch Stair"
+    },
+    {
+      "id": "mid-cafe",
+      "a": "mid",
+      "b": "cafe",
+      "label": "Café Row"
+    },
+    {
+      "id": "cafe-hall",
+      "a": "cafe",
+      "b": "hall",
+      "label": "Café Hall"
+    },
+    {
+      "id": "hall-loft",
+      "a": "hall",
+      "b": "loft",
+      "block": "debris",
+      "label": "Hall Loft"
+    },
+    {
+      "id": "cafe-loft",
+      "a": "cafe",
+      "b": "loft",
+      "label": "Café Loft"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "a"
+    },
+    {
+      "node": "c"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "cafe",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "loft",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    },
+    {
+      "node": "loft",
+      "broken": true
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 259,
+  "goldTicks": 240,
+  "decor": [
+    "water:0,0,800,90",
+    "loft:80,160,160,140"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "c"
+      },
+      {
+        "role": "medic",
+        "node": "a",
+        "gear": "floodlight"
+      },
+      {
+        "role": "engineer",
+        "node": "e",
+        "gear": "toolkit"
+      }
+    ],
+    "commands": [],
+    "ticks": 240,
+    "hash": "b1a7a152"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 78,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

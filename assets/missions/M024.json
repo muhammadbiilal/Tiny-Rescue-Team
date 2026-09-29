@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "id": "M024",
+  "revision": 1,
+  "world": 1,
+  "slot": 24,
+  "title": "The Only Sled",
+  "brief": "A lamp fire at the Chandlery will reach the Sail Loft. Two crates must still go to the Pump House. There is only one Cargo Sled. Two people also need a walk to Sail Hall.",
+  "tutorial": [
+    "One sled. Do not put it on Tomi if you also need him for care.",
+    "Kill the fire before it reaches the loft, or the loft caller is lost to the protect rule? No: just contain."
+  ],
+  "strategies": [
+    "Sled on Rosa. Extinguisher on Bea. Tomi people-first.",
+    "Sled on Bea after she kills the fire, if you accept a later delivery."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cargoSled",
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "g",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Sail Gate"
+    },
+    {
+      "id": "sq",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Sail Square"
+    },
+    {
+      "id": "chand",
+      "x": 240,
+      "y": 520,
+      "label": "Chandlery"
+    },
+    {
+      "id": "loft",
+      "x": 160,
+      "y": 280,
+      "label": "Sail Loft"
+    },
+    {
+      "id": "depot",
+      "x": 560,
+      "y": 760,
+      "kind": "depot",
+      "label": "Sail Store"
+    },
+    {
+      "id": "pump",
+      "x": 680,
+      "y": 400,
+      "kind": "need",
+      "label": "Pump House"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 320,
+      "kind": "shelter",
+      "label": "Sail Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g-sq",
+      "a": "g",
+      "b": "sq",
+      "label": "Sail Road"
+    },
+    {
+      "id": "sq-chand",
+      "a": "sq",
+      "b": "chand",
+      "label": "Chandler Lane"
+    },
+    {
+      "id": "chand-loft",
+      "a": "chand",
+      "b": "loft",
+      "label": "Loft Fire"
+    },
+    {
+      "id": "sq-depot",
+      "a": "sq",
+      "b": "depot",
+      "label": "Store Cut"
+    },
+    {
+      "id": "depot-pump",
+      "a": "depot",
+      "b": "pump",
+      "label": "Pump Road"
+    },
+    {
+      "id": "sq-hall",
+      "a": "sq",
+      "b": "hall",
+      "label": "Hall Walk"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "label": "Loft Hall"
+    },
+    {
+      "id": "pump-hall",
+      "a": "pump",
+      "b": "hall",
+      "label": "Pump Hall"
+    },
+    {
+      "id": "chand-hall",
+      "a": "chand",
+      "b": "hall",
+      "label": "Chandler Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g",
+      "capacity": 3
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "loft"
+    },
+    {
+      "id": "c2",
+      "node": "sq",
+      "needsCare": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_pump",
+      "node": "pump",
+      "count": 2
+    }
+  ],
+  "fires": [
+    {
+      "node": "chand",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 210,
+      "type": "spread",
+      "from": "chand",
+      "to": "loft"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_pump"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 346,
+  "goldTicks": 262,
+  "decor": [
+    "water:0,0,800,100",
+    "loft:80,160,180,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "medic",
+        "node": "g"
+      },
+      {
+        "role": "engineer",
+        "node": "g",
+        "gear": "cargoSled"
+      }
+    ],
+    "commands": [],
+    "ticks": 262,
+    "hash": "86270644"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 13,
+    "setupsWon": 9,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

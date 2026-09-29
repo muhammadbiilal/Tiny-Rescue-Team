@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "id": "M021",
+  "revision": 1,
+  "world": 1,
+  "slot": 21,
+  "title": "Five Ways is Packed",
+  "brief": "Five Ways is buried under crates. Three people wait on three arms of the junction. A coil fire at the Rope Walk will spread into Five Ways if the spill is still there as a wall of fuel.",
+  "tutorial": [
+    "The junction is the problem. Until it is clear, most arms cannot meet.",
+    "There is no fourth free responder in Harbor. Use Rosa, Tomi, and Bea."
+  ],
+  "strategies": [
+    "Bea and Rosa both clear toward Five Ways. Tomi waits on the arm with the critical caller.",
+    "Extinguisher first if you fear the spread more than the wait."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter",
+    "toolkit"
+  ],
+  "nodes": [
+    {
+      "id": "n",
+      "x": 400,
+      "y": 160,
+      "kind": "deploy",
+      "label": "North Arm"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "South Arm"
+    },
+    {
+      "id": "five",
+      "x": 400,
+      "y": 560,
+      "kind": "junction",
+      "label": "Five Ways"
+    },
+    {
+      "id": "rope",
+      "x": 160,
+      "y": 560,
+      "label": "Rope Walk"
+    },
+    {
+      "id": "east",
+      "x": 640,
+      "y": 560,
+      "label": "East Arm"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Junction Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-five",
+      "a": "s",
+      "b": "five",
+      "block": "debris",
+      "label": "South Approach"
+    },
+    {
+      "id": "n-hall",
+      "a": "n",
+      "b": "hall",
+      "label": "North Hall"
+    },
+    {
+      "id": "hall-five",
+      "a": "hall",
+      "b": "five",
+      "block": "debris",
+      "label": "Hall Five"
+    },
+    {
+      "id": "five-rope",
+      "a": "five",
+      "b": "rope",
+      "block": "debris",
+      "label": "West Five"
+    },
+    {
+      "id": "five-east",
+      "a": "five",
+      "b": "east",
+      "label": "East Five"
+    },
+    {
+      "id": "rope-hall",
+      "a": "rope",
+      "b": "hall",
+      "label": "Rope Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "n-east",
+      "a": "n",
+      "b": "east",
+      "label": "North East"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "n"
+    },
+    {
+      "node": "s",
+      "capacity": 2
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "rope",
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "east",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "s",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "rope",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 240,
+      "type": "spread",
+      "from": "rope",
+      "to": "five"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 347,
+  "goldTicks": 276,
+  "decor": [
+    "water:0,0,800,100",
+    "five:300,500,200,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "s",
+        "gear": "cutter"
+      },
+      {
+        "role": "medic",
+        "node": "n"
+      },
+      {
+        "role": "engineer",
+        "node": "s",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 276,
+    "hash": "9ba8095d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 102,
+    "setupsWon": 63,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

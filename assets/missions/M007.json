@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "id": "M007",
+  "revision": 1,
+  "world": 1,
+  "slot": 7,
+  "title": "Harbor Hall Door",
+  "brief": "Harbor Hall's storm door is jammed, and the Sailors' Chapel opens only at 30 seconds. Crews are spread across the harbor, one per start zone. A Toolkit can get the door working.",
+  "tutorial": [
+    "Split starts: each start zone holds one responder.",
+    "A damaged shelter accepts nobody until it is repaired. The Toolkit lets its carrier repair slowly."
+  ],
+  "strategies": [
+    "Toolkit on Rosa at Clock Corner, next to the hall; Tomi starts near the café.",
+    "Ignore the door at first and walk people to the chapel, then repair."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "toolkit"
+  ],
+  "nodes": [
+    {
+      "id": "z1",
+      "x": 120,
+      "y": 940,
+      "kind": "deploy",
+      "label": "Net Sheds"
+    },
+    {
+      "id": "z2",
+      "x": 680,
+      "y": 940,
+      "kind": "deploy",
+      "label": "Boat Hoist"
+    },
+    {
+      "id": "z3",
+      "x": 400,
+      "y": 640,
+      "kind": "deploy",
+      "label": "Clock Corner"
+    },
+    {
+      "id": "low",
+      "x": 400,
+      "y": 860,
+      "kind": "junction",
+      "label": "Low Street"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "chapel",
+      "x": 680,
+      "y": 160,
+      "kind": "shelter",
+      "label": "Sailors' Chapel"
+    },
+    {
+      "id": "loft",
+      "x": 130,
+      "y": 500,
+      "label": "Rope Loft"
+    },
+    {
+      "id": "cafe",
+      "x": 680,
+      "y": 560,
+      "label": "Pier Café"
+    },
+    {
+      "id": "up",
+      "x": 150,
+      "y": 200,
+      "label": "Upper Quay"
+    }
+  ],
+  "edges": [
+    {
+      "id": "z1-low",
+      "a": "z1",
+      "b": "low",
+      "label": "Shed Lane"
+    },
+    {
+      "id": "z2-low",
+      "a": "z2",
+      "b": "low",
+      "label": "Hoist Lane"
+    },
+    {
+      "id": "low-z3",
+      "a": "low",
+      "b": "z3",
+      "label": "Clock Street"
+    },
+    {
+      "id": "z1-loft",
+      "a": "z1",
+      "b": "loft",
+      "label": "Loft Steps"
+    },
+    {
+      "id": "z2-cafe",
+      "a": "z2",
+      "b": "cafe",
+      "label": "Café Walk"
+    },
+    {
+      "id": "z3-hall",
+      "a": "z3",
+      "b": "hall",
+      "label": "Hall Approach"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "label": "Rope Alley"
+    },
+    {
+      "id": "cafe-hall",
+      "a": "cafe",
+      "b": "hall",
+      "label": "Market Alley"
+    },
+    {
+      "id": "cafe-chapel",
+      "a": "cafe",
+      "b": "chapel",
+      "label": "Chapel Hill"
+    },
+    {
+      "id": "loft-up",
+      "a": "loft",
+      "b": "up",
+      "label": "West Stair"
+    },
+    {
+      "id": "up-chapel",
+      "a": "up",
+      "b": "chapel",
+      "block": "debris",
+      "label": "Chapel Walk"
+    },
+    {
+      "id": "hall-up",
+      "a": "hall",
+      "b": "up",
+      "label": "Hall Terrace"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "z1"
+    },
+    {
+      "node": "z2"
+    },
+    {
+      "node": "z3"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "loft"
+    },
+    {
+      "id": "c2",
+      "node": "cafe",
+      "needsCare": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    },
+    {
+      "node": "chapel",
+      "openAt": 300
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 663,
+  "goldTicks": 310,
+  "decor": [
+    "water:0,0,800,100",
+    "plaza:330,300,140,120"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "z3",
+        "gear": "toolkit"
+      },
+      {
+        "role": "medic",
+        "node": "z1"
+      }
+    ],
+    "commands": [],
+    "ticks": 310,
+    "hash": "fa3abd5d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 18,
+    "setupsWon": 12,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

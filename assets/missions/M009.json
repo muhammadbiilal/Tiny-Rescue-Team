@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "id": "M009",
+  "revision": 1,
+  "world": 1,
+  "slot": 9,
+  "title": "Keep the Ferry Lane Clear",
+  "brief": "Ferry Lane is the only way the evening ferry can load. A fire in the Paint Shed will spread onto the lane at about 24 seconds, and Five Ways junction is choked with debris.",
+  "tutorial": [
+    "Protect: if fire ever reaches Ferry Lane, the mission fails.",
+    "You also need an open road from the Market Gate to the Ferry Slip at the end."
+  ],
+  "strategies": [
+    "Extinguisher on the responder starting at Sail Yard, who reaches the Paint Shed first.",
+    "Stand the Extinguisher carrier on Ferry Lane to hold the fire, then clear Five Ways."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 380,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Market Gate"
+    },
+    {
+      "id": "sail",
+      "x": 120,
+      "y": 700,
+      "kind": "deploy",
+      "label": "Sail Yard"
+    },
+    {
+      "id": "five",
+      "x": 380,
+      "y": 720,
+      "kind": "junction",
+      "label": "Five Ways"
+    },
+    {
+      "id": "shed",
+      "x": 150,
+      "y": 420,
+      "label": "Paint Shed"
+    },
+    {
+      "id": "lane",
+      "x": 380,
+      "y": 430,
+      "label": "Ferry Lane"
+    },
+    {
+      "id": "slip",
+      "x": 380,
+      "y": 200,
+      "kind": "pier",
+      "label": "Ferry Slip"
+    },
+    {
+      "id": "kiosk",
+      "x": 600,
+      "y": 600,
+      "label": "Ticket Kiosk"
+    },
+    {
+      "id": "wall",
+      "x": 600,
+      "y": 300,
+      "label": "Harbor Wall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-five",
+      "a": "gate",
+      "b": "five",
+      "label": "Market Road"
+    },
+    {
+      "id": "sail-five",
+      "a": "sail",
+      "b": "five",
+      "block": "debris",
+      "label": "Sail Cut"
+    },
+    {
+      "id": "five-lane",
+      "a": "five",
+      "b": "lane",
+      "block": "debris",
+      "label": "Five Ways North"
+    },
+    {
+      "id": "five-kiosk",
+      "a": "five",
+      "b": "kiosk",
+      "label": "Kiosk Row"
+    },
+    {
+      "id": "shed-lane",
+      "a": "shed",
+      "b": "lane",
+      "label": "Paint Alley"
+    },
+    {
+      "id": "lane-slip",
+      "a": "lane",
+      "b": "slip",
+      "label": "Ferry Lane"
+    },
+    {
+      "id": "kiosk-wall",
+      "a": "kiosk",
+      "b": "wall",
+      "label": "Wall Walk"
+    },
+    {
+      "id": "wall-slip",
+      "a": "wall",
+      "b": "slip",
+      "block": "debris",
+      "label": "Slip Steps"
+    },
+    {
+      "id": "shed-slip",
+      "a": "shed",
+      "b": "slip",
+      "label": "Shed Pier"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "sail"
+    }
+  ],
+  "fires": [
+    {
+      "node": "shed",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 240,
+      "type": "spread",
+      "from": "shed",
+      "to": "lane"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "protect",
+      "nodes": [
+        "lane"
+      ]
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "routeOpen",
+      "a": "gate",
+      "b": "slip"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 225,
+  "goldTicks": 178,
+  "decor": [
+    "water:0,0,800,140",
+    "water:680,0,120,1040"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "gate",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "medic",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 178,
+    "hash": "f49b8971"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 21,
+    "setupsWon": 11,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

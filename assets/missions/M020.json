@@ -1,0 +1,207 @@
+{
+  "schema": 1,
+  "id": "M020",
+  "revision": 1,
+  "world": 1,
+  "slot": 20,
+  "title": "North Cut or the Long Quay",
+  "brief": "The chandler needs care. A small fire sits in the North Cut. You can reach both jobs by the short North Cut (blocked once) or the long quay that stays open.",
+  "tutorial": [
+    "Two routes to the same pair of jobs. The short one needs a clearer.",
+    "Set Tomi to people-first if the chandler is your worry."
+  ],
+  "strategies": [
+    "Bea clears North Cut; Rosa takes Extinguisher through it; Tomi walks the long quay.",
+    "Everyone takes the long quay. Slower, no debris."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "g",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Quay Gate"
+    },
+    {
+      "id": "fork",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Quay Fork"
+    },
+    {
+      "id": "cut",
+      "x": 180,
+      "y": 500,
+      "label": "North Cut"
+    },
+    {
+      "id": "chand",
+      "x": 180,
+      "y": 280,
+      "label": "Chandler"
+    },
+    {
+      "id": "l1",
+      "x": 620,
+      "y": 560,
+      "label": "Long Quay"
+    },
+    {
+      "id": "l2",
+      "x": 620,
+      "y": 280,
+      "label": "Far Quay"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Quay Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g-fork",
+      "a": "g",
+      "b": "fork",
+      "label": "Gate Walk"
+    },
+    {
+      "id": "fork-cut",
+      "a": "fork",
+      "b": "cut",
+      "block": "debris",
+      "label": "Cut Mouth"
+    },
+    {
+      "id": "cut-chand",
+      "a": "cut",
+      "b": "chand",
+      "label": "Cut Fire"
+    },
+    {
+      "id": "chand-hall",
+      "a": "chand",
+      "b": "hall",
+      "label": "Chandler Hall"
+    },
+    {
+      "id": "fork-l1",
+      "a": "fork",
+      "b": "l1",
+      "label": "Long Start"
+    },
+    {
+      "id": "l1-l2",
+      "a": "l1",
+      "b": "l2",
+      "label": "Long Mid"
+    },
+    {
+      "id": "l2-hall",
+      "a": "l2",
+      "b": "hall",
+      "label": "Long End"
+    },
+    {
+      "id": "cut-hall",
+      "a": "cut",
+      "b": "hall",
+      "label": "Cut Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g",
+      "capacity": 3
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "chand",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "l2",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "cut",
+      "intensity": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 303,
+  "goldTicks": 271,
+  "decor": [
+    "water:0,0,800,180",
+    "cut:80,300,120,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g"
+      },
+      {
+        "role": "medic",
+        "node": "g",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "engineer",
+        "node": "g"
+      }
+    ],
+    "commands": [],
+    "ticks": 271,
+    "hash": "9cfe1f5b"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 13,
+    "setupsWon": 9,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "id": "M019",
+  "revision": 1,
+  "world": 1,
+  "slot": 19,
+  "title": "Three Corners, One Lane",
+  "brief": "Ferry Lane must stay free of fire. The Paint Loft will try to spread onto it. A crate is due at the Ticket Hut, and a stall keeper needs care. Each starter stands in a different corner of the harbor.",
+  "tutorial": [
+    "Split starts: one person per glowing corner. Plan who is nearest the fire.",
+    "Protect fails if fire ever sits on Ferry Lane."
+  ],
+  "strategies": [
+    "Extinguisher on the loft starter. Sled on the hut starter. Tomi from the stall corner.",
+    "Bea from the loft if you want a fast clear after the fire is dead."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cargoSled",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "a",
+      "x": 120,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Loft Corner"
+    },
+    {
+      "id": "c",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Lane Corner"
+    },
+    {
+      "id": "e",
+      "x": 680,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Hut Corner"
+    },
+    {
+      "id": "loft",
+      "x": 140,
+      "y": 560,
+      "label": "Paint Loft"
+    },
+    {
+      "id": "lane",
+      "x": 400,
+      "y": 560,
+      "label": "Ferry Lane"
+    },
+    {
+      "id": "hut",
+      "x": 660,
+      "y": 560,
+      "kind": "need",
+      "label": "Ticket Hut"
+    },
+    {
+      "id": "depot",
+      "x": 660,
+      "y": 780,
+      "kind": "depot",
+      "label": "Ticket Store"
+    },
+    {
+      "id": "stall",
+      "x": 400,
+      "y": 780,
+      "label": "Fish Stall"
+    },
+    {
+      "id": "slip",
+      "x": 400,
+      "y": 280,
+      "kind": "pier",
+      "label": "Ferry Slip"
+    },
+    {
+      "id": "hall",
+      "x": 220,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Lane Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a-loft",
+      "a": "a",
+      "b": "loft",
+      "label": "Loft Road"
+    },
+    {
+      "id": "c-stall",
+      "a": "c",
+      "b": "stall",
+      "label": "Lane Road"
+    },
+    {
+      "id": "e-depot",
+      "a": "e",
+      "b": "depot",
+      "label": "Hut Road"
+    },
+    {
+      "id": "loft-lane",
+      "a": "loft",
+      "b": "lane",
+      "label": "Paint Cut"
+    },
+    {
+      "id": "stall-lane",
+      "a": "stall",
+      "b": "lane",
+      "label": "Stall Lane"
+    },
+    {
+      "id": "depot-hut",
+      "a": "depot",
+      "b": "hut",
+      "label": "Hut Steps"
+    },
+    {
+      "id": "hut-lane",
+      "a": "hut",
+      "b": "lane",
+      "label": "Hut Lane"
+    },
+    {
+      "id": "lane-slip",
+      "a": "lane",
+      "b": "slip",
+      "label": "Ferry Lane"
+    },
+    {
+      "id": "slip-hall",
+      "a": "slip",
+      "b": "hall",
+      "label": "Slip Hall"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "block": "debris",
+      "label": "Loft Hall"
+    },
+    {
+      "id": "stall-hall",
+      "a": "stall",
+      "b": "hall",
+      "label": "Stall Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "a"
+    },
+    {
+      "node": "c"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "stall",
+      "needsCare": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_hut",
+      "node": "hut",
+      "count": 1
+    }
+  ],
+  "fires": [
+    {
+      "node": "loft",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "loft",
+      "to": "lane"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "protect",
+      "nodes": [
+        "lane"
+      ]
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_hut"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 358,
+  "goldTicks": 194,
+  "decor": [
+    "water:0,0,800,130",
+    "lane:360,300,80,280"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "e",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "c",
+        "gear": "firstAid"
+      },
+      {
+        "role": "engineer",
+        "node": "a",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 194,
+    "hash": "498db6d4"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 204,
+    "setupsWon": 112,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "id": "M025",
+  "revision": 1,
+  "world": 1,
+  "slot": 25,
+  "title": "One Shelf of Bandages",
+  "brief": "The only depot holds three crates for two sites: the Field Tent (2) and a spare for nobody if you waste it. The tent nurse needs care. Share the shelf; do not empty it on the wrong walk.",
+  "tutorial": [
+    "Shared stock: three crates, two required at the tent. A wasted trip still spends stock.",
+    "The nurse is at the tent. Care and delivery can happen on the same visit."
+  ],
+  "strategies": [
+    "Sled on Rosa, First-Aid on Tomi, both to the tent. Bea clears the inner debris.",
+    "One sled run of two crates is enough. The third crate is slack."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cargoSled",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "g",
+      "x": 280,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Camp Gate"
+    },
+    {
+      "id": "side",
+      "x": 640,
+      "y": 860,
+      "kind": "deploy",
+      "label": "Side Path"
+    },
+    {
+      "id": "depot",
+      "x": 280,
+      "y": 720,
+      "kind": "depot",
+      "label": "Bandage Shelf"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 520,
+      "kind": "junction",
+      "label": "Camp Mid"
+    },
+    {
+      "id": "tent",
+      "x": 560,
+      "y": 260,
+      "kind": "need",
+      "label": "Field Tent"
+    },
+    {
+      "id": "hall",
+      "x": 240,
+      "y": 260,
+      "kind": "shelter",
+      "label": "Camp Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g-depot",
+      "a": "g",
+      "b": "depot",
+      "label": "Gate Shelf"
+    },
+    {
+      "id": "side-mid",
+      "a": "side",
+      "b": "mid",
+      "label": "Side Mid"
+    },
+    {
+      "id": "depot-mid",
+      "a": "depot",
+      "b": "mid",
+      "label": "Shelf Mid"
+    },
+    {
+      "id": "mid-tent",
+      "a": "mid",
+      "b": "tent",
+      "block": "debris",
+      "label": "Tent Lane"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "label": "Hall Lane"
+    },
+    {
+      "id": "tent-hall",
+      "a": "tent",
+      "b": "hall",
+      "label": "Tent Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g",
+      "capacity": 2
+    },
+    {
+      "node": "side"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "tent",
+      "needsCare": true,
+      "critical": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 3
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_tent",
+      "node": "tent",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_tent"
+    },
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 324,
+  "goldTicks": 282,
+  "decor": [
+    "water:0,0,800,90",
+    "tent:500,140,200,140"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "side",
+        "gear": "firstAid"
+      },
+      {
+        "role": "engineer",
+        "node": "g"
+      }
+    ],
+    "commands": [],
+    "ticks": 282,
+    "hash": "e65c4eff"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 39,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

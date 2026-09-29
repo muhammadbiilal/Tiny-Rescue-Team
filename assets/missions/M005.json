@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "id": "M005",
+  "revision": 1,
+  "world": 1,
+  "slot": 5,
+  "title": "Cold Store Run",
+  "brief": "The Harbor Clinic needs three crates of supplies from the Cold Store before the ferry leaves at 54 seconds. There is one Cargo Sled, and Lantern Arch may shed debris at about 25 seconds.",
+  "tutorial": [
+    "Rosa carries one crate. The Cargo Sled lets anyone carry one more.",
+    "Deadline: the clinic objective shows its time limit. Plan trips before you dispatch."
+  ],
+  "strategies": [
+    "Sled on Rosa: two trips instead of three.",
+    "Sled on Tomi so both carry: two runners, one crate each per trip."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "g1",
+      "x": 150,
+      "y": 950,
+      "kind": "deploy",
+      "label": "Dock Gate"
+    },
+    {
+      "id": "g2",
+      "x": 650,
+      "y": 950,
+      "kind": "deploy",
+      "label": "Ice Wharf"
+    },
+    {
+      "id": "x",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Chandler's Cross"
+    },
+    {
+      "id": "store",
+      "x": 150,
+      "y": 560,
+      "kind": "depot",
+      "label": "Cold Store"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 440,
+      "label": "Lantern Row"
+    },
+    {
+      "id": "east",
+      "x": 650,
+      "y": 640,
+      "label": "Bait Street"
+    },
+    {
+      "id": "clinic",
+      "x": 640,
+      "y": 280,
+      "kind": "need",
+      "label": "Harbor Clinic"
+    },
+    {
+      "id": "steps",
+      "x": 160,
+      "y": 250,
+      "label": "Tide Steps"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1-x",
+      "a": "g1",
+      "b": "x",
+      "label": "Dock Road"
+    },
+    {
+      "id": "g2-east",
+      "a": "g2",
+      "b": "east",
+      "label": "Wharf Road"
+    },
+    {
+      "id": "x-store",
+      "a": "x",
+      "b": "store",
+      "label": "Store Lane"
+    },
+    {
+      "id": "x-mid",
+      "a": "x",
+      "b": "mid",
+      "label": "Lantern Walk"
+    },
+    {
+      "id": "x-east",
+      "a": "x",
+      "b": "east",
+      "label": "Bait Cross"
+    },
+    {
+      "id": "store-mid",
+      "a": "store",
+      "b": "mid",
+      "block": "debris",
+      "label": "Barrel Lane"
+    },
+    {
+      "id": "mid-clinic",
+      "a": "mid",
+      "b": "clinic",
+      "label": "Lantern Arch"
+    },
+    {
+      "id": "east-clinic",
+      "a": "east",
+      "b": "clinic",
+      "label": "Bait Hill"
+    },
+    {
+      "id": "store-steps",
+      "a": "store",
+      "b": "steps",
+      "label": "Sea Steps"
+    },
+    {
+      "id": "steps-clinic",
+      "a": "steps",
+      "b": "clinic",
+      "label": "Sea Wall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g1",
+      "capacity": 2
+    },
+    {
+      "node": "g2"
+    }
+  ],
+  "depots": [
+    {
+      "node": "store",
+      "stock": 4
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 3
+    }
+  ],
+  "hazards": [
+    {
+      "at": 250,
+      "type": "collapse",
+      "edge": "mid-clinic",
+      "note": "Lantern Arch sheds debris"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 3,
+      "target": "need_clinic",
+      "by": 540
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 526,
+  "goldTicks": 439,
+  "decor": [
+    "water:0,0,800,110",
+    "yard:40,470,240,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g1",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "g1"
+      }
+    ],
+    "commands": [],
+    "ticks": 439,
+    "hash": "c0f1e295"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 9,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

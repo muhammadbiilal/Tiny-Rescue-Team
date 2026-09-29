@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "id": "M011",
+  "revision": 1,
+  "world": 1,
+  "slot": 11,
+  "title": "Ice House Queue",
+  "brief": "Three workers wait along the ice quay. The Ice House holds only one person. The Salt Chapel opens at 12 seconds. A tar pot fire at the Cooperage will reach Ice House if it is not put out.",
+  "tutorial": [
+    "Bea Kowal joins the free team. She clears debris faster than Rosa and can repair doors.",
+    "A shelter with a number on it fills up. Send later people to the chapel after it opens."
+  ],
+  "strategies": [
+    "Extinguisher on whoever starts at Cooper Yard. Tomi escorts the critical worker first.",
+    "Bea clears the crate lane so the chapel path is ready when the door opens."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "south",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Salt Gate"
+    },
+    {
+      "id": "coop",
+      "x": 120,
+      "y": 820,
+      "kind": "deploy",
+      "label": "Cooper Yard"
+    },
+    {
+      "id": "fork",
+      "x": 400,
+      "y": 780,
+      "kind": "junction",
+      "label": "Ice Fork"
+    },
+    {
+      "id": "ice",
+      "x": 400,
+      "y": 520,
+      "kind": "shelter",
+      "label": "Ice House"
+    },
+    {
+      "id": "chapel",
+      "x": 680,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Salt Chapel"
+    },
+    {
+      "id": "cn",
+      "x": 140,
+      "y": 560,
+      "label": "Cooperage"
+    },
+    {
+      "id": "quay",
+      "x": 220,
+      "y": 300,
+      "kind": "pier",
+      "label": "Ice Quay"
+    },
+    {
+      "id": "nets",
+      "x": 560,
+      "y": 700,
+      "label": "Net Loft"
+    }
+  ],
+  "edges": [
+    {
+      "id": "south-fork",
+      "a": "south",
+      "b": "fork",
+      "label": "Salt Road"
+    },
+    {
+      "id": "coop-cn",
+      "a": "coop",
+      "b": "cn",
+      "label": "Cooper Path"
+    },
+    {
+      "id": "coop-fork",
+      "a": "coop",
+      "b": "fork",
+      "label": "Yard Fence"
+    },
+    {
+      "id": "fork-ice",
+      "a": "fork",
+      "b": "ice",
+      "label": "Ice Steps"
+    },
+    {
+      "id": "fork-nets",
+      "a": "fork",
+      "b": "nets",
+      "label": "Loft Lane"
+    },
+    {
+      "id": "ice-chapel",
+      "a": "ice",
+      "b": "chapel",
+      "block": "debris",
+      "label": "Chapel Walk"
+    },
+    {
+      "id": "nets-chapel",
+      "a": "nets",
+      "b": "chapel",
+      "label": "Loft Hill"
+    },
+    {
+      "id": "cn-quay",
+      "a": "cn",
+      "b": "quay",
+      "label": "Quay Steps"
+    },
+    {
+      "id": "quay-ice",
+      "a": "quay",
+      "b": "ice",
+      "label": "Ice Ramp"
+    },
+    {
+      "id": "cn-ice",
+      "a": "cn",
+      "b": "ice",
+      "label": "Tar Alley"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "south",
+      "capacity": 2
+    },
+    {
+      "node": "coop"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "quay",
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "nets",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "cn",
+      "needsCare": true,
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "ice",
+      "capacity": 1
+    },
+    {
+      "node": "chapel",
+      "openAt": 120
+    }
+  ],
+  "fires": [
+    {
+      "node": "cn",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "cn",
+      "to": "ice"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 438,
+  "goldTicks": 317,
+  "decor": [
+    "water:0,0,800,160",
+    "ice:80,480,180,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "south"
+      },
+      {
+        "role": "medic",
+        "node": "coop",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "engineer",
+        "node": "south"
+      }
+    ],
+    "commands": [],
+    "ticks": 317,
+    "hash": "ee04222a"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 27,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "schema": 1,
+  "id": "M015",
+  "revision": 1,
+  "world": 1,
+  "slot": 15,
+  "title": "Clinic Before the Arch Falls",
+  "brief": "The night nurse at the Old Clinic needs care. Three crates must reach the New Clinic. Lantern Arch is forecast to shed debris at 28 seconds. Get through before it closes, or take the seawall.",
+  "tutorial": [
+    "The forecast names the lane that may close. Plan who uses it before that time.",
+    "Care and crates are different jobs. Tomi should not be the only crate carrier."
+  ],
+  "strategies": [
+    "Sled on Rosa through the arch early. Tomi to the Old Clinic. Bea holds the seawall as backup.",
+    "All three take the seawall if nobody can beat the arch time."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cargoSled",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Hospital Gate"
+    },
+    {
+      "id": "sea",
+      "x": 160,
+      "y": 860,
+      "kind": "deploy",
+      "label": "Seawall Stair"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Lamp Cross"
+    },
+    {
+      "id": "depot",
+      "x": 560,
+      "y": 760,
+      "kind": "depot",
+      "label": "Linen Store"
+    },
+    {
+      "id": "old",
+      "x": 640,
+      "y": 500,
+      "label": "Old Clinic"
+    },
+    {
+      "id": "arch",
+      "x": 400,
+      "y": 500,
+      "label": "Lantern Arch"
+    },
+    {
+      "id": "neu",
+      "x": 400,
+      "y": 180,
+      "kind": "need",
+      "label": "New Clinic"
+    },
+    {
+      "id": "wall",
+      "x": 160,
+      "y": 400,
+      "label": "Seawall"
+    },
+    {
+      "id": "hall",
+      "x": 240,
+      "y": 180,
+      "kind": "shelter",
+      "label": "Nurses Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-cross",
+      "a": "gate",
+      "b": "cross",
+      "label": "Hospital Road"
+    },
+    {
+      "id": "sea-wall",
+      "a": "sea",
+      "b": "wall",
+      "label": "Stair Path"
+    },
+    {
+      "id": "cross-depot",
+      "a": "cross",
+      "b": "depot",
+      "label": "Linen Lane"
+    },
+    {
+      "id": "cross-arch",
+      "a": "cross",
+      "b": "arch",
+      "label": "Arch Approach"
+    },
+    {
+      "id": "arch-neu",
+      "a": "arch",
+      "b": "neu",
+      "label": "Lantern Arch"
+    },
+    {
+      "id": "depot-old",
+      "a": "depot",
+      "b": "old",
+      "label": "Clinic Row"
+    },
+    {
+      "id": "old-neu",
+      "a": "old",
+      "b": "neu",
+      "block": "debris",
+      "label": "Clinic Link"
+    },
+    {
+      "id": "sea-cross",
+      "a": "sea",
+      "b": "cross",
+      "label": "Stair Cross"
+    },
+    {
+      "id": "wall-hall",
+      "a": "wall",
+      "b": "hall",
+      "label": "Wall Hall"
+    },
+    {
+      "id": "hall-neu",
+      "a": "hall",
+      "b": "neu",
+      "label": "Hall Clinic"
+    },
+    {
+      "id": "old-hall",
+      "a": "old",
+      "b": "hall",
+      "label": "Nurse Walk"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "sea"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "old",
+      "needsCare": true,
+      "critical": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 3
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_neu",
+      "node": "neu",
+      "count": 3
+    }
+  ],
+  "hazards": [
+    {
+      "at": 280,
+      "type": "collapse",
+      "edge": "arch-neu",
+      "note": "Lantern Arch may fall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "delivered",
+      "count": 3,
+      "target": "need_neu"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 515,
+  "goldTicks": 362,
+  "decor": [
+    "water:0,0,200,1040",
+    "clinic:500,120,220,140"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "gate",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "gate"
+      },
+      {
+        "role": "engineer",
+        "node": "sea",
+        "gear": "firstAid"
+      }
+    ],
+    "commands": [],
+    "ticks": 362,
+    "hash": "03143344"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 39,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

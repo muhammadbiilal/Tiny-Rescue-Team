@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "id": "M013",
+  "revision": 1,
+  "world": 1,
+  "slot": 13,
+  "title": "Twin Spills",
+  "brief": "The Fish Market must stay linked to the Ferry Slip. Two crate spills sit on different streets. The team shares one Cutter; Bea can still shift debris with her own tools.",
+  "tutorial": [
+    "Shared gear: only one Cutter. Bea clears without it. Rosa is much faster with it.",
+    "The route is open only when a walker can go from Market Gate to Ferry Slip."
+  ],
+  "strategies": [
+    "Cutter on Rosa for the east spill; Bea takes the west spill; Tomi waits to escort.",
+    "Bea and Rosa swap sides if Tomi starts nearer the west civilian."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 200,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Market Gate"
+    },
+    {
+      "id": "west",
+      "x": 80,
+      "y": 700,
+      "kind": "deploy",
+      "label": "Barrel Court"
+    },
+    {
+      "id": "mkt",
+      "x": 220,
+      "y": 720,
+      "kind": "junction",
+      "label": "Fish Market"
+    },
+    {
+      "id": "ws",
+      "x": 80,
+      "y": 440,
+      "label": "West Spill"
+    },
+    {
+      "id": "es",
+      "x": 400,
+      "y": 500,
+      "label": "East Spill"
+    },
+    {
+      "id": "slip",
+      "x": 520,
+      "y": 180,
+      "kind": "pier",
+      "label": "Ferry Slip"
+    },
+    {
+      "id": "hall",
+      "x": 280,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Market Hall"
+    },
+    {
+      "id": "jet",
+      "x": 80,
+      "y": 200,
+      "label": "Old Jetty"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-mkt",
+      "a": "gate",
+      "b": "mkt",
+      "label": "Market Road"
+    },
+    {
+      "id": "west-ws",
+      "a": "west",
+      "b": "ws",
+      "label": "Court Lane"
+    },
+    {
+      "id": "west-mkt",
+      "a": "west",
+      "b": "mkt",
+      "label": "Court Cross"
+    },
+    {
+      "id": "mkt-ws",
+      "a": "mkt",
+      "b": "ws",
+      "block": "debris",
+      "label": "West Street"
+    },
+    {
+      "id": "mkt-es",
+      "a": "mkt",
+      "b": "es",
+      "block": "debris",
+      "label": "East Street"
+    },
+    {
+      "id": "ws-hall",
+      "a": "ws",
+      "b": "hall",
+      "label": "West Hall"
+    },
+    {
+      "id": "es-hall",
+      "a": "es",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "hall-slip",
+      "a": "hall",
+      "b": "slip",
+      "label": "Hall Slip"
+    },
+    {
+      "id": "ws-jet",
+      "a": "ws",
+      "b": "jet",
+      "label": "Jetty Path"
+    },
+    {
+      "id": "jet-slip",
+      "a": "jet",
+      "b": "slip",
+      "label": "Jetty Slip"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "west"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "ws"
+    },
+    {
+      "id": "c2",
+      "node": "es",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "gate",
+      "b": "slip"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 259,
+  "goldTicks": 224,
+  "decor": [
+    "water:620,0,180,1040",
+    "market:80,400,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "gate"
+      },
+      {
+        "role": "medic",
+        "node": "west"
+      },
+      {
+        "role": "engineer",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 224,
+    "hash": "361dfe32"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 12,
+    "setupsWon": 12,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

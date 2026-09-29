@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "id": "M004",
+  "revision": 1,
+  "world": 1,
+  "slot": 4,
+  "title": "Net Loft Smolder",
+  "brief": "A small fire smolders in the Net Loft. The wind will turn toward the Rope Store, where a sail maker is still packing, then toward the Fish Market. One Extinguisher is on the truck.",
+  "tutorial": [
+    "Fire spreads only at the forecast times, and only if the source is still burning.",
+    "Whoever carries the Extinguisher can put out small (level 1) fires.",
+    "A responder with an Extinguisher standing where fire would spread holds it back."
+  ],
+  "strategies": [
+    "Extinguisher on Rosa at West Gate: she reaches the loft first; Tomi escorts the sail maker.",
+    "Extinguisher on Tomi at Harbor Office, Rosa escorts: tighter, but it works."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "g1",
+      "x": 170,
+      "y": 950,
+      "kind": "deploy",
+      "label": "West Gate"
+    },
+    {
+      "id": "g2",
+      "x": 630,
+      "y": 950,
+      "kind": "deploy",
+      "label": "East Gate"
+    },
+    {
+      "id": "g3",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Harbor Office"
+    },
+    {
+      "id": "tar",
+      "x": 170,
+      "y": 700,
+      "label": "Tar Yard"
+    },
+    {
+      "id": "sq",
+      "x": 400,
+      "y": 700,
+      "kind": "junction",
+      "label": "Harbor Square"
+    },
+    {
+      "id": "ice",
+      "x": 630,
+      "y": 700,
+      "label": "Ice House"
+    },
+    {
+      "id": "loft",
+      "x": 170,
+      "y": 420,
+      "label": "Net Loft"
+    },
+    {
+      "id": "rope",
+      "x": 400,
+      "y": 330,
+      "label": "Rope Store"
+    },
+    {
+      "id": "market",
+      "x": 630,
+      "y": 420,
+      "label": "Fish Market"
+    },
+    {
+      "id": "hall",
+      "x": 620,
+      "y": 180,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1-tar",
+      "a": "g1",
+      "b": "tar",
+      "label": "Tar Road"
+    },
+    {
+      "id": "g3-sq",
+      "a": "g3",
+      "b": "sq",
+      "label": "Office Steps"
+    },
+    {
+      "id": "g2-ice",
+      "a": "g2",
+      "b": "ice",
+      "label": "Ice Road"
+    },
+    {
+      "id": "tar-sq",
+      "a": "tar",
+      "b": "sq",
+      "label": "Barrel Row"
+    },
+    {
+      "id": "sq-ice",
+      "a": "sq",
+      "b": "ice",
+      "label": "Square East"
+    },
+    {
+      "id": "tar-loft",
+      "a": "tar",
+      "b": "loft",
+      "label": "Loft Stair"
+    },
+    {
+      "id": "sq-rope",
+      "a": "sq",
+      "b": "rope",
+      "label": "Rope Lane"
+    },
+    {
+      "id": "ice-market",
+      "a": "ice",
+      "b": "market",
+      "label": "Market Road"
+    },
+    {
+      "id": "loft-rope",
+      "a": "loft",
+      "b": "rope",
+      "label": "Sail Alley"
+    },
+    {
+      "id": "rope-market",
+      "a": "rope",
+      "b": "market",
+      "label": "Market Arcade"
+    },
+    {
+      "id": "market-hall",
+      "a": "market",
+      "b": "hall",
+      "label": "Hall Quay"
+    },
+    {
+      "id": "rope-hall",
+      "a": "rope",
+      "b": "hall",
+      "label": "Upper Rope Lane"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g1"
+    },
+    {
+      "node": "g2"
+    },
+    {
+      "node": "g3"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "rope"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "loft",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 120,
+      "type": "wind",
+      "note": "Wind turns east, toward the Rope Store"
+    },
+    {
+      "at": 150,
+      "type": "spread",
+      "from": "loft",
+      "to": "rope"
+    },
+    {
+      "at": 300,
+      "type": "spread",
+      "from": "rope",
+      "to": "market"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "market"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 196,
+  "goldTicks": 148,
+  "decor": [
+    "water:0,0,800,90",
+    "plaza:320,640,160,120"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g3"
+      },
+      {
+        "role": "medic",
+        "node": "g1",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 148,
+    "hash": "b34047d9"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 18,
+    "setupsWon": 12,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "id": "M003",
+  "revision": 1,
+  "world": 1,
+  "slot": 3,
+  "title": "Crane Road",
+  "brief": "The ferry needs a clear road from the Dock Gate to the Ferry Terminal. Every way is blocked, and the old Customs Arch is expected to shed stones at about 18 seconds.",
+  "tutorial": [
+    "The forecast shows when the Customs Arch sheds debris. Beat it, or plan another road.",
+    "New: Rosa's Rapid Access. During the mission tap her ability, then tap a debris lane near her.",
+    "New gear: the Cutter clears debris faster. You have one."
+  ],
+  "strategies": [
+    "Rosa with the Cutter goes west and clears the Fallen Crane Arm before the arch sheds.",
+    "Use Rapid Access on Tipped Containers to open the east road through Bollard Walk."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Dock Gate"
+    },
+    {
+      "id": "hoist",
+      "x": 680,
+      "y": 880,
+      "kind": "deploy",
+      "label": "East Hoist"
+    },
+    {
+      "id": "base",
+      "x": 400,
+      "y": 790,
+      "kind": "junction",
+      "label": "Crane Base"
+    },
+    {
+      "id": "row",
+      "x": 400,
+      "y": 590,
+      "label": "Container Row"
+    },
+    {
+      "id": "end",
+      "x": 400,
+      "y": 390,
+      "label": "Crane Road End"
+    },
+    {
+      "id": "term",
+      "x": 400,
+      "y": 190,
+      "kind": "pier",
+      "label": "Ferry Terminal"
+    },
+    {
+      "id": "tar",
+      "x": 150,
+      "y": 650,
+      "label": "Tar Lane"
+    },
+    {
+      "id": "customs",
+      "x": 150,
+      "y": 360,
+      "label": "Old Customs"
+    },
+    {
+      "id": "bollard",
+      "x": 660,
+      "y": 620,
+      "label": "Bollard Walk"
+    },
+    {
+      "id": "tally",
+      "x": 650,
+      "y": 360,
+      "label": "Tally House"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-base",
+      "a": "gate",
+      "b": "base",
+      "label": "Gate Road"
+    },
+    {
+      "id": "base-row",
+      "a": "base",
+      "b": "row",
+      "block": "debris",
+      "label": "Tipped Containers"
+    },
+    {
+      "id": "row-end",
+      "a": "row",
+      "b": "end",
+      "block": "debris",
+      "label": "Loose Pallets"
+    },
+    {
+      "id": "end-term",
+      "a": "end",
+      "b": "term",
+      "label": "Terminal Ramp"
+    },
+    {
+      "id": "base-tar",
+      "a": "base",
+      "b": "tar",
+      "block": "debris",
+      "label": "Tar Cut"
+    },
+    {
+      "id": "tar-customs",
+      "a": "tar",
+      "b": "customs",
+      "block": "debris",
+      "label": "Fallen Crane Arm"
+    },
+    {
+      "id": "customs-term",
+      "a": "customs",
+      "b": "term",
+      "label": "Customs Arch"
+    },
+    {
+      "id": "hoist-bollard",
+      "a": "hoist",
+      "b": "bollard",
+      "label": "Hoist Lane"
+    },
+    {
+      "id": "row-bollard",
+      "a": "row",
+      "b": "bollard",
+      "label": "Bollard Link"
+    },
+    {
+      "id": "bollard-tally",
+      "a": "bollard",
+      "b": "tally",
+      "block": "debris",
+      "label": "Tally Walk"
+    },
+    {
+      "id": "tally-term",
+      "a": "tally",
+      "b": "term",
+      "label": "Tally Quay"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "hoist"
+    }
+  ],
+  "hazards": [
+    {
+      "at": 180,
+      "type": "collapse",
+      "edge": "customs-term",
+      "note": "Customs Arch sheds stones"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "gate",
+      "b": "term"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 150,
+  "goldTicks": 125,
+  "decor": [
+    "water:0,0,800,120",
+    "yard:260,420,280,300"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "hoist"
+      },
+      {
+        "role": "medic",
+        "node": "gate",
+        "gear": "cutter"
+      }
+    ],
+    "commands": [],
+    "ticks": 125,
+    "hash": "c440ed99"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 9,
+    "setupsWon": 9,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

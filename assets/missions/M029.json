@@ -1,0 +1,262 @@
+{
+  "schema": 1,
+  "id": "M029",
+  "revision": 1,
+  "world": 1,
+  "slot": 29,
+  "title": "One Extinguisher Left",
+  "brief": "The last Extinguisher is in the van. The Coil Fire will reach Coil Lane, which must stay clear. A crate is due at the Coil Pump, and a winder needs care.",
+  "tutorial": [
+    "One Extinguisher. Bea cannot put out fire without it. Give it to whoever starts nearest the coil.",
+    "Protect Coil Lane. Delivery and care are the other two calls."
+  ],
+  "strategies": [
+    "Extinguisher on the west starter. Sled on the east starter. Tomi in the middle.",
+    "If the fire dies first, the sled can wait. If not, the lane is lost."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 120,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Coil West"
+    },
+    {
+      "id": "m",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Coil Mid"
+    },
+    {
+      "id": "e",
+      "x": 680,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Coil East"
+    },
+    {
+      "id": "fn",
+      "x": 160,
+      "y": 560,
+      "label": "Coil Fire"
+    },
+    {
+      "id": "lane",
+      "x": 400,
+      "y": 560,
+      "label": "Coil Lane"
+    },
+    {
+      "id": "depot",
+      "x": 680,
+      "y": 720,
+      "kind": "depot",
+      "label": "Coil Store"
+    },
+    {
+      "id": "pump",
+      "x": 680,
+      "y": 400,
+      "kind": "need",
+      "label": "Coil Pump"
+    },
+    {
+      "id": "win",
+      "x": 400,
+      "y": 720,
+      "label": "Winder"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Coil Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-fn",
+      "a": "w",
+      "b": "fn",
+      "label": "West Fire"
+    },
+    {
+      "id": "m-win",
+      "a": "m",
+      "b": "win",
+      "label": "Mid Winder"
+    },
+    {
+      "id": "e-depot",
+      "a": "e",
+      "b": "depot",
+      "label": "East Store"
+    },
+    {
+      "id": "fn-lane",
+      "a": "fn",
+      "b": "lane",
+      "label": "Fire Lane"
+    },
+    {
+      "id": "win-lane",
+      "a": "win",
+      "b": "lane",
+      "label": "Winder Lane"
+    },
+    {
+      "id": "depot-pump",
+      "a": "depot",
+      "b": "pump",
+      "label": "Pump Cut"
+    },
+    {
+      "id": "pump-lane",
+      "a": "pump",
+      "b": "lane",
+      "label": "Pump Lane"
+    },
+    {
+      "id": "lane-hall",
+      "a": "lane",
+      "b": "hall",
+      "label": "Lane Hall"
+    },
+    {
+      "id": "fn-hall",
+      "a": "fn",
+      "b": "hall",
+      "block": "debris",
+      "label": "Fire Hall"
+    },
+    {
+      "id": "win-hall",
+      "a": "win",
+      "b": "hall",
+      "label": "Winder Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "m"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "win",
+      "needsCare": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "depot",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_pump",
+      "node": "pump",
+      "count": 1
+    }
+  ],
+  "fires": [
+    {
+      "node": "fn",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 190,
+      "type": "spread",
+      "from": "fn",
+      "to": "lane"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "protect",
+      "nodes": [
+        "lane"
+      ]
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_pump"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 349,
+  "goldTicks": 184,
+  "decor": [
+    "water:0,0,800,100",
+    "coil:80,400,160,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "e",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "m"
+      },
+      {
+        "role": "engineer",
+        "node": "w",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 184,
+    "hash": "f5788305"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 48,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

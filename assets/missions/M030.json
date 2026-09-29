@@ -1,0 +1,226 @@
+{
+  "schema": 1,
+  "id": "M030",
+  "revision": 1,
+  "world": 1,
+  "slot": 30,
+  "title": "Harbor Night Finale",
+  "brief": "The district closes on a double call: a hidden pair in the unlit East Vault, and the night clerk at West Desk who needs care. Light the vault, steady the clerk, and walk everyone to Finale Hall. This is the Harbor finale; there is still no fourth free responder.",
+  "tutorial": [
+    "Finale: two places, three people, fog on one side only.",
+    "If the vault stays dark, those two callers never appear."
+  ],
+  "strategies": [
+    "Floodlight on Bea into the vault. Tomi to the desk. Rosa clears the inner crate if needed.",
+    "Rosa lights; Bea clears; Tomi only cares and escorts."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "west",
+      "x": 160,
+      "y": 980,
+      "kind": "deploy",
+      "label": "West Desk Gate"
+    },
+    {
+      "id": "east",
+      "x": 640,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Vault Gate"
+    },
+    {
+      "id": "desk",
+      "x": 180,
+      "y": 640,
+      "label": "West Desk"
+    },
+    {
+      "id": "hub",
+      "x": 400,
+      "y": 640,
+      "kind": "junction",
+      "label": "Night Hub"
+    },
+    {
+      "id": "vault",
+      "x": 640,
+      "y": 480,
+      "label": "Vault Door"
+    },
+    {
+      "id": "inner",
+      "x": 640,
+      "y": 260,
+      "label": "East Vault"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Finale Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "west-desk",
+      "a": "west",
+      "b": "desk",
+      "label": "Desk Road"
+    },
+    {
+      "id": "east-vault",
+      "a": "east",
+      "b": "vault",
+      "label": "Vault Road"
+    },
+    {
+      "id": "desk-hub",
+      "a": "desk",
+      "b": "hub",
+      "label": "Desk Hub"
+    },
+    {
+      "id": "vault-hub",
+      "a": "vault",
+      "b": "hub",
+      "label": "Vault Hub"
+    },
+    {
+      "id": "vault-inner",
+      "a": "vault",
+      "b": "inner",
+      "block": "dark",
+      "label": "Vault Dark"
+    },
+    {
+      "id": "hub-hall",
+      "a": "hub",
+      "b": "hall",
+      "label": "Hub Hall"
+    },
+    {
+      "id": "desk-hall",
+      "a": "desk",
+      "b": "hall",
+      "label": "Desk Hall"
+    },
+    {
+      "id": "inner-hall",
+      "a": "inner",
+      "b": "hall",
+      "block": "dark",
+      "label": "Vault Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "block": "debris",
+      "label": "East Bypass"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "west",
+      "capacity": 2
+    },
+    {
+      "node": "east"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "desk",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "inner",
+      "hidden": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "vault",
+      "hidden": true,
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "revealed",
+      "nodes": [
+        "vault-inner"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 399,
+  "goldTicks": 285,
+  "decor": [
+    "water:0,0,800,140",
+    "vault:480,200,260,220"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "east",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "west",
+        "gear": "cutter"
+      },
+      {
+        "role": "engineer",
+        "node": "west",
+        "gear": "floodlight"
+      }
+    ],
+    "commands": [],
+    "ticks": 285,
+    "hash": "907539b8"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 102,
+    "setupsWon": 63,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

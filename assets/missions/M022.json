@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "id": "M022",
+  "revision": 1,
+  "world": 1,
+  "slot": 22,
+  "title": "Three Branches of the Creek",
+  "brief": "West Creek hides a caller in the reeds. East Creek has a boat-builder who needs care. The middle creek is the only dry walk to Creek Hall unless a branch is cleared.",
+  "tutorial": [
+    "Three branches. You do not need all three open, but the hidden caller is on the dark west branch.",
+    "Care is on the east branch. Do not make Tomi walk the long way twice."
+  ],
+  "strategies": [
+    "Floodlight west, Tomi east, Bea middle if crates of debris block the hall.",
+    "Open only west and east; leave the middle blocked if the hall is already reached."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "g",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Creek Gate"
+    },
+    {
+      "id": "split",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Creek Split"
+    },
+    {
+      "id": "w",
+      "x": 140,
+      "y": 520,
+      "label": "West Creek"
+    },
+    {
+      "id": "reed",
+      "x": 80,
+      "y": 280,
+      "kind": "pier",
+      "label": "Reed Hide"
+    },
+    {
+      "id": "m",
+      "x": 400,
+      "y": 520,
+      "label": "Middle Creek"
+    },
+    {
+      "id": "e",
+      "x": 660,
+      "y": 520,
+      "label": "East Creek"
+    },
+    {
+      "id": "boat",
+      "x": 700,
+      "y": 280,
+      "label": "Boat Shed"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Creek Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g-split",
+      "a": "g",
+      "b": "split",
+      "label": "Gate Creek"
+    },
+    {
+      "id": "split-w",
+      "a": "split",
+      "b": "w",
+      "label": "West Mouth"
+    },
+    {
+      "id": "w-reed",
+      "a": "w",
+      "b": "reed",
+      "block": "dark",
+      "label": "Reed Dark"
+    },
+    {
+      "id": "split-m",
+      "a": "split",
+      "b": "m",
+      "block": "debris",
+      "label": "Middle Mouth"
+    },
+    {
+      "id": "m-hall",
+      "a": "m",
+      "b": "hall",
+      "label": "Middle Hall"
+    },
+    {
+      "id": "split-e",
+      "a": "split",
+      "b": "e",
+      "label": "East Mouth"
+    },
+    {
+      "id": "e-boat",
+      "a": "e",
+      "b": "boat",
+      "label": "Boat Path"
+    },
+    {
+      "id": "boat-hall",
+      "a": "boat",
+      "b": "hall",
+      "label": "Boat Hall"
+    },
+    {
+      "id": "reed-hall",
+      "a": "reed",
+      "b": "hall",
+      "block": "dark",
+      "label": "Reed Hall"
+    },
+    {
+      "id": "w-hall",
+      "a": "w",
+      "b": "hall",
+      "label": "West Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g",
+      "capacity": 3
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "boat",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "reed",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 285,
+  "goldTicks": 276,
+  "decor": [
+    "water:0,200,800,200",
+    "creek:0,400,800,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "g"
+      },
+      {
+        "role": "engineer",
+        "node": "g"
+      }
+    ],
+    "commands": [],
+    "ticks": 276,
+    "hash": "3d42fc94"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 34,
+    "setupsWon": 21,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

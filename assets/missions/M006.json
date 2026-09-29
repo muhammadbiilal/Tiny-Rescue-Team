@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "id": "M006",
+  "revision": 1,
+  "world": 1,
+  "slot": 6,
+  "title": "Fog on the Quay",
+  "brief": "Sea fog has rolled over the quay. Someone is at the Boat Ramp, and callers say more people may be out in the fog. Unlit lanes must be lit before anyone can use them.",
+  "tutorial": [
+    "Dark lanes hide what is beyond them. The Floodlight lets its carrier light an adjacent dark lane.",
+    "People in the fog appear once a lane next to them is lit or a responder gets close."
+  ],
+  "strategies": [
+    "Floodlight on Tomi toward the Foggy Boardwalk while Rosa handles the Boat Ramp.",
+    "Floodlight on Rosa: she lights and guides, Tomi takes the Harbor Light side."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "g1",
+      "x": 400,
+      "y": 960,
+      "kind": "deploy",
+      "label": "Quay Gate"
+    },
+    {
+      "id": "g2",
+      "x": 130,
+      "y": 880,
+      "kind": "deploy",
+      "label": "Net Sheds"
+    },
+    {
+      "id": "sq",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Quay Square"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 560,
+      "kind": "shelter",
+      "label": "Seafarers' Hall"
+    },
+    {
+      "id": "lq",
+      "x": 160,
+      "y": 560,
+      "label": "Lower Quay"
+    },
+    {
+      "id": "bait",
+      "x": 160,
+      "y": 290,
+      "label": "Bait Shop"
+    },
+    {
+      "id": "ramp",
+      "x": 400,
+      "y": 300,
+      "kind": "pier",
+      "label": "Boat Ramp"
+    },
+    {
+      "id": "fog",
+      "x": 650,
+      "y": 420,
+      "kind": "pier",
+      "label": "Fog Bank Pier"
+    },
+    {
+      "id": "light",
+      "x": 650,
+      "y": 700,
+      "kind": "lookout",
+      "label": "Harbor Light"
+    }
+  ],
+  "edges": [
+    {
+      "id": "g1-sq",
+      "a": "g1",
+      "b": "sq",
+      "label": "Gate Walk"
+    },
+    {
+      "id": "g2-lq",
+      "a": "g2",
+      "b": "lq",
+      "label": "Shed Path"
+    },
+    {
+      "id": "sq-hall",
+      "a": "sq",
+      "b": "hall",
+      "label": "Hall Walk"
+    },
+    {
+      "id": "sq-lq",
+      "a": "sq",
+      "b": "lq",
+      "label": "Quay Row"
+    },
+    {
+      "id": "sq-light",
+      "a": "sq",
+      "b": "light",
+      "label": "Light Road"
+    },
+    {
+      "id": "hall-ramp",
+      "a": "hall",
+      "b": "ramp",
+      "label": "Ramp Lane"
+    },
+    {
+      "id": "lq-bait",
+      "a": "lq",
+      "b": "bait",
+      "block": "dark",
+      "label": "Foggy Boardwalk"
+    },
+    {
+      "id": "ramp-bait",
+      "a": "ramp",
+      "b": "bait",
+      "block": "dark",
+      "label": "Mist Lane"
+    },
+    {
+      "id": "hall-fog",
+      "a": "hall",
+      "b": "fog",
+      "block": "dark",
+      "label": "Grey Jetty"
+    },
+    {
+      "id": "light-fog",
+      "a": "light",
+      "b": "fog",
+      "label": "Light Pier"
+    },
+    {
+      "id": "ramp-fog",
+      "a": "ramp",
+      "b": "fog",
+      "block": "dark",
+      "label": "Ramp Jetty"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "g1",
+      "capacity": 2
+    },
+    {
+      "node": "g2"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "ramp"
+    },
+    {
+      "id": "c2",
+      "node": "bait",
+      "hidden": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "fog",
+      "hidden": true,
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 487,
+  "goldTicks": 408,
+  "decor": [
+    "water:0,0,800,150",
+    "fog:60,180,700,360"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "g2",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "g1"
+      }
+    ],
+    "commands": [],
+    "ticks": 408,
+    "hash": "2ffcf6fb"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 9,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

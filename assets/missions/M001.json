@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "id": "M001",
+  "revision": 1,
+  "world": 1,
+  "slot": 1,
+  "title": "First Shift at the Pier",
+  "brief": "Two fishers are waiting at the ends of the piers. Both responders share one shelter, Harbor Hall, and one narrow boardwalk is covered by a crate spill.",
+  "tutorial": [
+    "Drag Rosa and Tomi onto the glowing start zones, or tap a responder then tap a zone.",
+    "Press Dispatch. Responders choose their own tasks: you plan, they act.",
+    "Only Rosa can clear the Crate Spill. Tomi guides people but cannot move debris."
+  ],
+  "strategies": [
+    "Rosa at East Gate clears the Crate Spill while Tomi walks the West Pier.",
+    "Both at West Gate: safe, but the East Pier takes the long Salt Path."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "rescuer",
+    "medic"
+  ],
+  "nodes": [
+    {
+      "id": "gw",
+      "x": 160,
+      "y": 940,
+      "kind": "deploy",
+      "label": "West Gate"
+    },
+    {
+      "id": "ge",
+      "x": 640,
+      "y": 940,
+      "kind": "deploy",
+      "label": "East Gate"
+    },
+    {
+      "id": "rope",
+      "x": 160,
+      "y": 720,
+      "label": "Rope Walk"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 750,
+      "kind": "junction",
+      "label": "Market Cross"
+    },
+    {
+      "id": "net",
+      "x": 640,
+      "y": 720,
+      "label": "Net Lane"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 500,
+      "kind": "shelter",
+      "label": "Harbor Hall"
+    },
+    {
+      "id": "wp",
+      "x": 170,
+      "y": 290,
+      "kind": "pier",
+      "label": "West Pier"
+    },
+    {
+      "id": "ep",
+      "x": 630,
+      "y": 290,
+      "kind": "pier",
+      "label": "East Pier"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gw-rope",
+      "a": "gw",
+      "b": "rope",
+      "label": "West Gate Road"
+    },
+    {
+      "id": "ge-net",
+      "a": "ge",
+      "b": "net",
+      "label": "East Gate Road"
+    },
+    {
+      "id": "rope-cross",
+      "a": "rope",
+      "b": "cross",
+      "label": "Rope Walk"
+    },
+    {
+      "id": "cross-net",
+      "a": "cross",
+      "b": "net",
+      "label": "Net Row"
+    },
+    {
+      "id": "cross-hall",
+      "a": "cross",
+      "b": "hall",
+      "label": "Hall Steps"
+    },
+    {
+      "id": "rope-wp",
+      "a": "rope",
+      "b": "wp",
+      "label": "West Boardwalk"
+    },
+    {
+      "id": "net-ep",
+      "a": "net",
+      "b": "ep",
+      "block": "debris",
+      "label": "East Boardwalk"
+    },
+    {
+      "id": "wp-hall",
+      "a": "wp",
+      "b": "hall",
+      "label": "Pier Path"
+    },
+    {
+      "id": "hall-ep",
+      "a": "hall",
+      "b": "ep",
+      "label": "Salt Path"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gw",
+      "capacity": 2
+    },
+    {
+      "node": "ge",
+      "capacity": 2
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "wp"
+    },
+    {
+      "id": "c2",
+      "node": "ep",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 248,
+  "goldTicks": 214,
+  "decor": [
+    "water:0,0,800,250",
+    "pier:125,130,90,210",
+    "pier:585,130,90,210"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "ge"
+      },
+      {
+        "role": "medic",
+        "node": "gw"
+      }
+    ],
+    "commands": [],
+    "ticks": 214,
+    "hash": "abc39f3b"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 4,
+    "setupsWon": 4,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}
