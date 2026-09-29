@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "id": "M082",
+  "revision": 1,
+  "world": 3,
+  "slot": 22,
+  "title": "Two Cuts to the Drum",
+  "brief": "West drum fire will reach Towpath. West cut is land. East cut is water. Either route lets the Extinguisher arrive. Bank crew holds the towpath neighbour either way.",
+  "tutorial": [
+    "Two viable routes to the drum. Boat or boots.",
+    "Protect Towpath. Split: one fighter, one holder, two spare."
+  ],
+  "strategies": [
+    "Extinguisher on Rosa west. Marco east spare. Tomi towpath. Bea shutters.",
+    "Extinguisher on Marco east water. Rosa holds land."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "t",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Tow Post"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "East Slip"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "South Spare"
+    },
+    {
+      "id": "drum",
+      "x": 160,
+      "y": 400,
+      "label": "West Drum"
+    },
+    {
+      "id": "tow",
+      "x": 400,
+      "y": 400,
+      "label": "Towpath"
+    },
+    {
+      "id": "slip",
+      "x": 680,
+      "y": 400,
+      "kind": "pier",
+      "label": "East Slip"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 720,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-drum",
+      "a": "w",
+      "b": "drum",
+      "label": "West Drum Lane"
+    },
+    {
+      "id": "t-tow",
+      "a": "t",
+      "b": "tow",
+      "label": "Tow Drop"
+    },
+    {
+      "id": "e-slip",
+      "a": "e",
+      "b": "slip",
+      "label": "East Drop"
+    },
+    {
+      "id": "s-hall",
+      "a": "s",
+      "b": "hall",
+      "label": "South Hall Lane"
+    },
+    {
+      "id": "drum-tow",
+      "a": "drum",
+      "b": "tow",
+      "label": "Drum Tow"
+    },
+    {
+      "id": "slip-drum",
+      "a": "slip",
+      "b": "drum",
+      "terrain": "water",
+      "label": "Slip Drum"
+    },
+    {
+      "id": "tow-hall",
+      "a": "tow",
+      "b": "hall",
+      "label": "Tow Hall"
+    },
+    {
+      "id": "slip-hall",
+      "a": "slip",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Slip Hall"
+    },
+    {
+      "id": "drum-hall",
+      "a": "drum",
+      "b": "hall",
+      "block": "debris",
+      "label": "Drum Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "t"
+    },
+    {
+      "node": "e"
+    },
+    {
+      "node": "s"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "tow"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "drum",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 210,
+      "type": "spread",
+      "from": "drum",
+      "to": "tow"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "tow"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 132,
+  "goldTicks": 113,
+  "decor": [
+    "water:480,240,220,400",
+    "pier:520,160,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s"
+      },
+      {
+        "role": "rescuer",
+        "node": "t"
+      },
+      {
+        "role": "medic",
+        "node": "e"
+      },
+      {
+        "role": "engineer",
+        "node": "w",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 113,
+    "hash": "37a311bc"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 188,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

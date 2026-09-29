@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "id": "M086",
+  "revision": 1,
+  "world": 3,
+  "slot": 26,
+  "title": "One Boat, Two Jobs",
+  "brief": "A hidden island caller and a land mill neighbour. Only Marco steps on water. The sled is on land for a spare sack at Island Clinic — one sack, one boat, two jobs that contend for Marco.",
+  "tutorial": [
+    "Dependent: if Marco hauls first, the hidden caller waits. If he lights first, the sack waits.",
+    "Sled can wait at the slip for him. Rosa cannot cross."
+  ],
+  "strategies": [
+    "Marco island first with Floodlight. Sled on Rosa to the slip. Tomi mill. Bea spare.",
+    "Marco sack first if the clinic clock feels tighter than the fog."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cargoSled",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "m",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Mill Post"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "mn",
+      "x": 140,
+      "y": 360,
+      "label": "Mill Neighbour"
+    },
+    {
+      "id": "dep",
+      "x": 140,
+      "y": 560,
+      "kind": "depot",
+      "label": "Mill Bay"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 480,
+      "kind": "pier",
+      "label": "Fog Island"
+    },
+    {
+      "id": "clinic",
+      "x": 640,
+      "y": 480,
+      "kind": "need",
+      "label": "Island Clinic"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 780,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "m-mn",
+      "a": "m",
+      "b": "mn",
+      "label": "Mill Drop"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "block": "dark",
+      "label": "South Fog"
+    },
+    {
+      "id": "e-clinic",
+      "a": "e",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "East Clinic"
+    },
+    {
+      "id": "mn-dep",
+      "a": "mn",
+      "b": "dep",
+      "label": "Neighbour Bay"
+    },
+    {
+      "id": "dep-isle",
+      "a": "dep",
+      "b": "isle",
+      "label": "Bay Slip"
+    },
+    {
+      "id": "isle-clinic",
+      "a": "isle",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "Island Clinic Water"
+    },
+    {
+      "id": "mn-hall",
+      "a": "mn",
+      "b": "hall",
+      "label": "Mill Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "clinic-hall",
+      "a": "clinic",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Clinic Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "m"
+    },
+    {
+      "node": "s",
+      "capacity": 2
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mn"
+    },
+    {
+      "id": "c2",
+      "node": "isle",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "dep",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "s-isle"
+      ]
+    },
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_clinic"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 324,
+  "goldTicks": 284,
+  "decor": [
+    "water:280,280,280,280",
+    "smoke:320,360,140,100"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "e"
+      },
+      {
+        "role": "rescuer",
+        "node": "s",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "m"
+      },
+      {
+        "role": "engineer",
+        "node": "s",
+        "gear": "cargoSled"
+      }
+    ],
+    "commands": [],
+    "ticks": 284,
+    "hash": "535d6bfb"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 156,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

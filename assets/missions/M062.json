@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "id": "M062",
+  "revision": 1,
+  "world": 3,
+  "slot": 2,
+  "title": "One Boat to the Pitch Fire",
+  "brief": "Pitch smolders on Reed Island. The only way onto the island is water. One Extinguisher. Marco is the constrained boat; Rosa cannot wet her boots.",
+  "tutorial": [
+    "The boat is the constrained vehicle. Whoever does not ride still works the bank.",
+    "Give the Extinguisher to Marco or he cannot put the pitch out."
+  ],
+  "strategies": [
+    "Extinguisher on Marco at West Slip. Rosa holds the reed bank.",
+    "If Marco starts east, he still has to reach a water lane."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "West Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "East Slip"
+    },
+    {
+      "id": "bank",
+      "x": 160,
+      "y": 640,
+      "label": "Reed Bank"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 480,
+      "kind": "pier",
+      "label": "Reed Island"
+    },
+    {
+      "id": "eb",
+      "x": 640,
+      "y": 640,
+      "label": "East Bank"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Reed Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-bank",
+      "a": "w",
+      "b": "bank",
+      "label": "West Rise"
+    },
+    {
+      "id": "e-eb",
+      "a": "e",
+      "b": "eb",
+      "label": "East Rise"
+    },
+    {
+      "id": "bank-isle",
+      "a": "bank",
+      "b": "isle",
+      "terrain": "water",
+      "label": "West Cut"
+    },
+    {
+      "id": "eb-isle",
+      "a": "eb",
+      "b": "isle",
+      "terrain": "water",
+      "label": "East Cut"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "bank-hall",
+      "a": "bank",
+      "b": "hall",
+      "block": "debris",
+      "label": "Bank Hall"
+    },
+    {
+      "id": "eb-hall",
+      "a": "eb",
+      "b": "hall",
+      "label": "East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "eb"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 240,
+      "type": "spread",
+      "from": "isle",
+      "to": "eb"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "eb"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 200,
+  "goldTicks": 155,
+  "decor": [
+    "water:280,300,240,400",
+    "pier:360,240,80,50"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "e"
+      }
+    ],
+    "commands": [],
+    "ticks": 155,
+    "hash": "a7bcff5d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 4,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

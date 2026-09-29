@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "id": "M075",
+  "revision": 1,
+  "world": 3,
+  "slot": 15,
+  "title": "One Toolkit, Island Pitch",
+  "brief": "Ferry Hall is jammed and pitch burns on the island. One Toolkit, one Extinguisher. Shared tools: Bea repairs, Marco fights fire from the water.",
+  "tutorial": [
+    "Shared Toolkit and Extinguisher. Do not stack both on one person unless you like waiting.",
+    "Hall is land. Fire is water. Split the crew."
+  ],
+  "strategies": [
+    "Toolkit on Bea at Hall Gate. Extinguisher on Marco at the slip.",
+    "Rosa can take the Toolkit if Bea is sent to the island with water she cannot use."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "engineer"
+  ],
+  "gear": [
+    "toolkit",
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "hg",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Hall Gate"
+    },
+    {
+      "id": "sg",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "eg",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "hall",
+      "x": 160,
+      "y": 480,
+      "kind": "shelter",
+      "label": "Ferry Hall"
+    },
+    {
+      "id": "isle",
+      "x": 520,
+      "y": 480,
+      "kind": "pier",
+      "label": "Pitch Island"
+    },
+    {
+      "id": "east",
+      "x": 700,
+      "y": 640,
+      "label": "East Bank"
+    }
+  ],
+  "edges": [
+    {
+      "id": "hg-hall",
+      "a": "hg",
+      "b": "hall",
+      "label": "Hall Rise"
+    },
+    {
+      "id": "sg-isle",
+      "a": "sg",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Island"
+    },
+    {
+      "id": "eg-east",
+      "a": "eg",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "hall-isle",
+      "a": "hall",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Hall Water"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "Island East"
+    },
+    {
+      "id": "hall-east",
+      "a": "hall",
+      "b": "east",
+      "block": "debris",
+      "label": "Hall East"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "hg"
+    },
+    {
+      "node": "sg"
+    },
+    {
+      "node": "eg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "east"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 230,
+      "type": "spread",
+      "from": "isle",
+      "to": "east"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 254,
+  "goldTicks": 175,
+  "decor": [
+    "water:400,280,280,360",
+    "pier:480,200,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "eg",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "sg"
+      },
+      {
+        "role": "engineer",
+        "node": "hg"
+      }
+    ],
+    "commands": [],
+    "ticks": 175,
+    "hash": "a5a723c9"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 41,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

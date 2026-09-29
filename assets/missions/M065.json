@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "id": "M065",
+  "revision": 1,
+  "world": 3,
+  "slot": 5,
+  "title": "Jammed Ferry Hall",
+  "brief": "Ferry Hall's door is jammed. The levee path is expected to flood at about twenty seconds, turning that road into water. Repair before the flood, or send Marco the long slip.",
+  "tutorial": [
+    "Delayed flood: a land road becomes water. Marco can still use it. Bea cannot.",
+    "Toolkit helps Rosa. Bea can repair without it."
+  ],
+  "strategies": [
+    "Bea at Hall Gate. Marco on the slip in case the levee floods.",
+    "Repair first, walk the levee before the water arrives."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "engineer"
+  ],
+  "gear": [
+    "toolkit"
+  ],
+  "nodes": [
+    {
+      "id": "hg",
+      "x": 160,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Hall Gate"
+    },
+    {
+      "id": "sg",
+      "x": 640,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Slip Gate"
+    },
+    {
+      "id": "levee",
+      "x": 200,
+      "y": 640,
+      "label": "Levee Path"
+    },
+    {
+      "id": "hall",
+      "x": 200,
+      "y": 320,
+      "kind": "shelter",
+      "label": "Ferry Hall"
+    },
+    {
+      "id": "slip",
+      "x": 640,
+      "y": 560,
+      "kind": "pier",
+      "label": "Back Slip"
+    }
+  ],
+  "edges": [
+    {
+      "id": "hg-levee",
+      "a": "hg",
+      "b": "levee",
+      "label": "Gate Levee"
+    },
+    {
+      "id": "sg-slip",
+      "a": "sg",
+      "b": "slip",
+      "label": "Gate Slip"
+    },
+    {
+      "id": "levee-hall",
+      "a": "levee",
+      "b": "hall",
+      "label": "Levee Hall"
+    },
+    {
+      "id": "slip-hall",
+      "a": "slip",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Slip Hall"
+    },
+    {
+      "id": "levee-slip",
+      "a": "levee",
+      "b": "slip",
+      "block": "debris",
+      "label": "Levee Slip"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "hg"
+    },
+    {
+      "node": "sg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "slip"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "flood",
+      "edge": "levee-hall",
+      "note": "Levee path takes on water"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 194,
+  "goldTicks": 162,
+  "decor": [
+    "water:480,160,200,200",
+    "pier:80,200,80,50"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "sg"
+      },
+      {
+        "role": "engineer",
+        "node": "hg"
+      }
+    ],
+    "commands": [],
+    "ticks": 162,
+    "hash": "d606055d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 3,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

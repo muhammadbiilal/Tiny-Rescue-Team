@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "id": "M072",
+  "revision": 1,
+  "world": 3,
+  "slot": 12,
+  "title": "Island Fire, Two Banks",
+  "brief": "Pitch on Reed Island spreads toward both banks if left. West bank and east bank are separate jobs. Branching water: lighting or holding one bank does not hold the other.",
+  "tutorial": [
+    "Boat crew on the island. Bank crew on land. Extinguisher belongs on the boat.",
+    "Protect both banks. Fire on either fails."
+  ],
+  "strategies": [
+    "Extinguisher on Marco south slip. Rosa west. Tomi east.",
+    "Marco puts it out before either spread. Banks only escort."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "s",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "w",
+      "x": 80,
+      "y": 860,
+      "kind": "deploy",
+      "label": "West Bank Gate"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 860,
+      "kind": "deploy",
+      "label": "East Bank Gate"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 520,
+      "kind": "pier",
+      "label": "Reed Island"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 400,
+      "label": "West Bank"
+    },
+    {
+      "id": "east",
+      "x": 660,
+      "y": 400,
+      "label": "East Bank"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 180,
+      "kind": "shelter",
+      "label": "Twin Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "South Water"
+    },
+    {
+      "id": "w-west",
+      "a": "w",
+      "b": "west",
+      "label": "West Rise"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "isle-west",
+      "a": "isle",
+      "b": "west",
+      "terrain": "water",
+      "label": "West Cut"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "East Cut"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "label": "West Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "s"
+    },
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "west"
+    },
+    {
+      "id": "c2",
+      "node": "east",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 220,
+      "type": "spread",
+      "from": "isle",
+      "to": "west"
+    },
+    {
+      "at": 220,
+      "type": "spread",
+      "from": "isle",
+      "to": "east"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "west",
+        "east"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 183,
+  "goldTicks": 154,
+  "decor": [
+    "water:240,280,320,280",
+    "pier:360,220,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w"
+      },
+      {
+        "role": "rescuer",
+        "node": "e"
+      },
+      {
+        "role": "medic",
+        "node": "s",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 154,
+    "hash": "958c7d62"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 24,
+    "setupsWon": 18,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

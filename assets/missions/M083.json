@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "id": "M083",
+  "revision": 1,
+  "world": 3,
+  "slot": 23,
+  "title": "Grain at the Shuttered Cross",
+  "brief": "Two sacks for Island Clinic. A miller and a slip keeper both wait. Ferry Cross is shuttered, so the sled cannot turn toward the clinic slip until that junction is cleared.",
+  "tutorial": [
+    "Blocked junction on the clinic turn. Clear it or send Marco the long water from the mill.",
+    "Two calls plus delivery. Four people."
+  ],
+  "strategies": [
+    "Rosa on the cross. Sled on Bea. Tomi miller. Marco keeper and clinic water.",
+    "Skip the cross: mill-water-clinic with Marco carrying one at a time."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "cargoSled",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "m",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Mill Post"
+    },
+    {
+      "id": "c",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Cross Post"
+    },
+    {
+      "id": "k",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Keeper Post"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "mill",
+      "x": 140,
+      "y": 320,
+      "kind": "depot",
+      "label": "River Mill"
+    },
+    {
+      "id": "mn",
+      "x": 140,
+      "y": 520,
+      "label": "Miller"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 320,
+      "kind": "junction",
+      "label": "Ferry Cross"
+    },
+    {
+      "id": "clinic",
+      "x": 640,
+      "y": 520,
+      "kind": "need",
+      "label": "Island Clinic"
+    },
+    {
+      "id": "keep",
+      "x": 700,
+      "y": 320,
+      "label": "Slip Keeper"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 720,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "m-mill",
+      "a": "m",
+      "b": "mill",
+      "label": "Mill Drop"
+    },
+    {
+      "id": "c-cross",
+      "a": "c",
+      "b": "cross",
+      "label": "Cross Drop"
+    },
+    {
+      "id": "k-keep",
+      "a": "k",
+      "b": "keep",
+      "label": "Keeper Drop"
+    },
+    {
+      "id": "s-hall",
+      "a": "s",
+      "b": "hall",
+      "label": "Slip Hall Lane"
+    },
+    {
+      "id": "mill-mn",
+      "a": "mill",
+      "b": "mn",
+      "label": "Mill Miller"
+    },
+    {
+      "id": "mill-cross",
+      "a": "mill",
+      "b": "cross",
+      "label": "Mill Cross"
+    },
+    {
+      "id": "cross-clinic",
+      "a": "cross",
+      "b": "clinic",
+      "block": "debris",
+      "label": "Cross Clinic"
+    },
+    {
+      "id": "keep-clinic",
+      "a": "keep",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "Keeper Clinic"
+    },
+    {
+      "id": "mill-clinic",
+      "a": "mill",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "Mill Water"
+    },
+    {
+      "id": "mn-hall",
+      "a": "mn",
+      "b": "hall",
+      "label": "Miller Hall"
+    },
+    {
+      "id": "keep-hall",
+      "a": "keep",
+      "b": "hall",
+      "label": "Keeper Hall"
+    },
+    {
+      "id": "clinic-hall",
+      "a": "clinic",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Clinic Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "m"
+    },
+    {
+      "node": "c"
+    },
+    {
+      "node": "k"
+    },
+    {
+      "node": "s"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mn"
+    },
+    {
+      "id": "c2",
+      "node": "keep",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "mill",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_clinic"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 293,
+  "goldTicks": 155,
+  "decor": [
+    "water:400,480,280,200",
+    "pier:560,400,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "c",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "rescuer",
+        "node": "k"
+      },
+      {
+        "role": "medic",
+        "node": "m"
+      },
+      {
+        "role": "engineer",
+        "node": "s"
+      }
+    ],
+    "commands": [],
+    "ticks": 155,
+    "hash": "3daef2b7"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 260,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

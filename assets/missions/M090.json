@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "id": "M090",
+  "revision": 1,
+  "world": 3,
+  "slot": 30,
+  "title": "Riverside Night",
+  "brief": "The miller on Fog Island needs care. Pitch there will follow two wind turns onto East Bank, which must stay clear, then onto Night Hall. Light the island, put the fire out, walk everyone home. This is the Riverside finale.",
+  "tutorial": [
+    "Finale: fog, fire, care, two wind notes.",
+    "Extinguisher and Floodlight belong on the boat or on the plank team."
+  ],
+  "strategies": [
+    "Marco south with both tools. Tomi east keeper. Rosa west. Bea spare land.",
+    "Rosa lights the plank; Marco water with the Extinguisher; Tomi only cares."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "extinguisher",
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "s",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Night Slip"
+    },
+    {
+      "id": "w",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 420,
+      "kind": "pier",
+      "label": "Fog Island"
+    },
+    {
+      "id": "east",
+      "x": 680,
+      "y": 420,
+      "label": "East Bank"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 420,
+      "label": "West Bank"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 780,
+      "kind": "shelter",
+      "label": "Night Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "block": "dark",
+      "label": "Night Fog"
+    },
+    {
+      "id": "w-west",
+      "a": "w",
+      "b": "west",
+      "label": "West Drop"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Drop"
+    },
+    {
+      "id": "west-isle",
+      "a": "west",
+      "b": "isle",
+      "terrain": "water",
+      "label": "West Water"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "Island East"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "label": "West Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "s",
+      "capacity": 2
+    },
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "isle",
+      "needsCare": true,
+      "critical": true,
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "east",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "west",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 70,
+      "type": "wind",
+      "note": "Wind turns onto East Bank"
+    },
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "isle",
+      "to": "east"
+    },
+    {
+      "at": 250,
+      "type": "wind",
+      "note": "Wind turns onto Night Hall"
+    },
+    {
+      "at": 340,
+      "type": "spread",
+      "from": "east",
+      "to": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "east"
+      ]
+    },
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 367,
+  "goldTicks": 228,
+  "decor": [
+    "water:240,280,320,280",
+    "smoke:300,360,180,120",
+    "pier:360,160,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w"
+      },
+      {
+        "role": "rescuer",
+        "node": "e",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "s",
+        "gear": "floodlight"
+      },
+      {
+        "role": "engineer",
+        "node": "s",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 228,
+    "hash": "e7cfd761"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 62,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

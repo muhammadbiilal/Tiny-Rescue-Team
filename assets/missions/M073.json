@@ -1,0 +1,248 @@
+{
+  "schema": 1,
+  "id": "M073",
+  "revision": 1,
+  "world": 3,
+  "slot": 13,
+  "title": "Grain, Two Keepers, One Seat",
+  "brief": "One grain sack for Island Clinic. A miller and a slip keeper both need walking out. Tiny Boathouse seats one; Reed Chapel opens at sixteen seconds.",
+  "tutorial": [
+    "Timed seats. Put one neighbour in the boathouse, wait for chapel, or ferry both after it opens.",
+    "Sled on land. Marco on the clinic water."
+  ],
+  "strategies": [
+    "Sled on Rosa to the west slip. Marco clinic. Tomi miller then chapel clock.",
+    "Marco hauls one sack without the sled if Rosa is busy escorting."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "mg",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "sg",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "eg",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "East Keeper"
+    },
+    {
+      "id": "mill",
+      "x": 120,
+      "y": 700,
+      "kind": "depot",
+      "label": "River Mill"
+    },
+    {
+      "id": "mn",
+      "x": 120,
+      "y": 480,
+      "label": "Miller"
+    },
+    {
+      "id": "clinic",
+      "x": 600,
+      "y": 400,
+      "kind": "need",
+      "label": "Island Clinic"
+    },
+    {
+      "id": "keep",
+      "x": 680,
+      "y": 700,
+      "label": "Slip Keeper"
+    },
+    {
+      "id": "tiny",
+      "x": 400,
+      "y": 320,
+      "kind": "shelter",
+      "label": "Tiny Boathouse"
+    },
+    {
+      "id": "chapel",
+      "x": 400,
+      "y": 160,
+      "kind": "shelter",
+      "label": "Reed Chapel"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mg-mill",
+      "a": "mg",
+      "b": "mill",
+      "label": "Mill Rise"
+    },
+    {
+      "id": "sg-tiny",
+      "a": "sg",
+      "b": "tiny",
+      "label": "Slip Boat"
+    },
+    {
+      "id": "eg-keep",
+      "a": "eg",
+      "b": "keep",
+      "label": "Keeper Rise"
+    },
+    {
+      "id": "mill-mn",
+      "a": "mill",
+      "b": "mn",
+      "label": "Mill Miller"
+    },
+    {
+      "id": "mn-tiny",
+      "a": "mn",
+      "b": "tiny",
+      "label": "Miller Boat"
+    },
+    {
+      "id": "keep-tiny",
+      "a": "keep",
+      "b": "tiny",
+      "terrain": "water",
+      "label": "Keeper Water"
+    },
+    {
+      "id": "tiny-clinic",
+      "a": "tiny",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "Boat Clinic"
+    },
+    {
+      "id": "tiny-chapel",
+      "a": "tiny",
+      "b": "chapel",
+      "label": "Boat Chapel"
+    },
+    {
+      "id": "clinic-chapel",
+      "a": "clinic",
+      "b": "chapel",
+      "terrain": "water",
+      "label": "Clinic Chapel"
+    },
+    {
+      "id": "keep-chapel",
+      "a": "keep",
+      "b": "chapel",
+      "label": "Keeper Chapel"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "mg"
+    },
+    {
+      "node": "sg"
+    },
+    {
+      "node": "eg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mn"
+    },
+    {
+      "id": "c2",
+      "node": "keep",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "tiny",
+      "capacity": 1
+    },
+    {
+      "node": "chapel",
+      "openAt": 160
+    }
+  ],
+  "depots": [
+    {
+      "node": "mill",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_clinic"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 326,
+  "goldTicks": 312,
+  "decor": [
+    "water:360,200,140,500",
+    "pier:500,200,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "eg"
+      },
+      {
+        "role": "rescuer",
+        "node": "mg"
+      },
+      {
+        "role": "medic",
+        "node": "sg"
+      }
+    ],
+    "commands": [],
+    "ticks": 312,
+    "hash": "31e16906"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 24,
+    "setupsWon": 24,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "id": "M068",
+  "revision": 1,
+  "world": 3,
+  "slot": 8,
+  "title": "Reed Call and Fog Call",
+  "brief": "A reed keeper west needs care. A fog keeper east is hidden in unlit reeds. Two calls, two banks, water in the middle.",
+  "tutorial": [
+    "Tomi steadies. Marco crosses. The east keeper does not appear until the fog lane is lit.",
+    "Floodlight or Juno would help; here Marco still has to get close or carry the light."
+  ],
+  "strategies": [
+    "Floodlight on Marco east. Tomi west with the reed keeper.",
+    "Floodlight on Tomi if she starts east; Marco ferries the west keeper."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "medic"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Reed Gate"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Fog Gate"
+    },
+    {
+      "id": "reed",
+      "x": 140,
+      "y": 620,
+      "label": "Reed Keeper"
+    },
+    {
+      "id": "fog",
+      "x": 660,
+      "y": 500,
+      "label": "Fog Keeper"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 240,
+      "kind": "shelter",
+      "label": "Reed Hall"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 620,
+      "kind": "pier",
+      "label": "Mid Cut"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-reed",
+      "a": "w",
+      "b": "reed",
+      "label": "Reed Rise"
+    },
+    {
+      "id": "e-fog",
+      "a": "e",
+      "b": "fog",
+      "label": "Fog Rise"
+    },
+    {
+      "id": "reed-mid",
+      "a": "reed",
+      "b": "mid",
+      "terrain": "water",
+      "label": "Reed Water"
+    },
+    {
+      "id": "fog-mid",
+      "a": "fog",
+      "b": "mid",
+      "block": "dark",
+      "label": "Fog Water"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Mid Hall"
+    },
+    {
+      "id": "reed-hall",
+      "a": "reed",
+      "b": "hall",
+      "label": "Reed Hall Lane"
+    },
+    {
+      "id": "fog-hall",
+      "a": "fog",
+      "b": "hall",
+      "block": "dark",
+      "label": "Fog Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "reed",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "fog",
+      "needsCare": true,
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 432,
+  "goldTicks": 244,
+  "decor": [
+    "water:340,300,120,400",
+    "smoke:520,400,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "e",
+        "gear": "floodlight"
+      }
+    ],
+    "commands": [],
+    "ticks": 244,
+    "hash": "e94787a1"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 14,
+    "setupsWon": 8,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

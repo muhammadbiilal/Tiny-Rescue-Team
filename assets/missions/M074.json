@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "id": "M074",
+  "revision": 1,
+  "world": 3,
+  "slot": 14,
+  "title": "One Boat, Hidden Miller",
+  "brief": "The miller is hidden on Reed Island in unlit reeds and needs care. The only way onto the island is water. One boat. Land crew lights from the bank if they carry the Floodlight to a water edge, or Marco carries it across.",
+  "tutorial": [
+    "Constrained boat: only Marco steps onto the island.",
+    "Floodlight on whoever can stand next to the dark cut."
+  ],
+  "strategies": [
+    "Floodlight on Marco. Tomi waits at Reed Hall. Rosa spare on the bank.",
+    "Floodlight on Rosa at the bank edge; Marco crosses after it opens."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "s",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "b",
+      "x": 80,
+      "y": 800,
+      "kind": "deploy",
+      "label": "Bank Gate"
+    },
+    {
+      "id": "bank",
+      "x": 160,
+      "y": 560,
+      "label": "West Bank"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 480,
+      "kind": "pier",
+      "label": "Reed Island"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Reed Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "South Cut"
+    },
+    {
+      "id": "b-bank",
+      "a": "b",
+      "b": "bank",
+      "label": "Bank Rise"
+    },
+    {
+      "id": "bank-isle",
+      "a": "bank",
+      "b": "isle",
+      "block": "dark",
+      "label": "Bank Fog"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "bank-hall",
+      "a": "bank",
+      "b": "hall",
+      "label": "Bank Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "s",
+      "capacity": 2
+    },
+    {
+      "node": "b"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "isle",
+      "needsCare": true,
+      "critical": true,
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "bank-isle"
+      ]
+    },
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 283,
+  "goldTicks": 247,
+  "decor": [
+    "water:240,280,320,300",
+    "smoke:320,360,160,120"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "firstAid"
+      },
+      {
+        "role": "rescuer",
+        "node": "b",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "s"
+      }
+    ],
+    "commands": [],
+    "ticks": 247,
+    "hash": "a5f3212b"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 8,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

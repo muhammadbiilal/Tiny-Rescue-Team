@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "id": "M069",
+  "revision": 1,
+  "world": 3,
+  "slot": 9,
+  "title": "Split Banks at Dusk",
+  "brief": "Three neighbours: west mill, island reed, east towpath. Crews start one per bank. Marco must take the island; the others walk land.",
+  "tutorial": [
+    "Split starts, three gates, two people. Someone sits out a gate.",
+    "Island reed is water. Leave Marco a slip that touches water."
+  ],
+  "strategies": [
+    "Marco west slip onto the island. Rosa east towpath, then mill if needed.",
+    "Marco east; Rosa west mill. Island still needs a water start."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Towpath Gate"
+    },
+    {
+      "id": "mill",
+      "x": 140,
+      "y": 700,
+      "label": "West Mill"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 520,
+      "kind": "pier",
+      "label": "Island Reed"
+    },
+    {
+      "id": "tow",
+      "x": 680,
+      "y": 700,
+      "label": "East Towpath"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 240,
+      "kind": "shelter",
+      "label": "Dusk Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-mill",
+      "a": "w",
+      "b": "mill",
+      "label": "Mill Rise"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Island"
+    },
+    {
+      "id": "e-tow",
+      "a": "e",
+      "b": "tow",
+      "label": "Tow Rise"
+    },
+    {
+      "id": "mill-hall",
+      "a": "mill",
+      "b": "hall",
+      "label": "Mill Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "tow-hall",
+      "a": "tow",
+      "b": "hall",
+      "label": "Tow Hall"
+    },
+    {
+      "id": "mill-isle",
+      "a": "mill",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Mill Water"
+    },
+    {
+      "id": "tow-isle",
+      "a": "tow",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Tow Water"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "s"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mill"
+    },
+    {
+      "id": "c2",
+      "node": "isle",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "tow",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 230,
+  "goldTicks": 186,
+  "decor": [
+    "water:300,360,200,200",
+    "pier:360,300,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "e"
+      },
+      {
+        "role": "rescuer",
+        "node": "w"
+      }
+    ],
+    "commands": [],
+    "ticks": 186,
+    "hash": "03a19eb0"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

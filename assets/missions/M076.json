@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "id": "M076",
+  "revision": 1,
+  "world": 3,
+  "slot": 16,
+  "title": "Tired Bank, Hidden Island",
+  "brief": "A bank neighbour waits in the open. An island caller is hidden in fog. After two jobs everyone rests. Boat crew and bank crew should not share the same two jobs.",
+  "tutorial": [
+    "Fatigue. Do not send Tomi to light, care, and escort all three tasks.",
+    "Juno lights. Marco islands. Tomi banks."
+  ],
+  "strategies": [
+    "Juno south slip with Floodlight backup unused. Marco island. Tomi bank.",
+    "If Juno starts on the bank, Marco still has to cross for the hidden caller."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "scout",
+    "medic"
+  ],
+  "gear": [
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "s",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "w",
+      "x": 80,
+      "y": 880,
+      "kind": "deploy",
+      "label": "Bank Gate"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 880,
+      "kind": "deploy",
+      "label": "East Spare"
+    },
+    {
+      "id": "bank",
+      "x": 140,
+      "y": 560,
+      "label": "West Bank"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 480,
+      "kind": "pier",
+      "label": "Fog Island"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Bank Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "block": "dark",
+      "label": "South Fog"
+    },
+    {
+      "id": "w-bank",
+      "a": "w",
+      "b": "bank",
+      "label": "Bank Rise"
+    },
+    {
+      "id": "e-hall",
+      "a": "e",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "bank-isle",
+      "a": "bank",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Bank Water"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "bank-hall",
+      "a": "bank",
+      "b": "hall",
+      "label": "Bank Hall Lane"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "s"
+    },
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "bank"
+    },
+    {
+      "id": "c2",
+      "node": "isle",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "s-isle"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 211,
+  "goldTicks": 160,
+  "decor": [
+    "water:280,300,240,280",
+    "smoke:320,360,160,100"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "floodlight"
+      },
+      {
+        "role": "scout",
+        "node": "e"
+      },
+      {
+        "role": "medic",
+        "node": "w"
+      }
+    ],
+    "commands": [],
+    "ticks": 160,
+    "hash": "9762e921"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 24,
+    "setupsWon": 14,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

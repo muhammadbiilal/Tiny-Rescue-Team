@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "id": "M084",
+  "revision": 1,
+  "world": 3,
+  "slot": 24,
+  "title": "West Fog, East Reeds",
+  "brief": "Two hidden keepers need care: west fog mill and east reed loft. Branching: lighting west does not light east. Water sits between them for Marco.",
+  "tutorial": [
+    "Branching fog. One Floodlight. Marco can stand on a water edge to light the other fork.",
+    "Tomi still steadies both. First Aid on a second carer if she is far."
+  ],
+  "strategies": [
+    "Floodlight on Rosa west. Marco east water. Tomi follows the first open fork. Bea spare.",
+    "Marco lights both from the mid cut. Tomi only cares."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "n",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Hall Gate"
+    },
+    {
+      "id": "w",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "West Fog Post"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "East Reed Post"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "North Hall"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 560,
+      "label": "West Fog"
+    },
+    {
+      "id": "east",
+      "x": 660,
+      "y": 560,
+      "label": "East Reeds"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 560,
+      "kind": "pier",
+      "label": "Mid Cut"
+    }
+  ],
+  "edges": [
+    {
+      "id": "n-hall",
+      "a": "n",
+      "b": "hall",
+      "label": "Gate Hall"
+    },
+    {
+      "id": "w-west",
+      "a": "w",
+      "b": "west",
+      "label": "West Drop"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Drop"
+    },
+    {
+      "id": "hall-west",
+      "a": "hall",
+      "b": "west",
+      "block": "dark",
+      "label": "Hall West"
+    },
+    {
+      "id": "hall-east",
+      "a": "hall",
+      "b": "east",
+      "block": "dark",
+      "label": "Hall East"
+    },
+    {
+      "id": "west-mid",
+      "a": "west",
+      "b": "mid",
+      "terrain": "water",
+      "label": "West Water"
+    },
+    {
+      "id": "east-mid",
+      "a": "east",
+      "b": "mid",
+      "terrain": "water",
+      "label": "East Water"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Mid Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "n",
+      "capacity": 2
+    },
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "west",
+      "needsCare": true,
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "east",
+      "needsCare": true,
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "hall-west",
+        "hall-east"
+      ]
+    },
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "stabilized",
+      "target": "c2"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 451,
+  "goldTicks": 291,
+  "decor": [
+    "smoke:40,360,200,200",
+    "smoke:560,360,200,200",
+    "water:300,400,200,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "e",
+        "gear": "firstAid"
+      },
+      {
+        "role": "rescuer",
+        "node": "n",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "w"
+      },
+      {
+        "role": "engineer",
+        "node": "n"
+      }
+    ],
+    "commands": [],
+    "ticks": 291,
+    "hash": "da82d8fd"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 192,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

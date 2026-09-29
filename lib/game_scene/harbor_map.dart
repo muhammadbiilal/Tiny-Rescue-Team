@@ -34,6 +34,8 @@ class HarborMap extends Component {
         ? const Color(0xFFE2E8F0)
         : scene.world == 2
         ? const Color(0xFFD6C4A8)
+        : scene.world == 3
+        ? const Color(0xFFB7D4C8)
         : const Color(0xFFD7E8D2);
     canvas.drawRect(
       const Rect.fromLTWH(0, 0, worldW, worldH),

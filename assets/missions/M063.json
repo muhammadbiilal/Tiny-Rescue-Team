@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "id": "M063",
+  "revision": 1,
+  "world": 3,
+  "slot": 3,
+  "title": "Shared Sled, Shared Boat",
+  "brief": "Two grain sacks in the mill must reach the island clinic. One Cargo Sled. The clinic sits across water, so the sled still needs Marco on the last cut.",
+  "tutorial": [
+    "Shared sled on land. Shared boat on water. Rosa can haul to the slip; only Marco crosses.",
+    "Marco can carry one sack without the sled. Two sacks need the sled plus a second trip, or Rosa to the slip and Marco across."
+  ],
+  "strategies": [
+    "Sled on Rosa to the west slip. Marco waits on the water and takes both loads over.",
+    "Sled on Marco: he hauls and crosses. Rosa clears the mill shutter."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer"
+  ],
+  "gear": [
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "mg",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "slip",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Clinic Slip"
+    },
+    {
+      "id": "mill",
+      "x": 120,
+      "y": 680,
+      "kind": "depot",
+      "label": "River Mill"
+    },
+    {
+      "id": "west",
+      "x": 200,
+      "y": 400,
+      "kind": "pier",
+      "label": "West Slip"
+    },
+    {
+      "id": "clinic",
+      "x": 600,
+      "y": 360,
+      "kind": "need",
+      "label": "Island Clinic"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 160,
+      "kind": "shelter",
+      "label": "Mill Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mg-mill",
+      "a": "mg",
+      "b": "mill",
+      "label": "Mill Rise"
+    },
+    {
+      "id": "slip-clinic",
+      "a": "slip",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "Slip Clinic"
+    },
+    {
+      "id": "mill-west",
+      "a": "mill",
+      "b": "west",
+      "label": "Mill Slip"
+    },
+    {
+      "id": "west-clinic",
+      "a": "west",
+      "b": "clinic",
+      "terrain": "water",
+      "label": "Slip Water"
+    },
+    {
+      "id": "mill-hall",
+      "a": "mill",
+      "b": "hall",
+      "block": "debris",
+      "label": "Mill Hall Lane"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Slip Hall"
+    },
+    {
+      "id": "clinic-hall",
+      "a": "clinic",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Clinic Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "mg"
+    },
+    {
+      "node": "slip"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "mill",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_clinic"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 342,
+  "goldTicks": 154,
+  "decor": [
+    "water:360,200,140,560",
+    "pier:500,240,90,50"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "mg",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "rescuer",
+        "node": "slip"
+      }
+    ],
+    "commands": [],
+    "ticks": 154,
+    "hash": "bdb81997"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

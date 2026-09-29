@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "id": "M067",
+  "revision": 1,
+  "world": 3,
+  "slot": 7,
+  "title": "One Extinguisher on the Towpath",
+  "brief": "Towpath must stay open. A drum fire at the west slip will reach it. One Extinguisher. The short cut is water.",
+  "tutorial": [
+    "Limited Extinguisher. Give it to Marco if he starts on the slip, or to Rosa if she starts on the drum.",
+    "Protect Towpath. Fire there fails the mission."
+  ],
+  "strategies": [
+    "Extinguisher on Rosa at Drum Gate. Marco holds the far bank.",
+    "Extinguisher on Marco: he crosses and hits the drum from the water."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "d",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Drum"
+    },
+    {
+      "id": "t",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Tow"
+    },
+    {
+      "id": "drum",
+      "x": 200,
+      "y": 300,
+      "label": "Drum Slip"
+    },
+    {
+      "id": "tow",
+      "x": 500,
+      "y": 300,
+      "label": "High Towpath"
+    },
+    {
+      "id": "far",
+      "x": 700,
+      "y": 560,
+      "label": "South Bank"
+    },
+    {
+      "id": "bend",
+      "x": 200,
+      "y": 560,
+      "kind": "pier",
+      "label": "River Bend"
+    },
+    {
+      "id": "hall",
+      "x": 450,
+      "y": 900,
+      "kind": "shelter",
+      "label": "Tow Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "d-drum",
+      "a": "d",
+      "b": "drum",
+      "label": "Drum Drop"
+    },
+    {
+      "id": "t-tow",
+      "a": "t",
+      "b": "tow",
+      "label": "Tow Drop"
+    },
+    {
+      "id": "drum-tow",
+      "a": "drum",
+      "b": "tow",
+      "label": "Drum Tow"
+    },
+    {
+      "id": "drum-bend",
+      "a": "drum",
+      "b": "bend",
+      "terrain": "water",
+      "label": "Drum Bend"
+    },
+    {
+      "id": "tow-far",
+      "a": "tow",
+      "b": "far",
+      "terrain": "water",
+      "label": "Tow Far"
+    },
+    {
+      "id": "bend-far",
+      "a": "bend",
+      "b": "far",
+      "terrain": "water",
+      "label": "Bend Far"
+    },
+    {
+      "id": "tow-hall",
+      "a": "tow",
+      "b": "hall",
+      "block": "debris",
+      "label": "Tow Hall Lane"
+    },
+    {
+      "id": "far-hall",
+      "a": "far",
+      "b": "hall",
+      "label": "Far Hall"
+    },
+    {
+      "id": "bend-hall",
+      "a": "bend",
+      "b": "hall",
+      "label": "Bend Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "d"
+    },
+    {
+      "node": "t"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "far"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "drum",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "drum",
+      "to": "tow"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "tow"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 272,
+  "goldTicks": 189,
+  "decor": [
+    "water:80,420,640,90",
+    "pier:200,380,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "t"
+      },
+      {
+        "role": "rescuer",
+        "node": "d",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 189,
+    "hash": "7b3a5390"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 4,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "id": "M071",
+  "revision": 1,
+  "world": 3,
+  "slot": 11,
+  "title": "Blocked Ferry Cross",
+  "brief": "North Landing must be reachable from South Levee on land. Ferry Cross is shuttered. Callers hide in west reeds across a dark cut. Water is the boat job, not the route job.",
+  "tutorial": [
+    "Route open counts land lanes only. Water does not count as the tower road.",
+    "Juno or a Floodlight opens the reeds. Rosa clears Ferry Cross."
+  ],
+  "strategies": [
+    "Rosa on the cross. Juno reeds. Marco ferries if the land road is slow.",
+    "Clear the cross first so the landing is a land walk."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "scout",
+    "medic"
+  ],
+  "gear": [
+    "cutter",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "south",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Levee"
+    },
+    {
+      "id": "west",
+      "x": 80,
+      "y": 860,
+      "kind": "deploy",
+      "label": "Reed Gate"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 640,
+      "kind": "junction",
+      "label": "Ferry Cross"
+    },
+    {
+      "id": "reed",
+      "x": 140,
+      "y": 480,
+      "label": "West Reeds"
+    },
+    {
+      "id": "north",
+      "x": 400,
+      "y": 160,
+      "kind": "pier",
+      "label": "North Landing"
+    },
+    {
+      "id": "hall",
+      "x": 640,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Levee Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "south-cross",
+      "a": "south",
+      "b": "cross",
+      "label": "Levee Cross"
+    },
+    {
+      "id": "west-reed",
+      "a": "west",
+      "b": "reed",
+      "label": "Reed Rise"
+    },
+    {
+      "id": "cross-north",
+      "a": "cross",
+      "b": "north",
+      "block": "debris",
+      "label": "Ferry Cross"
+    },
+    {
+      "id": "reed-cross",
+      "a": "reed",
+      "b": "cross",
+      "block": "dark",
+      "label": "Reed Cross"
+    },
+    {
+      "id": "reed-north",
+      "a": "reed",
+      "b": "north",
+      "terrain": "water",
+      "label": "Reed Water"
+    },
+    {
+      "id": "cross-hall",
+      "a": "cross",
+      "b": "hall",
+      "label": "Cross Hall"
+    },
+    {
+      "id": "north-hall",
+      "a": "north",
+      "b": "hall",
+      "label": "North Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "south",
+      "capacity": 2
+    },
+    {
+      "node": "west"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "reed",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "south",
+      "b": "north"
+    },
+    {
+      "type": "revealed",
+      "nodes": [
+        "reed-cross"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 274,
+  "goldTicks": 252,
+  "decor": [
+    "water:300,240,200,400",
+    "pier:360,140,80,50"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "west",
+        "gear": "floodlight"
+      },
+      {
+        "role": "scout",
+        "node": "south",
+        "gear": "cutter"
+      },
+      {
+        "role": "medic",
+        "node": "south"
+      }
+    ],
+    "commands": [],
+    "ticks": 252,
+    "hash": "2d6983d5"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 39,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

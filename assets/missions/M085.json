@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "id": "M085",
+  "revision": 1,
+  "world": 3,
+  "slot": 25,
+  "title": "Ferry Hall and the Tiny Slip",
+  "brief": "Ferry Hall is jammed. Pitch on the island will reach East Bank. Tiny Slip seats one and is open; Reed Chapel opens at fourteen seconds. Repair, fight fire, seat people on the clock.",
+  "tutorial": [
+    "Tiny Slip holds one. Chapel is the second seat and the clock.",
+    "Bea on the hall door. Extinguisher on Marco."
+  ],
+  "strategies": [
+    "Bea hall. Marco island. Tomi first neighbour to Tiny Slip. Rosa chapel clock.",
+    "Put the fire out before walking anyone along East Bank."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "toolkit",
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "h",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Hall Post"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "t",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Chapel Spare"
+    },
+    {
+      "id": "hall",
+      "x": 160,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Ferry Hall"
+    },
+    {
+      "id": "isle",
+      "x": 520,
+      "y": 400,
+      "kind": "pier",
+      "label": "Pitch Island"
+    },
+    {
+      "id": "east",
+      "x": 700,
+      "y": 400,
+      "label": "East Bank"
+    },
+    {
+      "id": "tiny",
+      "x": 400,
+      "y": 600,
+      "kind": "shelter",
+      "label": "Tiny Slip"
+    },
+    {
+      "id": "chapel",
+      "x": 400,
+      "y": 820,
+      "kind": "shelter",
+      "label": "Reed Chapel"
+    }
+  ],
+  "edges": [
+    {
+      "id": "h-hall",
+      "a": "h",
+      "b": "hall",
+      "label": "Hall Drop"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Island"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Drop"
+    },
+    {
+      "id": "t-chapel",
+      "a": "t",
+      "b": "chapel",
+      "label": "Chapel Drop"
+    },
+    {
+      "id": "hall-isle",
+      "a": "hall",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Hall Water"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "Island East"
+    },
+    {
+      "id": "east-tiny",
+      "a": "east",
+      "b": "tiny",
+      "label": "East Tiny"
+    },
+    {
+      "id": "tiny-chapel",
+      "a": "tiny",
+      "b": "chapel",
+      "label": "Tiny Chapel"
+    },
+    {
+      "id": "hall-tiny",
+      "a": "hall",
+      "b": "tiny",
+      "label": "Hall Tiny"
+    },
+    {
+      "id": "east-chapel",
+      "a": "east",
+      "b": "chapel",
+      "label": "East Chapel"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "h"
+    },
+    {
+      "node": "s"
+    },
+    {
+      "node": "e"
+    },
+    {
+      "node": "t"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "east"
+    },
+    {
+      "id": "c2",
+      "node": "hall",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    },
+    {
+      "node": "tiny",
+      "capacity": 1
+    },
+    {
+      "node": "chapel",
+      "openAt": 140
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 220,
+      "type": "spread",
+      "from": "isle",
+      "to": "east"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 248,
+  "goldTicks": 127,
+  "decor": [
+    "water:400,300,240,280",
+    "pier:480,220,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "e"
+      },
+      {
+        "role": "medic",
+        "node": "t",
+        "gear": "toolkit"
+      },
+      {
+        "role": "engineer",
+        "node": "h"
+      }
+    ],
+    "commands": [],
+    "ticks": 127,
+    "hash": "7089f7e5"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 122,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

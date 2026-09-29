@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "id": "M089",
+  "revision": 1,
+  "world": 3,
+  "slot": 29,
+  "title": "Levee Flood at Dusk",
+  "brief": "The island miller needs care. Two bank neighbours walk out. Levee Path floods at about twenty-two seconds and becomes water, cutting land access to Reed Hall from the west.",
+  "tutorial": [
+    "Delayed flood on Levee Path. Beat it on foot or send Marco after it turns.",
+    "Tomi must reach the miller on the fog plank or wait for Marco."
+  ],
+  "strategies": [
+    "Tomi west plank to the miller before or after light. Rosa east neighbour. Marco ready for the flood. Bea hall.",
+    "Ignore the levee; walk everyone east after Marco ferries the miller."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "h",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Hall Post"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 360,
+      "label": "West Neighbour"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 400,
+      "kind": "pier",
+      "label": "Island Miller"
+    },
+    {
+      "id": "east",
+      "x": 680,
+      "y": 360,
+      "label": "East Neighbour"
+    },
+    {
+      "id": "levee",
+      "x": 140,
+      "y": 640,
+      "label": "Levee Path"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 720,
+      "kind": "shelter",
+      "label": "Reed Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-west",
+      "a": "w",
+      "b": "west",
+      "label": "West Drop"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Water"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Drop"
+    },
+    {
+      "id": "h-hall",
+      "a": "h",
+      "b": "hall",
+      "label": "Hall Drop"
+    },
+    {
+      "id": "west-isle",
+      "a": "west",
+      "b": "isle",
+      "block": "dark",
+      "label": "West Plank"
+    },
+    {
+      "id": "west-levee",
+      "a": "west",
+      "b": "levee",
+      "label": "West Levee"
+    },
+    {
+      "id": "levee-hall",
+      "a": "levee",
+      "b": "hall",
+      "label": "Levee Path"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "s"
+    },
+    {
+      "node": "e"
+    },
+    {
+      "node": "h"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "isle",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "west",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "east",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "hazards": [
+    {
+      "at": 220,
+      "type": "flood",
+      "edge": "levee-hall",
+      "note": "Levee Path takes on water"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 330,
+  "goldTicks": 158,
+  "decor": [
+    "water:300,360,200,160",
+    "smoke:280,280,140,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "firstAid"
+      },
+      {
+        "role": "rescuer",
+        "node": "w"
+      },
+      {
+        "role": "medic",
+        "node": "e"
+      },
+      {
+        "role": "engineer",
+        "node": "h"
+      }
+    ],
+    "commands": [],
+    "ticks": 158,
+    "hash": "34599e90"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 51,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

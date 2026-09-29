@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "id": "M080",
+  "revision": 1,
+  "world": 3,
+  "slot": 20,
+  "title": "Fog Pitch and the Keeper",
+  "brief": "Pitch burns behind unlit island fog. The slip keeper on the east bank needs care. Light the island, put the fire out, steady the keeper.",
+  "tutorial": [
+    "Uncertain visibility on the fire itself. You cannot fight what you cannot reach.",
+    "Extinguisher on Marco. Tomi east keeper. Rosa spare light or land."
+  ],
+  "strategies": [
+    "Floodlight and Extinguisher on Marco. Tomi east. Rosa west spare.",
+    "Rosa lights the plank; Marco crosses water with water and the extinguisher."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher",
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "s",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "w",
+      "x": 80,
+      "y": 860,
+      "kind": "deploy",
+      "label": "West Gate"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 860,
+      "kind": "deploy",
+      "label": "East Gate"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 520,
+      "kind": "pier",
+      "label": "Fog Pitch"
+    },
+    {
+      "id": "east",
+      "x": 680,
+      "y": 520,
+      "label": "Slip Keeper"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Fog Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "block": "dark",
+      "label": "South Fog"
+    },
+    {
+      "id": "w-isle",
+      "a": "w",
+      "b": "isle",
+      "terrain": "water",
+      "label": "West Water"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "Island Keeper"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "Keeper Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "s"
+    },
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "east",
+      "needsCare": true,
+      "critical": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 240,
+      "type": "spread",
+      "from": "isle",
+      "to": "east"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 211,
+  "goldTicks": 198,
+  "decor": [
+    "water:240,300,280,280",
+    "smoke:300,360,160,120"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "w",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "e",
+        "gear": "floodlight"
+      }
+    ],
+    "commands": [],
+    "ticks": 198,
+    "hash": "a310dee0"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 204,
+    "setupsWon": 62,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

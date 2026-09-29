@@ -1,0 +1,216 @@
+{
+  "schema": 1,
+  "id": "M064",
+  "revision": 1,
+  "world": 3,
+  "slot": 4,
+  "title": "Fog on Both Banks",
+  "brief": "Callers are hidden in west reeds and east fog. Both banks are unlit. After two jobs a responder rests. Marco can cross; Juno lights.",
+  "tutorial": [
+    "Inspect both banks. Lighting one does not light the other.",
+    "Fatigue after two tasks. Split the banks."
+  ],
+  "strategies": [
+    "Juno west reeds. Marco east across the water after she opens one side.",
+    "Juno both banks; Marco only ferries."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "scout"
+  ],
+  "gear": [
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "West Reed"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "East Fog"
+    },
+    {
+      "id": "reed",
+      "x": 140,
+      "y": 640,
+      "label": "West Reeds"
+    },
+    {
+      "id": "fog",
+      "x": 660,
+      "y": 640,
+      "label": "East Fog"
+    },
+    {
+      "id": "dw",
+      "x": 140,
+      "y": 360,
+      "label": "Deep Reeds"
+    },
+    {
+      "id": "de",
+      "x": 660,
+      "y": 360,
+      "label": "Deep Fog"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Reed Hall"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 500,
+      "kind": "pier",
+      "label": "Mid Water"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-reed",
+      "a": "w",
+      "b": "reed",
+      "label": "West Rise"
+    },
+    {
+      "id": "e-fog",
+      "a": "e",
+      "b": "fog",
+      "label": "East Rise"
+    },
+    {
+      "id": "reed-dw",
+      "a": "reed",
+      "b": "dw",
+      "block": "dark",
+      "label": "Reed Fog"
+    },
+    {
+      "id": "fog-de",
+      "a": "fog",
+      "b": "de",
+      "block": "dark",
+      "label": "Fog Bank"
+    },
+    {
+      "id": "reed-mid",
+      "a": "reed",
+      "b": "mid",
+      "terrain": "water",
+      "label": "Reed Water"
+    },
+    {
+      "id": "fog-mid",
+      "a": "fog",
+      "b": "mid",
+      "terrain": "water",
+      "label": "Fog Water"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Mid Hall"
+    },
+    {
+      "id": "dw-hall",
+      "a": "dw",
+      "b": "hall",
+      "block": "dark",
+      "label": "Deep West Hall"
+    },
+    {
+      "id": "de-hall",
+      "a": "de",
+      "b": "hall",
+      "block": "dark",
+      "label": "Deep East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "dw",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "de",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "reed-dw",
+        "fog-de"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 513,
+  "goldTicks": 428,
+  "decor": [
+    "water:340,240,120,520",
+    "smoke:80,400,180,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w"
+      },
+      {
+        "role": "scout",
+        "node": "e"
+      }
+    ],
+    "commands": [],
+    "ticks": 428,
+    "hash": "89fcd9e9"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "id": "M078",
+  "revision": 1,
+  "world": 3,
+  "slot": 18,
+  "title": "Miller Call and Fog Call",
+  "brief": "Two separate call pairs: the miller on the west mill needs care, and a fog keeper on the east bank is hidden. Pitch on the island will follow the wind onto East Bank if it is not put out. These are not the same job copied twice.",
+  "tutorial": [
+    "West mill is land care. East fog is inspect plus care. Island fire is a third clock.",
+    "Wind then spread onto the east keeper's bank."
+  ],
+  "strategies": [
+    "Extinguisher on Marco. Floodlight on Rosa east. Tomi west miller.",
+    "If Marco starts east he still has to reach water before the spread."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher",
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Fog Gate"
+    },
+    {
+      "id": "mill",
+      "x": 120,
+      "y": 640,
+      "label": "West Mill"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 500,
+      "kind": "pier",
+      "label": "Pitch Island"
+    },
+    {
+      "id": "fog",
+      "x": 680,
+      "y": 500,
+      "label": "East Fog"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Pair Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-mill",
+      "a": "w",
+      "b": "mill",
+      "label": "Mill Rise"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Island"
+    },
+    {
+      "id": "e-fog",
+      "a": "e",
+      "b": "fog",
+      "label": "Fog Rise"
+    },
+    {
+      "id": "mill-hall",
+      "a": "mill",
+      "b": "hall",
+      "label": "Mill Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "fog-hall",
+      "a": "fog",
+      "b": "hall",
+      "block": "dark",
+      "label": "Fog Hall"
+    },
+    {
+      "id": "isle-fog",
+      "a": "isle",
+      "b": "fog",
+      "terrain": "water",
+      "label": "Island Fog"
+    },
+    {
+      "id": "mill-isle",
+      "a": "mill",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Mill Water"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "s"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mill",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "fog",
+      "needsCare": true,
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 90,
+      "type": "wind",
+      "note": "Wind turns onto East Fog"
+    },
+    {
+      "at": 230,
+      "type": "spread",
+      "from": "isle",
+      "to": "fog"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 446,
+  "goldTicks": 254,
+  "decor": [
+    "water:300,280,200,300",
+    "smoke:520,400,200,140"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "w",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "e",
+        "gear": "floodlight"
+      }
+    ],
+    "commands": [],
+    "ticks": 254,
+    "hash": "0fc5e611"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 204,
+    "setupsWon": 45,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

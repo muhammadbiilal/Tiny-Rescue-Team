@@ -56,6 +56,32 @@ void main() {
     timeout: const Timeout(Duration(minutes: 8)),
   );
 
+  test(
+    'Riverside M061-M090 each have a free-player witness',
+    () {
+      final scenes = [
+        for (final b in authoredCampaign())
+          if (b.world == 3) bake(b.build()),
+      ];
+      expect(scenes.length, 30);
+      for (final s in scenes) {
+        final static = staticCheck(s).where((i) => i.error);
+        expect(static, isEmpty, reason: '${s.id} ${static.join('; ')}');
+        final witness = verifyWitness(s);
+        expect(
+          witness.where((i) => i.error),
+          isEmpty,
+          reason: '${s.id} ${witness.join('; ')}',
+        );
+        expect(s.review.solver, 'solver_validated');
+      }
+      final all = [for (final b in authoredCampaign()) b.build()];
+      final dups = duplicateCheck(all).where((i) => i.error);
+      expect(dups, isEmpty, reason: dups.join('; '));
+    },
+    timeout: const Timeout(Duration(minutes: 8)),
+  );
+
   test('default Harbor pair is a valid loadout on M001', () {
     final s = harborSlice().first.build();
     final team = [

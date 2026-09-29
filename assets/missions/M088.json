@@ -1,0 +1,252 @@
+{
+  "schema": 1,
+  "id": "M088",
+  "revision": 1,
+  "world": 3,
+  "slot": 28,
+  "title": "Four Calls, Tired Ferry",
+  "brief": "Two pairs: west miller and west loft neighbour (land care), east fog keeper and island reed (inspect plus water). After two jobs everyone rests. These are four people, not one objective written twice.",
+  "tutorial": [
+    "Fatigue will punish anyone who tries all four cares.",
+    "Tomi cannot be everywhere. First Aid lets a second person steady."
+  ],
+  "strategies": [
+    "Tomi west mill. First Aid on Rosa west loft. Marco island. Floodlight on Bea east fog.",
+    "Marco island and east. Tomi only the mill pair. Rosa escorts."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "engineer"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Mill Post"
+    },
+    {
+      "id": "n",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Spare"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Fog Post"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "South Slip"
+    },
+    {
+      "id": "mill",
+      "x": 140,
+      "y": 320,
+      "label": "West Miller"
+    },
+    {
+      "id": "loft",
+      "x": 140,
+      "y": 560,
+      "label": "West Loft"
+    },
+    {
+      "id": "fog",
+      "x": 680,
+      "y": 400,
+      "label": "East Fog"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 500,
+      "kind": "pier",
+      "label": "Island Reed"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 780,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-mill",
+      "a": "w",
+      "b": "mill",
+      "label": "Mill Drop"
+    },
+    {
+      "id": "n-hall",
+      "a": "n",
+      "b": "hall",
+      "block": "debris",
+      "label": "North Hall"
+    },
+    {
+      "id": "e-fog",
+      "a": "e",
+      "b": "fog",
+      "label": "Fog Drop"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Island"
+    },
+    {
+      "id": "mill-loft",
+      "a": "mill",
+      "b": "loft",
+      "label": "Miller Loft"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "label": "Loft Hall"
+    },
+    {
+      "id": "fog-hall",
+      "a": "fog",
+      "b": "hall",
+      "block": "dark",
+      "label": "Fog Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "isle-fog",
+      "a": "isle",
+      "b": "fog",
+      "terrain": "water",
+      "label": "Island Fog"
+    },
+    {
+      "id": "mill-hall",
+      "a": "mill",
+      "b": "hall",
+      "label": "Mill Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "n"
+    },
+    {
+      "node": "e"
+    },
+    {
+      "node": "s"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mill",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "loft",
+      "needsCare": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "fog",
+      "needsCare": true,
+      "hidden": true,
+      "look": 2
+    },
+    {
+      "id": "c4",
+      "node": "isle",
+      "look": 3
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 4
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 756,
+  "goldTicks": 405,
+  "decor": [
+    "water:360,360,160,200",
+    "smoke:520,480,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "floodlight"
+      },
+      {
+        "role": "rescuer",
+        "node": "n"
+      },
+      {
+        "role": "medic",
+        "node": "e"
+      },
+      {
+        "role": "engineer",
+        "node": "w",
+        "gear": "firstAid"
+      }
+    ],
+    "commands": [],
+    "ticks": 405,
+    "hash": "21bfc953"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 141,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

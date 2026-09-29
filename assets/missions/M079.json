@@ -1,0 +1,233 @@
+{
+  "schema": 1,
+  "id": "M079",
+  "revision": 1,
+  "world": 3,
+  "slot": 19,
+  "title": "One First Aid Kit",
+  "brief": "The island miller needs care, and two bank neighbours must walk to Reed Hall. Only one First Aid kit. The miller sits behind a fog plank Tomi can walk once it is lit, and also a water cut Marco can use.",
+  "tutorial": [
+    "Limited kit. Tomi probably keeps it. Marco ferries the east neighbour.",
+    "The miller is not water-only: light the west plank so Tomi can reach them."
+  ],
+  "strategies": [
+    "Floodlight on Tomi to the plank. Marco east neighbour. Rosa west neighbour.",
+    "Floodlight on Marco; he lights from the water edge, Tomi walks the plank."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Mill Gate"
+    },
+    {
+      "id": "s",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "East Bluff"
+    },
+    {
+      "id": "west",
+      "x": 80,
+      "y": 280,
+      "label": "West Neighbour"
+    },
+    {
+      "id": "loft",
+      "x": 80,
+      "y": 500,
+      "label": "Mill Loft"
+    },
+    {
+      "id": "isle",
+      "x": 480,
+      "y": 700,
+      "kind": "pier",
+      "label": "Island Miller"
+    },
+    {
+      "id": "east",
+      "x": 720,
+      "y": 500,
+      "label": "East Neighbour"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 940,
+      "kind": "shelter",
+      "label": "Reed Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-west",
+      "a": "w",
+      "b": "west",
+      "label": "West Drop"
+    },
+    {
+      "id": "s-loft",
+      "a": "s",
+      "b": "loft",
+      "label": "Slip Loft"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "Bluff Drop"
+    },
+    {
+      "id": "west-loft",
+      "a": "west",
+      "b": "loft",
+      "label": "Neighbour Loft"
+    },
+    {
+      "id": "loft-isle",
+      "a": "loft",
+      "b": "isle",
+      "block": "dark",
+      "label": "Loft Plank"
+    },
+    {
+      "id": "s-isle",
+      "a": "s",
+      "b": "isle",
+      "terrain": "water",
+      "label": "Slip Water"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "Island East"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "block": "debris",
+      "label": "West Hall"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "s"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "isle",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "west",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "east",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 570,
+  "goldTicks": 225,
+  "decor": [
+    "water:240,600,320,120",
+    "smoke:80,200,180,140",
+    "pier:480,560,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "s",
+        "gear": "firstAid"
+      },
+      {
+        "role": "rescuer",
+        "node": "w"
+      },
+      {
+        "role": "medic",
+        "node": "e"
+      }
+    ],
+    "commands": [],
+    "ticks": 225,
+    "hash": "e20eb056"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 60,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

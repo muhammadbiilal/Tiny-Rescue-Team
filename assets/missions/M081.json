@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "id": "M081",
+  "revision": 1,
+  "world": 3,
+  "slot": 21,
+  "title": "Four Posts to North Landing",
+  "brief": "North Landing must be reachable on land from South Levee. Four posts, one responder each. Hidden reed callers sit on the west water-cut. Ferry Cross is shuttered.",
+  "tutorial": [
+    "Split four ways. Rosa belongs on the cross. Juno or Floodlight on the reeds.",
+    "Marco is the water spare. Tomi escorts."
+  ],
+  "strategies": [
+    "Rosa south to the cross. Juno west reeds. Marco east water. Tomi north-side escort.",
+    "Clear Ferry Cross; do not rely on water for the route stamp."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "cutter",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "s",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "South Levee"
+    },
+    {
+      "id": "w",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Reed Post"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "n",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "North Spare"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 400,
+      "kind": "junction",
+      "label": "Ferry Cross"
+    },
+    {
+      "id": "reed",
+      "x": 160,
+      "y": 560,
+      "label": "West Reeds"
+    },
+    {
+      "id": "north",
+      "x": 400,
+      "y": 720,
+      "kind": "pier",
+      "label": "North Landing"
+    },
+    {
+      "id": "hall",
+      "x": 640,
+      "y": 560,
+      "kind": "shelter",
+      "label": "Landing Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "s-cross",
+      "a": "s",
+      "b": "cross",
+      "label": "South Cross"
+    },
+    {
+      "id": "w-reed",
+      "a": "w",
+      "b": "reed",
+      "label": "Reed Drop"
+    },
+    {
+      "id": "e-hall",
+      "a": "e",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "n-north",
+      "a": "n",
+      "b": "north",
+      "label": "North Drop"
+    },
+    {
+      "id": "cross-north",
+      "a": "cross",
+      "b": "north",
+      "block": "debris",
+      "label": "Ferry Cross"
+    },
+    {
+      "id": "reed-cross",
+      "a": "reed",
+      "b": "cross",
+      "block": "dark",
+      "label": "Reed Cross"
+    },
+    {
+      "id": "reed-north",
+      "a": "reed",
+      "b": "north",
+      "terrain": "water",
+      "label": "Reed Water"
+    },
+    {
+      "id": "north-hall",
+      "a": "north",
+      "b": "hall",
+      "label": "North Hall Lane"
+    },
+    {
+      "id": "cross-hall",
+      "a": "cross",
+      "b": "hall",
+      "label": "Cross Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "s"
+    },
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    },
+    {
+      "node": "n"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "reed",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "s",
+      "b": "north"
+    },
+    {
+      "type": "revealed",
+      "nodes": [
+        "reed-cross"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 266,
+  "goldTicks": 199,
+  "decor": [
+    "water:80,300,200,300",
+    "pier:360,80,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w",
+        "gear": "floodlight"
+      },
+      {
+        "role": "rescuer",
+        "node": "e",
+        "gear": "cutter"
+      },
+      {
+        "role": "medic",
+        "node": "s"
+      },
+      {
+        "role": "scout",
+        "node": "n"
+      }
+    ],
+    "commands": [],
+    "ticks": 199,
+    "hash": "eb2b8daa"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 260,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

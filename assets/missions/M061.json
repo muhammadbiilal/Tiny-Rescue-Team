@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "id": "M061",
+  "revision": 1,
+  "world": 3,
+  "slot": 1,
+  "title": "Ferry Cut at High Water",
+  "brief": "North Landing must be reachable from South Levee. The oxbow is water: only Marco Reyes can cross it. Tiny Boathouse seats one and is open; Reed Chapel opens at fifteen seconds.",
+  "tutorial": [
+    "Marco Reyes joins the free team. He is the only responder who can travel water lanes.",
+    "Tiny Boathouse holds one neighbour. The second waits for Reed Chapel."
+  ],
+  "strategies": [
+    "Marco across the oxbow. Rosa clears Levee Shutters on the land road.",
+    "Ignore shutters: Marco ferries both neighbours after the chapel opens."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer"
+  ],
+  "nodes": [
+    {
+      "id": "south",
+      "x": 160,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Levee"
+    },
+    {
+      "id": "east",
+      "x": 640,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "East Bank"
+    },
+    {
+      "id": "levee",
+      "x": 160,
+      "y": 700,
+      "label": "Levee Path"
+    },
+    {
+      "id": "ox",
+      "x": 400,
+      "y": 560,
+      "kind": "pier",
+      "label": "Oxbow"
+    },
+    {
+      "id": "land",
+      "x": 640,
+      "y": 700,
+      "label": "Towpath"
+    },
+    {
+      "id": "north",
+      "x": 400,
+      "y": 160,
+      "kind": "pier",
+      "label": "North Landing"
+    },
+    {
+      "id": "tiny",
+      "x": 160,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Tiny Boathouse"
+    },
+    {
+      "id": "chapel",
+      "x": 640,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Reed Chapel"
+    }
+  ],
+  "edges": [
+    {
+      "id": "south-levee",
+      "a": "south",
+      "b": "levee",
+      "label": "Levee Rise"
+    },
+    {
+      "id": "east-land",
+      "a": "east",
+      "b": "land",
+      "label": "Bank Rise"
+    },
+    {
+      "id": "levee-ox",
+      "a": "levee",
+      "b": "ox",
+      "terrain": "water",
+      "label": "Levee Oxbow"
+    },
+    {
+      "id": "land-ox",
+      "a": "land",
+      "b": "ox",
+      "terrain": "water",
+      "label": "Towpath Oxbow"
+    },
+    {
+      "id": "ox-north",
+      "a": "ox",
+      "b": "north",
+      "terrain": "water",
+      "label": "Oxbow North"
+    },
+    {
+      "id": "levee-tiny",
+      "a": "levee",
+      "b": "tiny",
+      "label": "Levee Boat"
+    },
+    {
+      "id": "land-chapel",
+      "a": "land",
+      "b": "chapel",
+      "label": "Towpath Chapel"
+    },
+    {
+      "id": "levee-land",
+      "a": "levee",
+      "b": "land",
+      "block": "debris",
+      "label": "Levee Shutters"
+    },
+    {
+      "id": "tiny-north",
+      "a": "tiny",
+      "b": "north",
+      "block": "debris",
+      "label": "Boat North"
+    },
+    {
+      "id": "chapel-north",
+      "a": "chapel",
+      "b": "north",
+      "label": "Chapel North"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "south"
+    },
+    {
+      "node": "east"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "levee"
+    },
+    {
+      "id": "c2",
+      "node": "land",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "tiny",
+      "capacity": 1
+    },
+    {
+      "node": "chapel",
+      "openAt": 150
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "south",
+      "b": "north"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 337,
+  "goldTicks": 250,
+  "decor": [
+    "water:340,200,120,640",
+    "pier:300,140,80,60"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "south"
+      },
+      {
+        "role": "rescuer",
+        "node": "east"
+      }
+    ],
+    "commands": [],
+    "ticks": 250,
+    "hash": "6c5f6a25"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 2,
+    "setupsWon": 2,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

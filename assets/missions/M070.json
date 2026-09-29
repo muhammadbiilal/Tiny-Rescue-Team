@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "id": "M070",
+  "revision": 1,
+  "world": 3,
+  "slot": 10,
+  "title": "Two Ways to the Miller",
+  "brief": "The miller on Reed Island needs care before anyone can walk them out. West cut is water. East cut is fog on a plank. Either route works.",
+  "tutorial": [
+    "Two viable routes to the miller. West is water (Marco). East is fog (Floodlight).",
+    "Tomi steadies. Marco ferries or lights."
+  ],
+  "strategies": [
+    "Marco west water. Tomi east with the Floodlight.",
+    "Both west: Tomi waits at the hall for Marco to bring the miller."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "medic"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "West Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "East Fog Gate"
+    },
+    {
+      "id": "isle",
+      "x": 240,
+      "y": 500,
+      "kind": "pier",
+      "label": "Reed Island"
+    },
+    {
+      "id": "fog",
+      "x": 640,
+      "y": 500,
+      "label": "East Fog"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 220,
+      "kind": "shelter",
+      "label": "Miller Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-isle",
+      "a": "w",
+      "b": "isle",
+      "terrain": "water",
+      "label": "West Water"
+    },
+    {
+      "id": "e-fog",
+      "a": "e",
+      "b": "fog",
+      "label": "East Rise"
+    },
+    {
+      "id": "fog-isle",
+      "a": "fog",
+      "b": "isle",
+      "block": "dark",
+      "label": "Fog Plank"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "fog-hall",
+      "a": "fog",
+      "b": "hall",
+      "block": "dark",
+      "label": "Fog Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "isle",
+      "needsCare": true,
+      "critical": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 439,
+  "goldTicks": 181,
+  "decor": [
+    "water:80,300,240,400",
+    "smoke:520,360,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "w",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "e"
+      }
+    ],
+    "commands": [],
+    "ticks": 181,
+    "hash": "949e4f0d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 14,
+    "setupsWon": 5,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

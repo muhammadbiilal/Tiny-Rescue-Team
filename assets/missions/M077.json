@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "id": "M077",
+  "revision": 1,
+  "world": 3,
+  "slot": 17,
+  "title": "Towpath Before the Flood",
+  "brief": "Towpath must stay clear of fire. Pitch at the west drum will reach it. The east approach floods at about twenty seconds and becomes water, splitting the land crew from the path unless they beat the clock or send Marco.",
+  "tutorial": [
+    "Delayed flood on East Approach. Land responders lose that road.",
+    "Protect Towpath. Island/boat is a second job from the drum."
+  ],
+  "strategies": [
+    "Extinguisher on Rosa at the drum. Marco east water after the flood. Tomi towpath neighbour.",
+    "Extinguisher on Marco via west water. Rosa holds the towpath."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer",
+    "medic"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "d",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Drum Gate"
+    },
+    {
+      "id": "t",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Tow Gate"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "East Gate"
+    },
+    {
+      "id": "drum",
+      "x": 140,
+      "y": 640,
+      "label": "West Drum"
+    },
+    {
+      "id": "tow",
+      "x": 400,
+      "y": 480,
+      "label": "Towpath"
+    },
+    {
+      "id": "east",
+      "x": 680,
+      "y": 640,
+      "label": "East Approach"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Tow Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "d-drum",
+      "a": "d",
+      "b": "drum",
+      "label": "Drum Rise"
+    },
+    {
+      "id": "t-tow",
+      "a": "t",
+      "b": "tow",
+      "label": "Tow Rise"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "drum-tow",
+      "a": "drum",
+      "b": "tow",
+      "label": "Drum Tow"
+    },
+    {
+      "id": "east-tow",
+      "a": "east",
+      "b": "tow",
+      "label": "East Approach"
+    },
+    {
+      "id": "drum-east",
+      "a": "drum",
+      "b": "east",
+      "terrain": "water",
+      "label": "Drum Water"
+    },
+    {
+      "id": "tow-hall",
+      "a": "tow",
+      "b": "hall",
+      "label": "Tow Hall Lane"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "d"
+    },
+    {
+      "node": "t"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "east"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "drum",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "drum",
+      "to": "tow"
+    },
+    {
+      "at": 200,
+      "type": "flood",
+      "edge": "east-tow",
+      "note": "East Approach takes on water"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "tow"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 179,
+  "goldTicks": 155,
+  "decor": [
+    "water:80,400,160,160",
+    "pier:320,240,80,40"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "d",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "e"
+      },
+      {
+        "role": "medic",
+        "node": "t"
+      }
+    ],
+    "commands": [],
+    "ticks": 155,
+    "hash": "9c709e61"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 24,
+    "setupsWon": 14,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

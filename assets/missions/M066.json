@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "id": "M066",
+  "revision": 1,
+  "world": 3,
+  "slot": 6,
+  "title": "Bank Crew and Boat Crew",
+  "brief": "Pitch on the island will follow the wind onto East Bank, which must stay clear. The island is water-only. Rosa works the bank; Marco works the boat. They do not share a lane until the fire is dead or the bank is held.",
+  "tutorial": [
+    "Two jobs: island fire and bank escort. Marco cannot be in both places at tick zero.",
+    "Wind then spread. Extinguisher belongs on the boat."
+  ],
+  "strategies": [
+    "Extinguisher on Marco west slip. Rosa east bank with the neighbour.",
+    "If Marco starts east he still has to reach water before the spread."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "boatPilot",
+    "rescuer"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "West Slip"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "East Bank Gate"
+    },
+    {
+      "id": "isle",
+      "x": 400,
+      "y": 520,
+      "kind": "pier",
+      "label": "Pitch Island"
+    },
+    {
+      "id": "east",
+      "x": 680,
+      "y": 520,
+      "label": "East Bank"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Bank Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-isle",
+      "a": "w",
+      "b": "isle",
+      "terrain": "water",
+      "label": "West Water"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "isle-east",
+      "a": "isle",
+      "b": "east",
+      "terrain": "water",
+      "label": "Island Bank"
+    },
+    {
+      "id": "isle-hall",
+      "a": "isle",
+      "b": "hall",
+      "terrain": "water",
+      "label": "Island Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "east"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "isle",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 80,
+      "type": "wind",
+      "note": "Wind turns onto East Bank"
+    },
+    {
+      "at": 210,
+      "type": "spread",
+      "from": "isle",
+      "to": "east"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "east"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 153,
+  "goldTicks": 151,
+  "decor": [
+    "water:300,280,200,360",
+    "pier:360,200,80,50"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "boatPilot",
+        "node": "e"
+      },
+      {
+        "role": "rescuer",
+        "node": "w",
+        "gear": "extinguisher"
+      }
+    ],
+    "commands": [],
+    "ticks": 151,
+    "hash": "235d80e3"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 3,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}
