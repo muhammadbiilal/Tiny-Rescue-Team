@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "id": "M037",
+  "revision": 1,
+  "world": 2,
+  "slot": 7,
+  "title": "One Cart, Two Alleys",
+  "brief": "The mill tin has to reach Lane Clinic. The cart cannot enter Mill Smoke until that alley is lit. Juno and Rosa start on opposite alleys: one opens, one hauls.",
+  "tutorial": [
+    "Dependent jobs: the sled is useless until the smoke alley is open.",
+    "One Cargo Sled. Rosa hauls. Juno lights."
+  ],
+  "strategies": [
+    "Juno at Smoke Alley. Sled on Rosa at Mill Alley.",
+    "Swap: Juno still has to cross to the smoke before Rosa can roll."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "gear": [
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "ma",
+      "x": 120,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Alley"
+    },
+    {
+      "id": "sa",
+      "x": 680,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Smoke Alley"
+    },
+    {
+      "id": "mill",
+      "x": 140,
+      "y": 680,
+      "kind": "depot",
+      "label": "Mill Door"
+    },
+    {
+      "id": "mist",
+      "x": 400,
+      "y": 620,
+      "label": "Mill Smoke"
+    },
+    {
+      "id": "clinic",
+      "x": 660,
+      "y": 360,
+      "kind": "need",
+      "label": "Lane Clinic"
+    },
+    {
+      "id": "well",
+      "x": 360,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Well Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "ma-mill",
+      "a": "ma",
+      "b": "mill",
+      "label": "Mill In"
+    },
+    {
+      "id": "sa-mist",
+      "a": "sa",
+      "b": "mist",
+      "label": "Alley Mist"
+    },
+    {
+      "id": "mill-mist",
+      "a": "mill",
+      "b": "mist",
+      "block": "dark",
+      "label": "Mill Smoke"
+    },
+    {
+      "id": "mist-clinic",
+      "a": "mist",
+      "b": "clinic",
+      "block": "dark",
+      "label": "Mist Clinic"
+    },
+    {
+      "id": "mill-well",
+      "a": "mill",
+      "b": "well",
+      "block": "debris",
+      "label": "Mill Well"
+    },
+    {
+      "id": "clinic-well",
+      "a": "clinic",
+      "b": "well",
+      "label": "Clinic Well"
+    },
+    {
+      "id": "mist-well",
+      "a": "mist",
+      "b": "well",
+      "label": "Mist Well"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "ma"
+    },
+    {
+      "node": "sa"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "well"
+    }
+  ],
+  "depots": [
+    {
+      "node": "mill",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_clinic"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 224,
+  "goldTicks": 193,
+  "decor": [
+    "smoke:80,360,240,200",
+    "cobble:480,700,260,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "sa"
+      },
+      {
+        "role": "rescuer",
+        "node": "ma"
+      }
+    ],
+    "commands": [],
+    "ticks": 193,
+    "hash": "069a825c"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 6,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

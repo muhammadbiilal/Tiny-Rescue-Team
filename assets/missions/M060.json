@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "id": "M060",
+  "revision": 1,
+  "world": 2,
+  "slot": 30,
+  "title": "Old Town Night",
+  "brief": "Bell Tower must be reachable from Night Gate. Three neighbours are still in the lanes. Tiny Well seats one; Lane Chapel opens at twelve seconds. Smoke hides the east eaves caller. This is the Old Town finale.",
+  "tutorial": [
+    "Finale: tower road, three people, two shelters with a clock.",
+    "Seat one at the well, wait for chapel, or repair nothing — the chapel only waits on time."
+  ],
+  "strategies": [
+    "Juno east eaves. Rosa Bell Shutters. Tomi first neighbour to the well. Bea spare on any leftover lane.",
+    "Ignore shutters and walk the eaves road to the tower after Juno opens it."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "cutter",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "ng",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Night Gate"
+    },
+    {
+      "id": "wg",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Well Gate"
+    },
+    {
+      "id": "eg",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Eaves Gate"
+    },
+    {
+      "id": "st",
+      "x": 400,
+      "y": 280,
+      "label": "Night Street"
+    },
+    {
+      "id": "wn",
+      "x": 160,
+      "y": 480,
+      "label": "Well Neighbour"
+    },
+    {
+      "id": "eaves",
+      "x": 660,
+      "y": 480,
+      "label": "Night Eaves"
+    },
+    {
+      "id": "tiny",
+      "x": 400,
+      "y": 520,
+      "kind": "shelter",
+      "label": "Tiny Well"
+    },
+    {
+      "id": "chapel",
+      "x": 400,
+      "y": 780,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 980,
+      "kind": "lookout",
+      "label": "Bell Tower"
+    }
+  ],
+  "edges": [
+    {
+      "id": "ng-st",
+      "a": "ng",
+      "b": "st",
+      "label": "Night Drop"
+    },
+    {
+      "id": "wg-wn",
+      "a": "wg",
+      "b": "wn",
+      "label": "Well Drop"
+    },
+    {
+      "id": "eg-eaves",
+      "a": "eg",
+      "b": "eaves",
+      "label": "Eaves Drop"
+    },
+    {
+      "id": "st-wn",
+      "a": "st",
+      "b": "wn",
+      "label": "Street Well"
+    },
+    {
+      "id": "st-eaves",
+      "a": "st",
+      "b": "eaves",
+      "block": "dark",
+      "label": "Street Eaves"
+    },
+    {
+      "id": "st-tiny",
+      "a": "st",
+      "b": "tiny",
+      "label": "Street Tiny"
+    },
+    {
+      "id": "wn-tiny",
+      "a": "wn",
+      "b": "tiny",
+      "label": "Neighbour Tiny"
+    },
+    {
+      "id": "eaves-tiny",
+      "a": "eaves",
+      "b": "tiny",
+      "block": "dark",
+      "label": "Eaves Tiny"
+    },
+    {
+      "id": "tiny-chapel",
+      "a": "tiny",
+      "b": "chapel",
+      "label": "Tiny Chapel"
+    },
+    {
+      "id": "chapel-bell",
+      "a": "chapel",
+      "b": "bell",
+      "label": "Chapel Bell"
+    },
+    {
+      "id": "st-bell",
+      "a": "st",
+      "b": "bell",
+      "block": "debris",
+      "label": "Bell Shutters"
+    },
+    {
+      "id": "eaves-bell",
+      "a": "eaves",
+      "b": "bell",
+      "block": "dark",
+      "label": "Eaves Bell"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "ng",
+      "capacity": 2
+    },
+    {
+      "node": "wg"
+    },
+    {
+      "node": "eg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "wn"
+    },
+    {
+      "id": "c2",
+      "node": "st",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "eaves",
+      "hidden": true,
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "tiny",
+      "capacity": 1
+    },
+    {
+      "node": "chapel",
+      "openAt": 120
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "ng",
+      "b": "bell"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 254,
+  "goldTicks": 213,
+  "decor": [
+    "eaves:520,360,240,200",
+    "cobble:80,80,280,120",
+    "gable:280,860,240,100",
+    "smoke:360,400,120,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "ng"
+      },
+      {
+        "role": "medic",
+        "node": "eg"
+      },
+      {
+        "role": "engineer",
+        "node": "wg"
+      },
+      {
+        "role": "scout",
+        "node": "ng",
+        "gear": "cutter"
+      }
+    ],
+    "commands": [],
+    "ticks": 213,
+    "hash": "31dedff9"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 252,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

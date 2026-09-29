@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "id": "M051",
+  "revision": 1,
+  "world": 2,
+  "slot": 21,
+  "title": "Tired Stretch to the Clinic",
+  "brief": "The miller and a loft neighbour both need care. Two tins must reach Lane Clinic. After two jobs everyone rests. Smoke hides the loft.",
+  "tutorial": [
+    "Four on the team: Rosa, Tomi, Bea, Juno.",
+    "Fatigue will catch whoever tries to do every job. Split mill, loft, and clinic."
+  ],
+  "strategies": [
+    "Tomi miller, Juno loft, sled on Rosa, Bea spare on shutters.",
+    "Sled on Bea; Rosa clears; Tomi only cares."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "cargoSled",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "a",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Mill"
+    },
+    {
+      "id": "c",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Mid"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Clinic"
+    },
+    {
+      "id": "mn",
+      "x": 120,
+      "y": 300,
+      "label": "Miller"
+    },
+    {
+      "id": "loft",
+      "x": 120,
+      "y": 560,
+      "label": "Loft Neighbour"
+    },
+    {
+      "id": "dep",
+      "x": 400,
+      "y": 300,
+      "kind": "depot",
+      "label": "Tin Bay"
+    },
+    {
+      "id": "clinic",
+      "x": 700,
+      "y": 400,
+      "kind": "need",
+      "label": "Lane Clinic"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 720,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a-mn",
+      "a": "a",
+      "b": "mn",
+      "label": "Mill Drop"
+    },
+    {
+      "id": "c-dep",
+      "a": "c",
+      "b": "dep",
+      "label": "Mid Bay"
+    },
+    {
+      "id": "e-clinic",
+      "a": "e",
+      "b": "clinic",
+      "label": "Clinic Drop"
+    },
+    {
+      "id": "mn-loft",
+      "a": "mn",
+      "b": "loft",
+      "block": "dark",
+      "label": "Miller Loft"
+    },
+    {
+      "id": "mn-dep",
+      "a": "mn",
+      "b": "dep",
+      "label": "Miller Bay"
+    },
+    {
+      "id": "dep-clinic",
+      "a": "dep",
+      "b": "clinic",
+      "label": "Bay Clinic"
+    },
+    {
+      "id": "loft-hall",
+      "a": "loft",
+      "b": "hall",
+      "block": "dark",
+      "label": "Loft Hall"
+    },
+    {
+      "id": "dep-hall",
+      "a": "dep",
+      "b": "hall",
+      "label": "Bay Hall"
+    },
+    {
+      "id": "clinic-hall",
+      "a": "clinic",
+      "b": "hall",
+      "label": "Clinic Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "a"
+    },
+    {
+      "node": "c",
+      "capacity": 2
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mn",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "loft",
+      "needsCare": true,
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "dep",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_clinic"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 465,
+  "goldTicks": 324,
+  "decor": [
+    "smoke:80,180,200,160",
+    "cobble:400,780,280,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "a",
+        "gear": "firstAid"
+      },
+      {
+        "role": "medic",
+        "node": "c"
+      },
+      {
+        "role": "engineer",
+        "node": "e",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "scout",
+        "node": "c"
+      }
+    ],
+    "commands": [],
+    "ticks": 324,
+    "hash": "fda48875"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 252,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

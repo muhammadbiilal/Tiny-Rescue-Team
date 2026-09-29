@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "id": "M058",
+  "revision": 1,
+  "world": 2,
+  "slot": 28,
+  "title": "Blocked Cross, Two Lanes",
+  "brief": "Market Arcade and Bell Lane must both stay clear. Well Cross is packed with shutters, so crews cannot turn between the two lanes until that junction is cleared. A hearth south of the cross feeds both.",
+  "tutorial": [
+    "Two lanes to protect, one blocked turn between them.",
+    "Clear Well Cross or fight each fire from its own gate."
+  ],
+  "strategies": [
+    "Extinguisher on the south starter next to the hearth. Rosa on the cross. Juno Market smoke. Tomi Bell Lane.",
+    "If the cross stays shut, each lane is its own fight."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "mp",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Market Post"
+    },
+    {
+      "id": "cp",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Cross Post"
+    },
+    {
+      "id": "bp",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Bell Post"
+    },
+    {
+      "id": "sp",
+      "x": 400,
+      "y": 980,
+      "kind": "deploy",
+      "label": "South Hearth"
+    },
+    {
+      "id": "mkt",
+      "x": 140,
+      "y": 360,
+      "label": "Market Arcade"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 360,
+      "kind": "junction",
+      "label": "Well Cross"
+    },
+    {
+      "id": "bell",
+      "x": 680,
+      "y": 360,
+      "label": "Bell Lane"
+    },
+    {
+      "id": "hearth",
+      "x": 400,
+      "y": 720,
+      "label": "South Hearth"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "North Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mp-mkt",
+      "a": "mp",
+      "b": "mkt",
+      "label": "Market Drop"
+    },
+    {
+      "id": "cp-cross",
+      "a": "cp",
+      "b": "cross",
+      "label": "Cross Drop"
+    },
+    {
+      "id": "bp-bell",
+      "a": "bp",
+      "b": "bell",
+      "label": "Bell Drop"
+    },
+    {
+      "id": "sp-hearth",
+      "a": "sp",
+      "b": "hearth",
+      "label": "Hearth Rise"
+    },
+    {
+      "id": "mkt-cross",
+      "a": "mkt",
+      "b": "cross",
+      "block": "debris",
+      "label": "Market Cross"
+    },
+    {
+      "id": "cross-bell",
+      "a": "cross",
+      "b": "bell",
+      "block": "debris",
+      "label": "Cross Bell"
+    },
+    {
+      "id": "hearth-cross",
+      "a": "hearth",
+      "b": "cross",
+      "label": "Hearth Cross"
+    },
+    {
+      "id": "hearth-mkt",
+      "a": "hearth",
+      "b": "mkt",
+      "block": "dark",
+      "label": "Hearth Market"
+    },
+    {
+      "id": "hearth-bell",
+      "a": "hearth",
+      "b": "bell",
+      "label": "Hearth Bell"
+    },
+    {
+      "id": "mkt-hall",
+      "a": "mkt",
+      "b": "hall",
+      "label": "Market Hall"
+    },
+    {
+      "id": "bell-hall",
+      "a": "bell",
+      "b": "hall",
+      "label": "Bell Hall"
+    },
+    {
+      "id": "cross-hall",
+      "a": "cross",
+      "b": "hall",
+      "label": "Cross Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "mp"
+    },
+    {
+      "node": "cp"
+    },
+    {
+      "node": "bp"
+    },
+    {
+      "node": "sp"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mkt"
+    },
+    {
+      "id": "c2",
+      "node": "bell",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "hearth",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "hearth",
+      "to": "mkt"
+    },
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "hearth",
+      "to": "bell"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "mkt",
+        "bell"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 217,
+  "goldTicks": 122,
+  "decor": [
+    "cobble:200,480,400,80",
+    "smoke:320,700,160,140"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "bp",
+        "gear": "cutter"
+      },
+      {
+        "role": "medic",
+        "node": "mp"
+      },
+      {
+        "role": "engineer",
+        "node": "cp",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "scout",
+        "node": "sp"
+      }
+    ],
+    "commands": [],
+    "ticks": 122,
+    "hash": "81c4bc97"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 188,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

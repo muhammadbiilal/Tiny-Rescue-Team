@@ -32,6 +32,8 @@ class HarborMap extends Component {
   void _ground(Canvas canvas) {
     final sky = highContrast
         ? const Color(0xFFE2E8F0)
+        : scene.world == 2
+        ? const Color(0xFFD6C4A8)
         : const Color(0xFFD7E8D2);
     canvas.drawRect(
       const Rect.fromLTWH(0, 0, worldW, worldH),
@@ -85,6 +87,23 @@ class HarborMap extends Component {
               ..strokeWidth = 2,
           );
         }
+      case 'cobble':
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(r, const Radius.circular(4)),
+          Paint()..color = const Color(0xAA78716C),
+        );
+      case 'eaves':
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(r, const Radius.circular(2)),
+          Paint()..color = const Color(0xCC7C2D12),
+        );
+      case 'smoke':
+        canvas.drawOval(r, Paint()..color = const Color(0x6687878A));
+      case 'gable':
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(r, const Radius.circular(3)),
+          Paint()..color = const Color(0xBB92400E),
+        );
       default:
         canvas.drawRRect(
           RRect.fromRectAndRadius(r, const Radius.circular(8)),

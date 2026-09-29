@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "id": "M059",
+  "revision": 1,
+  "world": 2,
+  "slot": 29,
+  "title": "Bell and Baker at Once",
+  "brief": "A baker needs care in the west yard and a bell keeper needs care in the east loft. Branching smoke: lighting one side does not light the other. Walk both to North Hall.",
+  "tutorial": [
+    "Two calls, two smokes. Juno cannot be on both forks at tick zero.",
+    "Tomi still has to steady both. Send her after each fork opens, or split first aid."
+  ],
+  "strategies": [
+    "Juno west, Floodlight on Bea east, Tomi follows the first open fork, Rosa escorts the other.",
+    "First aid on Rosa so two people can care."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "floodlight",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "np",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Hall Gate"
+    },
+    {
+      "id": "wp",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Baker Post"
+    },
+    {
+      "id": "ep",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Bell Post"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "North Hall"
+    },
+    {
+      "id": "baker",
+      "x": 140,
+      "y": 560,
+      "label": "Baker Yard"
+    },
+    {
+      "id": "loft",
+      "x": 660,
+      "y": 560,
+      "label": "Bell Loft"
+    },
+    {
+      "id": "db",
+      "x": 140,
+      "y": 840,
+      "label": "Deep Baker"
+    },
+    {
+      "id": "dl",
+      "x": 660,
+      "y": 840,
+      "label": "Deep Loft"
+    }
+  ],
+  "edges": [
+    {
+      "id": "np-hall",
+      "a": "np",
+      "b": "hall",
+      "label": "Gate Hall"
+    },
+    {
+      "id": "wp-baker",
+      "a": "wp",
+      "b": "baker",
+      "label": "Baker Drop"
+    },
+    {
+      "id": "ep-loft",
+      "a": "ep",
+      "b": "loft",
+      "label": "Loft Drop"
+    },
+    {
+      "id": "hall-baker",
+      "a": "hall",
+      "b": "baker",
+      "block": "dark",
+      "label": "Hall Baker"
+    },
+    {
+      "id": "hall-loft",
+      "a": "hall",
+      "b": "loft",
+      "block": "dark",
+      "label": "Hall Loft"
+    },
+    {
+      "id": "baker-db",
+      "a": "baker",
+      "b": "db",
+      "block": "dark",
+      "label": "Deep Baker Smoke"
+    },
+    {
+      "id": "loft-dl",
+      "a": "loft",
+      "b": "dl",
+      "block": "dark",
+      "label": "Deep Loft Smoke"
+    },
+    {
+      "id": "baker-loft",
+      "a": "baker",
+      "b": "loft",
+      "block": "debris",
+      "label": "Yard Cut"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "np",
+      "capacity": 2
+    },
+    {
+      "node": "wp"
+    },
+    {
+      "node": "ep"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "baker",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "loft",
+      "needsCare": true,
+      "hidden": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "db",
+      "hidden": true,
+      "look": 2
+    },
+    {
+      "id": "c4",
+      "node": "dl",
+      "hidden": true,
+      "look": 3
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "stabilized",
+      "target": "c2"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 4
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 555,
+  "goldTicks": 451,
+  "decor": [
+    "eaves:40,400,200,200",
+    "gable:560,400,200,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "ep",
+        "gear": "floodlight"
+      },
+      {
+        "role": "medic",
+        "node": "wp"
+      },
+      {
+        "role": "engineer",
+        "node": "np"
+      },
+      {
+        "role": "scout",
+        "node": "np",
+        "gear": "firstAid"
+      }
+    ],
+    "commands": [],
+    "ticks": 451,
+    "hash": "7eda65bb"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 252,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

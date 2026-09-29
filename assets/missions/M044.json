@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "id": "M044",
+  "revision": 1,
+  "world": 2,
+  "slot": 14,
+  "title": "Split Loads on Lane Street",
+  "brief": "One flour tin for the clinic, two neighbours to walk out. Crews start one per gate: mill, well, and gable. Smoke hides the gable neighbour.",
+  "tutorial": [
+    "Three gates, one person each. Nobody starts together.",
+    "Sled on the mill starter. Juno belongs on the gable."
+  ],
+  "strategies": [
+    "Rosa mill, Tomi well, Juno gable.",
+    "Sled on Tomi at well if Rosa is needed to clear Gable Shutters."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "cargoSled",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "mill",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "wg",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Well Gate"
+    },
+    {
+      "id": "gg",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Gable Gate"
+    },
+    {
+      "id": "dep",
+      "x": 100,
+      "y": 700,
+      "kind": "depot",
+      "label": "Mill Store"
+    },
+    {
+      "id": "wn",
+      "x": 400,
+      "y": 700,
+      "label": "Well Neighbour"
+    },
+    {
+      "id": "gable",
+      "x": 700,
+      "y": 560,
+      "label": "Gable Neighbour"
+    },
+    {
+      "id": "clinic",
+      "x": 200,
+      "y": 320,
+      "kind": "need",
+      "label": "Lane Clinic"
+    },
+    {
+      "id": "hall",
+      "x": 500,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Lane Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mill-dep",
+      "a": "mill",
+      "b": "dep",
+      "label": "Mill Store Lane"
+    },
+    {
+      "id": "wg-wn",
+      "a": "wg",
+      "b": "wn",
+      "label": "Well Rise"
+    },
+    {
+      "id": "gg-gable",
+      "a": "gg",
+      "b": "gable",
+      "label": "Gable Rise"
+    },
+    {
+      "id": "dep-wn",
+      "a": "dep",
+      "b": "wn",
+      "label": "Store Well"
+    },
+    {
+      "id": "wn-gable",
+      "a": "wn",
+      "b": "gable",
+      "block": "dark",
+      "label": "Well Gable"
+    },
+    {
+      "id": "dep-clinic",
+      "a": "dep",
+      "b": "clinic",
+      "label": "Store Clinic"
+    },
+    {
+      "id": "wn-hall",
+      "a": "wn",
+      "b": "hall",
+      "label": "Well Hall"
+    },
+    {
+      "id": "gable-hall",
+      "a": "gable",
+      "b": "hall",
+      "block": "dark",
+      "label": "Gable Hall"
+    },
+    {
+      "id": "clinic-hall",
+      "a": "clinic",
+      "b": "hall",
+      "label": "Clinic Hall"
+    },
+    {
+      "id": "gable-clinic",
+      "a": "gable",
+      "b": "clinic",
+      "block": "debris",
+      "label": "Gable Shutters"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "mill"
+    },
+    {
+      "node": "wg"
+    },
+    {
+      "node": "gg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "wn"
+    },
+    {
+      "id": "c2",
+      "node": "gable",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "dep",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_clinic"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 331,
+  "goldTicks": 245,
+  "decor": [
+    "gable:560,200,200,160",
+    "cobble:80,780,240,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "gg"
+      },
+      {
+        "role": "medic",
+        "node": "mill",
+        "gear": "cutter"
+      },
+      {
+        "role": "scout",
+        "node": "wg",
+        "gear": "cargoSled"
+      }
+    ],
+    "commands": [],
+    "ticks": 245,
+    "hash": "8c3c7c38"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 78,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

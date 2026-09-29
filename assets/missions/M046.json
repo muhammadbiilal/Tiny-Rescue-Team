@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "id": "M046",
+  "revision": 1,
+  "world": 2,
+  "slot": 16,
+  "title": "Gable Door and the Oil Crate",
+  "brief": "Gable Hall's door is jammed and an oil crate must reach the Clock Lamp. Well Crossing is shuttered, so the crate cannot turn until that junction is cleared.",
+  "tutorial": [
+    "Bea repairs the hall. Rosa or the sled clears and hauls.",
+    "Blocked junction: the lamp is on the far side of Well Crossing."
+  ],
+  "strategies": [
+    "Bea at Gable Side. Sled on Rosa through the crossing. Juno lights the back eaves.",
+    "Clear the crossing first; the back eaves is only a people path."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "gs",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Gable Side"
+    },
+    {
+      "id": "ms",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Side"
+    },
+    {
+      "id": "es",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Eaves Side"
+    },
+    {
+      "id": "hall",
+      "x": 140,
+      "y": 560,
+      "kind": "shelter",
+      "label": "Gable Hall"
+    },
+    {
+      "id": "mill",
+      "x": 400,
+      "y": 720,
+      "kind": "depot",
+      "label": "Oil Mill"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 480,
+      "kind": "junction",
+      "label": "Well Crossing"
+    },
+    {
+      "id": "lamp",
+      "x": 640,
+      "y": 280,
+      "kind": "need",
+      "label": "Clock Lamp"
+    },
+    {
+      "id": "eaves",
+      "x": 700,
+      "y": 640,
+      "label": "Back Eaves"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gs-hall",
+      "a": "gs",
+      "b": "hall",
+      "label": "Side Hall"
+    },
+    {
+      "id": "ms-mill",
+      "a": "ms",
+      "b": "mill",
+      "label": "Side Mill"
+    },
+    {
+      "id": "es-eaves",
+      "a": "es",
+      "b": "eaves",
+      "label": "Side Eaves"
+    },
+    {
+      "id": "hall-mill",
+      "a": "hall",
+      "b": "mill",
+      "label": "Hall Mill"
+    },
+    {
+      "id": "mill-cross",
+      "a": "mill",
+      "b": "cross",
+      "label": "Mill Crossing"
+    },
+    {
+      "id": "cross-lamp",
+      "a": "cross",
+      "b": "lamp",
+      "block": "debris",
+      "label": "Crossing Lamp"
+    },
+    {
+      "id": "eaves-cross",
+      "a": "eaves",
+      "b": "cross",
+      "block": "dark",
+      "label": "Eaves Smoke"
+    },
+    {
+      "id": "eaves-lamp",
+      "a": "eaves",
+      "b": "lamp",
+      "block": "dark",
+      "label": "Eaves Lamp"
+    },
+    {
+      "id": "hall-cross",
+      "a": "hall",
+      "b": "cross",
+      "label": "Hall Cross"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gs"
+    },
+    {
+      "node": "ms"
+    },
+    {
+      "node": "es"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "eaves",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    }
+  ],
+  "depots": [
+    {
+      "node": "mill",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_lamp",
+      "node": "lamp",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_lamp"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 401,
+  "goldTicks": 286,
+  "decor": [
+    "gable:80,180,200,160",
+    "cobble:300,560,200,100"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "es",
+        "gear": "toolkit"
+      },
+      {
+        "role": "engineer",
+        "node": "gs"
+      },
+      {
+        "role": "scout",
+        "node": "ms",
+        "gear": "cargoSled"
+      }
+    ],
+    "commands": [],
+    "ticks": 286,
+    "hash": "f2fa506d"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 78,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "schema": 1,
+  "id": "M056",
+  "revision": 1,
+  "world": 2,
+  "slot": 26,
+  "title": "Split Keys",
+  "brief": "Chapel door is jammed and one tin must reach Clock Lamp. Four posts, one responder each: chapel, mill, lamp, and eaves. The eaves caller is hidden.",
+  "tutorial": [
+    "Split starts, four posts. Nobody shares a gate.",
+    "Bea belongs on chapel. Sled on mill. Juno eaves. The lamp post is a finish, not a start job."
+  ],
+  "strategies": [
+    "Bea chapel, Rosa mill with sled, Juno eaves, Tomi lamp to receive and escort.",
+    "Tomi chapel if Bea is sent mill; slower door."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "cp",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Chapel Post"
+    },
+    {
+      "id": "mp",
+      "x": 280,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Mill Post"
+    },
+    {
+      "id": "lp",
+      "x": 520,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Lamp Post"
+    },
+    {
+      "id": "ep",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Eaves Post"
+    },
+    {
+      "id": "chapel",
+      "x": 120,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    },
+    {
+      "id": "mill",
+      "x": 300,
+      "y": 400,
+      "kind": "depot",
+      "label": "Mill Bay"
+    },
+    {
+      "id": "lamp",
+      "x": 520,
+      "y": 520,
+      "kind": "need",
+      "label": "Clock Lamp"
+    },
+    {
+      "id": "eaves",
+      "x": 700,
+      "y": 400,
+      "label": "Key Eaves"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 780,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "cp-chapel",
+      "a": "cp",
+      "b": "chapel",
+      "label": "Chapel Drop"
+    },
+    {
+      "id": "mp-mill",
+      "a": "mp",
+      "b": "mill",
+      "label": "Mill Drop"
+    },
+    {
+      "id": "lp-lamp",
+      "a": "lp",
+      "b": "lamp",
+      "label": "Lamp Drop"
+    },
+    {
+      "id": "ep-eaves",
+      "a": "ep",
+      "b": "eaves",
+      "label": "Eaves Drop"
+    },
+    {
+      "id": "chapel-mill",
+      "a": "chapel",
+      "b": "mill",
+      "label": "Chapel Mill"
+    },
+    {
+      "id": "mill-lamp",
+      "a": "mill",
+      "b": "lamp",
+      "label": "Mill Lamp"
+    },
+    {
+      "id": "eaves-lamp",
+      "a": "eaves",
+      "b": "lamp",
+      "block": "dark",
+      "label": "Eaves Lamp"
+    },
+    {
+      "id": "chapel-hall",
+      "a": "chapel",
+      "b": "hall",
+      "label": "Chapel Hall"
+    },
+    {
+      "id": "lamp-hall",
+      "a": "lamp",
+      "b": "hall",
+      "label": "Lamp Hall"
+    },
+    {
+      "id": "eaves-hall",
+      "a": "eaves",
+      "b": "hall",
+      "block": "dark",
+      "label": "Eaves Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "cp"
+    },
+    {
+      "node": "mp"
+    },
+    {
+      "node": "lp"
+    },
+    {
+      "node": "ep"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "eaves",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "chapel",
+      "broken": true
+    },
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "mill",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_lamp",
+      "node": "lamp",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "chapel"
+    },
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_lamp"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 328,
+  "goldTicks": 212,
+  "decor": [
+    "gable:40,400,180,160",
+    "eaves:580,400,180,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "mp",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "cp",
+        "gear": "toolkit"
+      },
+      {
+        "role": "engineer",
+        "node": "ep"
+      },
+      {
+        "role": "scout",
+        "node": "lp"
+      }
+    ],
+    "commands": [],
+    "ticks": 212,
+    "hash": "5834f260"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 260,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -258,20 +258,14 @@ class _Preview extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.asset(
-              'assets/art/harbor_backdrop.png',
-              height: 180,
-              fit: BoxFit.cover,
-              errorBuilder: (c, e, s) => const SizedBox(
-                height: 140,
-                child: ColoredBox(
-                  color: Color(0xFF1D6A7A),
-                  child: Center(
-                    child: Icon(Icons.waves, color: Colors.white, size: 48),
-                  ),
-                ),
-              ),
-            ),
+            child: entry.world == 1
+                ? Image.asset(
+                    'assets/art/harbor_backdrop.png',
+                    height: 180,
+                    fit: BoxFit.cover,
+                    errorBuilder: (c, e, s) => _worldBanner(entry),
+                  )
+                : _worldBanner(entry),
           ),
           const SizedBox(height: 12),
           Text(s.brief, style: Theme.of(context).textTheme.bodyLarge),
@@ -622,4 +616,20 @@ class _Result extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _worldBanner(CatalogEntry entry) {
+  final info = worlds[(entry.world - 1).clamp(0, worlds.length - 1)];
+  return SizedBox(
+    height: 140,
+    child: ColoredBox(
+      color: info.color,
+      child: Center(
+        child: Text(
+          info.name,
+          style: const TextStyle(color: Colors.white, fontSize: 22),
+        ),
+      ),
+    ),
+  );
 }

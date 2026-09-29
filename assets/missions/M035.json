@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "id": "M035",
+  "revision": 1,
+  "world": 2,
+  "slot": 5,
+  "title": "Branching Eaves",
+  "brief": "Callers are split between the north eaves and the south gable. Both forks are unlit. Light them, then bring everyone to Well Court.",
+  "tutorial": [
+    "Branching access: lighting one fork does not light the other.",
+    "People in smoke appear only after that fork is opened."
+  ],
+  "strategies": [
+    "Juno north, Tomi south. Meet at Well Court.",
+    "Juno does both forks; Tomi waits at the well for escorts."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "medic"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Fork Gate"
+    },
+    {
+      "id": "fork",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Eaves Fork"
+    },
+    {
+      "id": "north",
+      "x": 140,
+      "y": 480,
+      "label": "North Eaves"
+    },
+    {
+      "id": "south",
+      "x": 660,
+      "y": 480,
+      "label": "South Gable"
+    },
+    {
+      "id": "dn",
+      "x": 140,
+      "y": 220,
+      "label": "High Eaves"
+    },
+    {
+      "id": "ds",
+      "x": 660,
+      "y": 220,
+      "label": "High Gable"
+    },
+    {
+      "id": "well",
+      "x": 400,
+      "y": 420,
+      "kind": "shelter",
+      "label": "Well Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-fork",
+      "a": "gate",
+      "b": "fork",
+      "label": "Fork Road"
+    },
+    {
+      "id": "fork-north",
+      "a": "fork",
+      "b": "north",
+      "block": "dark",
+      "label": "North Smoke"
+    },
+    {
+      "id": "fork-south",
+      "a": "fork",
+      "b": "south",
+      "block": "dark",
+      "label": "South Smoke"
+    },
+    {
+      "id": "north-dn",
+      "a": "north",
+      "b": "dn",
+      "block": "dark",
+      "label": "High North"
+    },
+    {
+      "id": "south-ds",
+      "a": "south",
+      "b": "ds",
+      "block": "dark",
+      "label": "High South"
+    },
+    {
+      "id": "fork-well",
+      "a": "fork",
+      "b": "well",
+      "label": "Fork Well"
+    },
+    {
+      "id": "north-well",
+      "a": "north",
+      "b": "well",
+      "label": "North Drop"
+    },
+    {
+      "id": "south-well",
+      "a": "south",
+      "b": "well",
+      "label": "South Drop"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "dn",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "ds",
+      "hidden": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "fork",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "well"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "fork-north",
+        "fork-south"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 651,
+  "goldTicks": 543,
+  "decor": [
+    "eaves:80,120,280,140",
+    "gable:480,120,260,140",
+    "smoke:200,400,400,120"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "gate"
+      },
+      {
+        "role": "medic",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 543,
+    "hash": "1bbf6948"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 1,
+    "setupsWon": 1,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

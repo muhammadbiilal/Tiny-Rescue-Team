@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "id": "M047",
+  "revision": 1,
+  "world": 2,
+  "slot": 17,
+  "title": "Loft Crew and Street Crew",
+  "brief": "The loft door is jammed, and a caller is hidden up the unlit stair. The street crew must keep Well Street open for the walk out. Branching: loft work does not open the street, and the street does not open the loft.",
+  "tutorial": [
+    "Two jobs that do not share a lane. Send at least one responder up and one along the street.",
+    "Bea belongs on the loft door. Juno belongs on the stair."
+  ],
+  "strategies": [
+    "Bea and Juno loft. Rosa street.",
+    "Bea loft, Rosa and Juno street after the stair is lit."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "lg",
+      "x": 120,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Loft Dock"
+    },
+    {
+      "id": "sg",
+      "x": 640,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Street Gate"
+    },
+    {
+      "id": "door",
+      "x": 160,
+      "y": 420,
+      "kind": "shelter",
+      "label": "Loft Hall"
+    },
+    {
+      "id": "stair",
+      "x": 160,
+      "y": 640,
+      "label": "Loft Stair"
+    },
+    {
+      "id": "st",
+      "x": 500,
+      "y": 640,
+      "label": "Well Street"
+    },
+    {
+      "id": "well",
+      "x": 500,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Well Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "lg-door",
+      "a": "lg",
+      "b": "door",
+      "label": "Dock Door"
+    },
+    {
+      "id": "door-stair",
+      "a": "door",
+      "b": "stair",
+      "block": "dark",
+      "label": "Door Stair"
+    },
+    {
+      "id": "sg-st",
+      "a": "sg",
+      "b": "st",
+      "label": "Gate Street"
+    },
+    {
+      "id": "stair-st",
+      "a": "stair",
+      "b": "st",
+      "label": "Stair Street"
+    },
+    {
+      "id": "st-well",
+      "a": "st",
+      "b": "well",
+      "label": "Street Well"
+    },
+    {
+      "id": "door-well",
+      "a": "door",
+      "b": "well",
+      "block": "debris",
+      "label": "Door Well"
+    },
+    {
+      "id": "stair-well",
+      "a": "stair",
+      "b": "well",
+      "block": "dark",
+      "label": "Stair Well"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "lg",
+      "capacity": 2
+    },
+    {
+      "node": "sg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "stair",
+      "needsCare": true,
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "st",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "door",
+      "broken": true
+    },
+    {
+      "node": "well"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "door"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 372,
+  "goldTicks": 297,
+  "decor": [
+    "eaves:80,80,240,200",
+    "cobble:400,700,280,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "medic",
+        "node": "sg"
+      },
+      {
+        "role": "engineer",
+        "node": "lg"
+      },
+      {
+        "role": "scout",
+        "node": "lg"
+      }
+    ],
+    "commands": [],
+    "ticks": 297,
+    "hash": "ba12718a"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 39,
+    "setupsWon": 39,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

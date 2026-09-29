@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "id": "M052",
+  "revision": 1,
+  "world": 2,
+  "slot": 22,
+  "title": "Late Door on Bell Street",
+  "brief": "Bell Tower must be reachable from North Post, and Chapel door is jammed. Bell Street sheds bricks at about twenty-two seconds. Open a second road or beat the fall.",
+  "tutorial": [
+    "Delayed chimney on Bell Street. Bea on the chapel door.",
+    "Juno's eaves road is the backup if the street closes."
+  ],
+  "strategies": [
+    "Bea chapel. Rosa Bell Street. Juno eaves.",
+    "Ignore Bell Street; open eaves all the way, repair, walk."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "np",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Post"
+    },
+    {
+      "id": "cp",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Chapel Post"
+    },
+    {
+      "id": "ep",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "Eaves Post"
+    },
+    {
+      "id": "st",
+      "x": 400,
+      "y": 320,
+      "label": "Bell Street"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 860,
+      "kind": "lookout",
+      "label": "Bell Tower"
+    },
+    {
+      "id": "chapel",
+      "x": 140,
+      "y": 560,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    },
+    {
+      "id": "eaves",
+      "x": 680,
+      "y": 560,
+      "label": "Late Eaves"
+    }
+  ],
+  "edges": [
+    {
+      "id": "np-st",
+      "a": "np",
+      "b": "st",
+      "label": "Post Street"
+    },
+    {
+      "id": "cp-chapel",
+      "a": "cp",
+      "b": "chapel",
+      "label": "Post Chapel"
+    },
+    {
+      "id": "ep-eaves",
+      "a": "ep",
+      "b": "eaves",
+      "label": "Post Eaves"
+    },
+    {
+      "id": "st-bell",
+      "a": "st",
+      "b": "bell",
+      "label": "Bell Street"
+    },
+    {
+      "id": "chapel-st",
+      "a": "chapel",
+      "b": "st",
+      "label": "Chapel Street"
+    },
+    {
+      "id": "eaves-st",
+      "a": "eaves",
+      "b": "st",
+      "block": "dark",
+      "label": "Eaves Smoke"
+    },
+    {
+      "id": "eaves-bell",
+      "a": "eaves",
+      "b": "bell",
+      "block": "dark",
+      "label": "Eaves Bell"
+    },
+    {
+      "id": "chapel-bell",
+      "a": "chapel",
+      "b": "bell",
+      "block": "debris",
+      "label": "Chapel Bell"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "np",
+      "capacity": 2
+    },
+    {
+      "node": "cp"
+    },
+    {
+      "node": "ep"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "eaves",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "chapel",
+      "broken": true
+    }
+  ],
+  "hazards": [
+    {
+      "at": 220,
+      "type": "collapse",
+      "edge": "st-bell",
+      "note": "Bell Street chimney sheds"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "np",
+      "b": "bell"
+    },
+    {
+      "type": "shelterOpen",
+      "target": "chapel"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 334,
+  "goldTicks": 242,
+  "decor": [
+    "gable:280,860,240,100",
+    "eaves:520,300,240,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "ep"
+      },
+      {
+        "role": "medic",
+        "node": "cp"
+      },
+      {
+        "role": "engineer",
+        "node": "np",
+        "gear": "cutter"
+      },
+      {
+        "role": "scout",
+        "node": "np"
+      }
+    ],
+    "commands": [],
+    "ticks": 242,
+    "hash": "7c62646e"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 252,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

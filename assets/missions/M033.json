@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "id": "M033",
+  "revision": 1,
+  "world": 2,
+  "slot": 3,
+  "title": "Two Ways off the Tannery",
+  "brief": "A vat fire sits in the tannery. It will run the Kiln Cut, then the Arcade. One Extinguisher. West yard is clear but long; the east cut is shorter and smoky.",
+  "tutorial": [
+    "Two real routes to the fire. The smoky cut is faster once Juno opens it.",
+    "Whoever carries the Extinguisher puts the vat out. Standing on a spread tile holds it back."
+  ],
+  "strategies": [
+    "Juno east through Tannery Smoke. Rosa with the Extinguisher west around the yard.",
+    "Both east: Rosa waits on Juno, then runs the vat."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 100,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Tan West"
+    },
+    {
+      "id": "e",
+      "x": 680,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Tan East"
+    },
+    {
+      "id": "yard",
+      "x": 140,
+      "y": 700,
+      "label": "Tan Yard"
+    },
+    {
+      "id": "mouth",
+      "x": 640,
+      "y": 700,
+      "label": "Smoke Mouth"
+    },
+    {
+      "id": "vat",
+      "x": 400,
+      "y": 480,
+      "label": "Tannery Vat"
+    },
+    {
+      "id": "kiln",
+      "x": 400,
+      "y": 280,
+      "label": "Kiln Cut"
+    },
+    {
+      "id": "arc",
+      "x": 640,
+      "y": 280,
+      "label": "Old Arcade"
+    },
+    {
+      "id": "hall",
+      "x": 160,
+      "y": 260,
+      "kind": "shelter",
+      "label": "Tan Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-yard",
+      "a": "w",
+      "b": "yard",
+      "label": "West Rise"
+    },
+    {
+      "id": "e-mouth",
+      "a": "e",
+      "b": "mouth",
+      "label": "East Rise"
+    },
+    {
+      "id": "yard-vat",
+      "a": "yard",
+      "b": "vat",
+      "label": "Yard Vat"
+    },
+    {
+      "id": "mouth-vat",
+      "a": "mouth",
+      "b": "vat",
+      "block": "dark",
+      "label": "Tannery Smoke"
+    },
+    {
+      "id": "vat-kiln",
+      "a": "vat",
+      "b": "kiln",
+      "label": "Kiln Cut"
+    },
+    {
+      "id": "kiln-arc",
+      "a": "kiln",
+      "b": "arc",
+      "label": "Arcade Link"
+    },
+    {
+      "id": "yard-hall",
+      "a": "yard",
+      "b": "hall",
+      "label": "Yard Hall"
+    },
+    {
+      "id": "vat-hall",
+      "a": "vat",
+      "b": "hall",
+      "label": "Vat Hall"
+    },
+    {
+      "id": "kiln-hall",
+      "a": "kiln",
+      "b": "hall",
+      "label": "Kiln Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "arc"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "vat",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 80,
+      "type": "wind",
+      "note": "Draft pulls up the Kiln Cut"
+    },
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "vat",
+      "to": "kiln"
+    },
+    {
+      "at": 320,
+      "type": "spread",
+      "from": "kiln",
+      "to": "arc"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "arc"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 394,
+  "goldTicks": 275,
+  "decor": [
+    "smoke:80,360,220,200",
+    "cobble:480,640,260,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "e",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "w"
+      }
+    ],
+    "commands": [],
+    "ticks": 275,
+    "hash": "ee04fc08"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 4,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

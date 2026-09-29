@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "id": "M038",
+  "revision": 1,
+  "world": 2,
+  "slot": 8,
+  "title": "Shared Pump on the Arcade",
+  "brief": "The kiln fire will reach Clock Arcade, which must stay open. One Extinguisher is on the truck. A shutter pile sits on the other approach.",
+  "tutorial": [
+    "Shared Extinguisher. Give it to whoever starts nearer the kiln.",
+    "Protect Clock Arcade. If fire sits there, the corridor is lost."
+  ],
+  "strategies": [
+    "Extinguisher on Rosa at Kiln Gate. Juno at Arcade Gate lights the back cut.",
+    "Extinguisher on Juno only works if she reaches the kiln after the smoke opens."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "gear": [
+    "extinguisher",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "kg",
+      "x": 120,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Kiln Gate"
+    },
+    {
+      "id": "ag",
+      "x": 680,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Arcade Gate"
+    },
+    {
+      "id": "kiln",
+      "x": 160,
+      "y": 620,
+      "label": "Kiln Mouth"
+    },
+    {
+      "id": "arc",
+      "x": 400,
+      "y": 420,
+      "label": "Clock Arcade"
+    },
+    {
+      "id": "back",
+      "x": 680,
+      "y": 620,
+      "label": "Back Cut"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Arcade Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "kg-kiln",
+      "a": "kg",
+      "b": "kiln",
+      "label": "Kiln Road"
+    },
+    {
+      "id": "ag-back",
+      "a": "ag",
+      "b": "back",
+      "label": "Arcade Road"
+    },
+    {
+      "id": "kiln-arc",
+      "a": "kiln",
+      "b": "arc",
+      "label": "Kiln Arcade"
+    },
+    {
+      "id": "back-arc",
+      "a": "back",
+      "b": "arc",
+      "block": "dark",
+      "label": "Back Smoke"
+    },
+    {
+      "id": "arc-hall",
+      "a": "arc",
+      "b": "hall",
+      "label": "Arcade Hall Lane"
+    },
+    {
+      "id": "kiln-hall",
+      "a": "kiln",
+      "b": "hall",
+      "block": "debris",
+      "label": "Kiln Hall"
+    },
+    {
+      "id": "back-hall",
+      "a": "back",
+      "b": "hall",
+      "label": "Back Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "kg"
+    },
+    {
+      "node": "ag"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "back",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "kiln",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 210,
+      "type": "spread",
+      "from": "kiln",
+      "to": "arc"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "arc"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 347,
+  "goldTicks": 331,
+  "decor": [
+    "cobble:200,240,400,80",
+    "smoke:80,480,180,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "kg",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "rescuer",
+        "node": "ag",
+        "gear": "cutter"
+      }
+    ],
+    "commands": [],
+    "ticks": 331,
+    "hash": "29168b91"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 14,
+    "setupsWon": 8,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "id": "M031",
+  "revision": 1,
+  "world": 2,
+  "slot": 1,
+  "title": "Smoke in Baker Lane",
+  "brief": "The baker is still in the oven yard and cannot walk until steadied. Smoke hides a second caller under the eaves. Unlit lanes stay closed until Juno Park lights them.",
+  "tutorial": [
+    "Juno Park joins the free team. She cannot guide people, but she opens dark lanes faster than a Floodlight.",
+    "Tomi still steadies anyone with a care mark. Send Juno into the smoke first."
+  ],
+  "strategies": [
+    "Juno at Eaves Stair lights Baker Smoke; Tomi starts at Baker Gate for the oven yard.",
+    "Both at Baker Gate: Juno still has to climb to the eaves before Tomi can fetch the hidden caller."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "medic"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 90,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Baker Gate"
+    },
+    {
+      "id": "stair",
+      "x": 710,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Eaves Stair"
+    },
+    {
+      "id": "sq",
+      "x": 360,
+      "y": 780,
+      "kind": "junction",
+      "label": "Well Square"
+    },
+    {
+      "id": "oven",
+      "x": 110,
+      "y": 540,
+      "label": "Oven Yard"
+    },
+    {
+      "id": "eaves",
+      "x": 680,
+      "y": 480,
+      "label": "Smoky Eaves"
+    },
+    {
+      "id": "well",
+      "x": 380,
+      "y": 320,
+      "kind": "shelter",
+      "label": "Well Court"
+    },
+    {
+      "id": "clock",
+      "x": 380,
+      "y": 120,
+      "kind": "lookout",
+      "label": "Clock Face"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-sq",
+      "a": "gate",
+      "b": "sq",
+      "label": "Baker Street"
+    },
+    {
+      "id": "stair-eaves",
+      "a": "stair",
+      "b": "eaves",
+      "label": "Eaves Climb"
+    },
+    {
+      "id": "sq-oven",
+      "a": "sq",
+      "b": "oven",
+      "label": "Oven Cut"
+    },
+    {
+      "id": "oven-eaves",
+      "a": "oven",
+      "b": "eaves",
+      "block": "dark",
+      "label": "Baker Smoke"
+    },
+    {
+      "id": "sq-well",
+      "a": "sq",
+      "b": "well",
+      "label": "Well Steps"
+    },
+    {
+      "id": "oven-well",
+      "a": "oven",
+      "b": "well",
+      "label": "Yard Walk"
+    },
+    {
+      "id": "eaves-well",
+      "a": "eaves",
+      "b": "well",
+      "block": "dark",
+      "label": "Eaves Drop"
+    },
+    {
+      "id": "well-clock",
+      "a": "well",
+      "b": "clock",
+      "label": "Clock Stair"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    },
+    {
+      "node": "stair"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "oven",
+      "needsCare": true,
+      "critical": true
+    },
+    {
+      "id": "c2",
+      "node": "eaves",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "well"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 447,
+  "goldTicks": 373,
+  "decor": [
+    "cobble:40,700,720,280",
+    "eaves:520,180,240,120",
+    "smoke:80,400,200,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "gate"
+      },
+      {
+        "role": "medic",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 373,
+    "hash": "ec3609e4"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 3,
+    "setupsWon": 3,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

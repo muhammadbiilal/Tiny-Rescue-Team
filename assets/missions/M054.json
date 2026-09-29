@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "id": "M054",
+  "revision": 1,
+  "world": 2,
+  "slot": 24,
+  "title": "One Toolkit, Two Jobs",
+  "brief": "Gable Hall is jammed and two oil tins must reach Clock Lamp. Neighbours wait on both the mill and the eaves. Only one Toolkit.",
+  "tutorial": [
+    "Limited Toolkit. Bea can still repair without it.",
+    "Sled hauls. Juno lights eaves. Rosa or Bea takes the door."
+  ],
+  "strategies": [
+    "Toolkit unused: Bea repairs, Rosa sleds, Juno eaves, Tomi mill neighbour.",
+    "Toolkit on Rosa if Bea is needed on heavy shutters."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "cargoSled"
+  ],
+  "nodes": [
+    {
+      "id": "n",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Mill Post"
+    },
+    {
+      "id": "m",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Hall Post"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Eaves Post"
+    },
+    {
+      "id": "mn",
+      "x": 120,
+      "y": 300,
+      "label": "Mill Neighbour"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Gable Hall"
+    },
+    {
+      "id": "dep",
+      "x": 200,
+      "y": 520,
+      "kind": "depot",
+      "label": "Oil Bay"
+    },
+    {
+      "id": "eaves",
+      "x": 680,
+      "y": 400,
+      "label": "East Eaves"
+    },
+    {
+      "id": "lamp",
+      "x": 680,
+      "y": 720,
+      "kind": "need",
+      "label": "Clock Lamp"
+    }
+  ],
+  "edges": [
+    {
+      "id": "n-mn",
+      "a": "n",
+      "b": "mn",
+      "label": "Mill Drop"
+    },
+    {
+      "id": "m-hall",
+      "a": "m",
+      "b": "hall",
+      "label": "Hall Drop"
+    },
+    {
+      "id": "e-eaves",
+      "a": "e",
+      "b": "eaves",
+      "label": "Eaves Drop"
+    },
+    {
+      "id": "mn-hall",
+      "a": "mn",
+      "b": "hall",
+      "label": "Mill Hall"
+    },
+    {
+      "id": "hall-dep",
+      "a": "hall",
+      "b": "dep",
+      "label": "Hall Bay"
+    },
+    {
+      "id": "hall-eaves",
+      "a": "hall",
+      "b": "eaves",
+      "block": "dark",
+      "label": "Hall Smoke"
+    },
+    {
+      "id": "dep-lamp",
+      "a": "dep",
+      "b": "lamp",
+      "label": "Bay Lamp"
+    },
+    {
+      "id": "eaves-lamp",
+      "a": "eaves",
+      "b": "lamp",
+      "block": "dark",
+      "label": "Eaves Lamp"
+    },
+    {
+      "id": "mn-dep",
+      "a": "mn",
+      "b": "dep",
+      "label": "Mill Bay"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "n"
+    },
+    {
+      "node": "m",
+      "capacity": 2
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "mn"
+    },
+    {
+      "id": "c2",
+      "node": "eaves",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall",
+      "broken": true
+    }
+  ],
+  "depots": [
+    {
+      "node": "dep",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_lamp",
+      "node": "lamp",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "hall"
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_lamp"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 310,
+  "goldTicks": 206,
+  "decor": [
+    "gable:520,200,240,180",
+    "cobble:80,700,240,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "n",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "medic",
+        "node": "e"
+      },
+      {
+        "role": "engineer",
+        "node": "m"
+      },
+      {
+        "role": "scout",
+        "node": "m"
+      }
+    ],
+    "commands": [],
+    "ticks": 206,
+    "hash": "6ef68aa9"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 252,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "id": "M032",
+  "revision": 1,
+  "world": 2,
+  "slot": 2,
+  "title": "Split at the Clock",
+  "brief": "Bell Tower must be reachable from Clock Gate. Crews start on opposite alleys. Fallen shutters and smoke block every short cut.",
+  "tutorial": [
+    "Split starts: each alley holds one responder. They meet only after someone opens a lane.",
+    "Juno lights smoke. Rosa clears shutters."
+  ],
+  "strategies": [
+    "Rosa west through Shutter Row. Juno east through Gable Smoke.",
+    "Swap sides: Rosa still has to reach the shutters; the smoke side is Juno's job."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "gear": [
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "West Alley"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "East Alley"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 720,
+      "label": "Shutter Row"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 620,
+      "kind": "junction",
+      "label": "Clock Crossing"
+    },
+    {
+      "id": "east",
+      "x": 660,
+      "y": 720,
+      "label": "Gable Walk"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 180,
+      "kind": "lookout",
+      "label": "Bell Tower"
+    },
+    {
+      "id": "well",
+      "x": 400,
+      "y": 400,
+      "label": "Well Lip"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-west",
+      "a": "w",
+      "b": "west",
+      "label": "West Rise"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "west-mid",
+      "a": "west",
+      "b": "mid",
+      "block": "debris",
+      "label": "Shutter Row"
+    },
+    {
+      "id": "east-mid",
+      "a": "east",
+      "b": "mid",
+      "block": "dark",
+      "label": "Gable Smoke"
+    },
+    {
+      "id": "mid-well",
+      "a": "mid",
+      "b": "well",
+      "label": "Crossing Down"
+    },
+    {
+      "id": "well-bell",
+      "a": "well",
+      "b": "bell",
+      "label": "Bell Steps"
+    },
+    {
+      "id": "west-well",
+      "a": "west",
+      "b": "well",
+      "block": "debris",
+      "label": "West Lip"
+    },
+    {
+      "id": "east-bell",
+      "a": "east",
+      "b": "bell",
+      "block": "dark",
+      "label": "Long Gable"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "w",
+      "b": "bell"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 97,
+  "goldTicks": 77,
+  "decor": [
+    "gable:300,80,200,100",
+    "cobble:60,820,680,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "e"
+      },
+      {
+        "role": "rescuer",
+        "node": "w",
+        "gear": "cutter"
+      }
+    ],
+    "commands": [],
+    "ticks": 77,
+    "hash": "d2a120af"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 4,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

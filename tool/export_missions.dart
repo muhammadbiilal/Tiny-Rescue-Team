@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'content/bake.dart';
-import 'content/slice.dart';
+import 'content/campaign.dart';
 
 void main() {
   final dir = Directory('assets/missions')..createSync(recursive: true);
+  final scenes = authoredCampaign();
   var ok = 0;
-  for (final b in harborWorld()) {
+  for (final b in scenes) {
     final baked = bake(b.build());
     File('${dir.path}/${baked.id}.json').writeAsStringSync(
       const JsonEncoder.withIndent('  ').convert(baked.toJson()),
@@ -19,6 +20,6 @@ void main() {
     );
     if (baked.witness != null) ok++;
   }
-  print('exported $ok/${harborWorld().length}');
-  if (ok != harborWorld().length) exitCode = 1;
+  print('exported $ok/${scenes.length}');
+  if (ok != scenes.length) exitCode = 1;
 }

@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "id": "M050",
+  "revision": 1,
+  "world": 2,
+  "slot": 20,
+  "title": "One Cutter on Wind Street",
+  "brief": "Bell Tower must be reachable from Wind Gate, and three neighbours still need Well Court. Only one Cutter is in the van. Shutters sit on the short tower road; smoke sits on the eaves road.",
+  "tutorial": [
+    "Shared Cutter. Juno does not need it for smoke. Rosa does for shutters.",
+    "Give the Cutter to Rosa unless you plan to ignore Bell Shutters."
+  ],
+  "strategies": [
+    "Cutter on Rosa up Wind Street. Juno eaves. Tomi escorts.",
+    "Ignore shutters: Juno opens eaves all the way to the tower."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "wg",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Wind Gate"
+    },
+    {
+      "id": "eg",
+      "x": 720,
+      "y": 860,
+      "kind": "deploy",
+      "label": "Eaves Gate"
+    },
+    {
+      "id": "st",
+      "x": 400,
+      "y": 740,
+      "label": "Wind Street"
+    },
+    {
+      "id": "shut",
+      "x": 400,
+      "y": 500,
+      "label": "Bell Shutters"
+    },
+    {
+      "id": "eaves",
+      "x": 680,
+      "y": 500,
+      "label": "Wind Eaves"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 160,
+      "kind": "lookout",
+      "label": "Bell Tower"
+    },
+    {
+      "id": "hall",
+      "x": 200,
+      "y": 360,
+      "kind": "shelter",
+      "label": "Well Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "wg-st",
+      "a": "wg",
+      "b": "st",
+      "label": "Wind Rise"
+    },
+    {
+      "id": "eg-eaves",
+      "a": "eg",
+      "b": "eaves",
+      "label": "Eaves Rise"
+    },
+    {
+      "id": "st-shut",
+      "a": "st",
+      "b": "shut",
+      "label": "Street Shutters"
+    },
+    {
+      "id": "shut-bell",
+      "a": "shut",
+      "b": "bell",
+      "block": "debris",
+      "label": "Bell Shutters"
+    },
+    {
+      "id": "st-eaves",
+      "a": "st",
+      "b": "eaves",
+      "label": "Street Eaves"
+    },
+    {
+      "id": "eaves-bell",
+      "a": "eaves",
+      "b": "bell",
+      "block": "dark",
+      "label": "Eaves Bell"
+    },
+    {
+      "id": "st-hall",
+      "a": "st",
+      "b": "hall",
+      "label": "Street Well"
+    },
+    {
+      "id": "eaves-hall",
+      "a": "eaves",
+      "b": "hall",
+      "block": "dark",
+      "label": "Eaves Well"
+    },
+    {
+      "id": "hall-bell",
+      "a": "hall",
+      "b": "bell",
+      "block": "debris",
+      "label": "Well Bell"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "wg",
+      "capacity": 2
+    },
+    {
+      "node": "eg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "st"
+    },
+    {
+      "id": "c2",
+      "node": "shut",
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "eaves",
+      "hidden": true,
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "wg",
+      "b": "bell"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 319,
+  "goldTicks": 294,
+  "decor": [
+    "eaves:520,160,240,220",
+    "cobble:80,760,280,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "wg"
+      },
+      {
+        "role": "medic",
+        "node": "wg"
+      },
+      {
+        "role": "scout",
+        "node": "eg"
+      }
+    ],
+    "commands": [],
+    "ticks": 294,
+    "hash": "ea5d5aed"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 12,
+    "setupsWon": 12,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

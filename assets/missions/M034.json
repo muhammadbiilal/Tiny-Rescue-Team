@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "id": "M034",
+  "revision": 1,
+  "world": 2,
+  "slot": 4,
+  "title": "Cart at the Blocked Well",
+  "brief": "Two oil tins sit in the mill loft. The clinic needs both. Well Crossing is packed with shutters, so the cart cannot turn until that junction is cleared.",
+  "tutorial": [
+    "The blocked junction is the only short turn for the cart. Clear it or take the long gable.",
+    "One Cargo Sled. Give it to Rosa; Juno cannot haul without it."
+  ],
+  "strategies": [
+    "Sled on Rosa at Mill Gate. Juno at Clinic Stair lights Gable Smoke so the long way exists.",
+    "Both at Mill Gate: Juno still has to reach the gable while Rosa waits on the shutters."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "gear": [
+    "cargoSled",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "mill",
+      "x": 120,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "cs",
+      "x": 680,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Clinic Stair"
+    },
+    {
+      "id": "loft",
+      "x": 140,
+      "y": 720,
+      "kind": "depot",
+      "label": "Mill Loft"
+    },
+    {
+      "id": "cross",
+      "x": 400,
+      "y": 620,
+      "kind": "junction",
+      "label": "Well Crossing"
+    },
+    {
+      "id": "gable",
+      "x": 680,
+      "y": 720,
+      "label": "Gable Turn"
+    },
+    {
+      "id": "clinic",
+      "x": 640,
+      "y": 280,
+      "kind": "need",
+      "label": "Lane Clinic"
+    },
+    {
+      "id": "well",
+      "x": 360,
+      "y": 300,
+      "kind": "shelter",
+      "label": "Well Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mill-loft",
+      "a": "mill",
+      "b": "loft",
+      "label": "Mill Ramp"
+    },
+    {
+      "id": "cs-gable",
+      "a": "cs",
+      "b": "gable",
+      "label": "Stair Gable"
+    },
+    {
+      "id": "loft-cross",
+      "a": "loft",
+      "b": "cross",
+      "label": "Loft Crossing"
+    },
+    {
+      "id": "gable-cross",
+      "a": "gable",
+      "b": "cross",
+      "block": "dark",
+      "label": "Gable Smoke"
+    },
+    {
+      "id": "cross-clinic",
+      "a": "cross",
+      "b": "clinic",
+      "block": "debris",
+      "label": "Clinic Cut"
+    },
+    {
+      "id": "gable-clinic",
+      "a": "gable",
+      "b": "clinic",
+      "label": "Long Gable"
+    },
+    {
+      "id": "cross-well",
+      "a": "cross",
+      "b": "well",
+      "label": "Cross Well"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "mill"
+    },
+    {
+      "node": "cs"
+    }
+  ],
+  "shelters": [
+    {
+      "node": "well"
+    }
+  ],
+  "depots": [
+    {
+      "node": "loft",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 2
+    }
+  ],
+  "objectives": [
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_clinic"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 359,
+  "goldTicks": 256,
+  "decor": [
+    "gable:80,200,160,140",
+    "cobble:280,700,240,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "cs",
+        "gear": "cargoSled"
+      },
+      {
+        "role": "rescuer",
+        "node": "mill",
+        "gear": "cutter"
+      }
+    ],
+    "commands": [],
+    "ticks": 256,
+    "hash": "c8c4349e"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 14,
+    "setupsWon": 14,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

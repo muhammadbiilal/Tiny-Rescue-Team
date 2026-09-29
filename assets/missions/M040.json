@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "id": "M040",
+  "revision": 1,
+  "world": 2,
+  "slot": 10,
+  "title": "Chimney Fall at Dusk",
+  "brief": "Three neighbours are still in the lanes. The chimney over Clock Street is expected to shed bricks at about twenty seconds. Get them to Well Court before that street closes, or use the back eaves.",
+  "tutorial": [
+    "The forecast names when Clock Street sheds. Beat it, or send people the long eaves way.",
+    "Juno opens eaves. Rosa guides."
+  ],
+  "strategies": [
+    "Rosa down Clock Street with the first two. Juno opens Back Eaves for the third.",
+    "Ignore Clock Street and walk everyone the eaves way after Juno lights it."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "nodes": [
+    {
+      "id": "gate",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Dusk Gate"
+    },
+    {
+      "id": "st",
+      "x": 400,
+      "y": 720,
+      "label": "Clock Street"
+    },
+    {
+      "id": "baker",
+      "x": 140,
+      "y": 560,
+      "label": "Baker Door"
+    },
+    {
+      "id": "eaves",
+      "x": 660,
+      "y": 560,
+      "label": "Back Eaves"
+    },
+    {
+      "id": "well",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Well Court"
+    },
+    {
+      "id": "loft",
+      "x": 140,
+      "y": 280,
+      "label": "Loft Stair"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gate-st",
+      "a": "gate",
+      "b": "st",
+      "label": "Dusk Road"
+    },
+    {
+      "id": "st-baker",
+      "a": "st",
+      "b": "baker",
+      "label": "Street Baker"
+    },
+    {
+      "id": "st-eaves",
+      "a": "st",
+      "b": "eaves",
+      "label": "Street Eaves"
+    },
+    {
+      "id": "st-well",
+      "a": "st",
+      "b": "well",
+      "label": "Clock Street"
+    },
+    {
+      "id": "baker-well",
+      "a": "baker",
+      "b": "well",
+      "label": "Baker Well"
+    },
+    {
+      "id": "eaves-well",
+      "a": "eaves",
+      "b": "well",
+      "block": "dark",
+      "label": "Back Eaves"
+    },
+    {
+      "id": "baker-loft",
+      "a": "baker",
+      "b": "loft",
+      "label": "Baker Loft"
+    },
+    {
+      "id": "loft-well",
+      "a": "loft",
+      "b": "well",
+      "label": "Loft Well"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gate",
+      "capacity": 2
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "baker"
+    },
+    {
+      "id": "c2",
+      "node": "eaves",
+      "hidden": true,
+      "look": 1
+    },
+    {
+      "id": "c3",
+      "node": "st",
+      "look": 2
+    }
+  ],
+  "shelters": [
+    {
+      "node": "well"
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "collapse",
+      "edge": "st-well",
+      "note": "Chimney sheds onto Clock Street"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 3
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 463,
+  "goldTicks": 386,
+  "decor": [
+    "eaves:520,200,240,200",
+    "cobble:80,700,280,200",
+    "smoke:300,360,160,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "gate"
+      },
+      {
+        "role": "rescuer",
+        "node": "gate"
+      }
+    ],
+    "commands": [],
+    "ticks": 386,
+    "hash": "72c65d4b"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 1,
+    "setupsWon": 1,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

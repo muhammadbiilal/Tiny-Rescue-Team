@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "id": "M049",
+  "revision": 1,
+  "world": 2,
+  "slot": 19,
+  "title": "One Cart for Two Streets",
+  "brief": "A crate is due at the Clock Lamp, a baker needs care, and a hidden eaves neighbour must walk out. One Cargo Sled is the only cart.",
+  "tutorial": [
+    "One sled. Whoever does not haul it handles care and smoke.",
+    "Two streets: lamp east, eaves west. Do not send the sled both ways first."
+  ],
+  "strategies": [
+    "Sled on Rosa east. Tomi baker. Juno eaves.",
+    "Sled on Juno only if Rosa is clearing shutters on the lamp road."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "cargoSled",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Baker Gate"
+    },
+    {
+      "id": "m",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mid Gate"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Lamp Gate"
+    },
+    {
+      "id": "baker",
+      "x": 120,
+      "y": 680,
+      "label": "Baker Door"
+    },
+    {
+      "id": "dep",
+      "x": 400,
+      "y": 720,
+      "kind": "depot",
+      "label": "Lane Store"
+    },
+    {
+      "id": "eaves",
+      "x": 120,
+      "y": 400,
+      "label": "West Eaves"
+    },
+    {
+      "id": "lamp",
+      "x": 700,
+      "y": 400,
+      "kind": "need",
+      "label": "Clock Lamp"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Lane Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-baker",
+      "a": "w",
+      "b": "baker",
+      "label": "Baker Rise"
+    },
+    {
+      "id": "m-dep",
+      "a": "m",
+      "b": "dep",
+      "label": "Mid Store"
+    },
+    {
+      "id": "e-lamp",
+      "a": "e",
+      "b": "lamp",
+      "label": "Lamp Rise"
+    },
+    {
+      "id": "baker-eaves",
+      "a": "baker",
+      "b": "eaves",
+      "block": "dark",
+      "label": "Baker Eaves"
+    },
+    {
+      "id": "baker-dep",
+      "a": "baker",
+      "b": "dep",
+      "label": "Baker Store"
+    },
+    {
+      "id": "dep-lamp",
+      "a": "dep",
+      "b": "lamp",
+      "label": "Store Lamp"
+    },
+    {
+      "id": "dep-hall",
+      "a": "dep",
+      "b": "hall",
+      "label": "Store Hall"
+    },
+    {
+      "id": "eaves-hall",
+      "a": "eaves",
+      "b": "hall",
+      "block": "dark",
+      "label": "Eaves Hall"
+    },
+    {
+      "id": "lamp-hall",
+      "a": "lamp",
+      "b": "hall",
+      "label": "Lamp Hall"
+    },
+    {
+      "id": "baker-hall",
+      "a": "baker",
+      "b": "hall",
+      "label": "Baker Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "m"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "baker",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "eaves",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "dep",
+      "stock": 1
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_lamp",
+      "node": "lamp",
+      "count": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "delivered",
+      "count": 1,
+      "target": "need_lamp"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 364,
+  "goldTicks": 284,
+  "decor": [
+    "eaves:40,240,200,180",
+    "cobble:480,700,260,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "m"
+      },
+      {
+        "role": "medic",
+        "node": "w"
+      },
+      {
+        "role": "scout",
+        "node": "e",
+        "gear": "firstAid"
+      }
+    ],
+    "commands": [],
+    "ticks": 284,
+    "hash": "fc9ecbfa"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 78,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

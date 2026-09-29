@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "id": "M043",
+  "revision": 1,
+  "world": 2,
+  "slot": 13,
+  "title": "Smoke on the Arcade",
+  "brief": "A hearth fire in Gable House will reach Clock Arcade, which must stay clear. The house lanes are unlit. Someone is still inside.",
+  "tutorial": [
+    "You cannot put the hearth out until Juno or a Floodlight opens Gable Smoke.",
+    "Protect Clock Arcade. The hidden caller appears once the house is lit."
+  ],
+  "strategies": [
+    "Juno into the house. Extinguisher on Rosa. Tomi waits on the arcade.",
+    "Floodlight on Tomi as backup if Juno starts on the wrong gate."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "extinguisher",
+    "floodlight"
+  ],
+  "nodes": [
+    {
+      "id": "w",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Gable West"
+    },
+    {
+      "id": "m",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Arcade Mouth"
+    },
+    {
+      "id": "e",
+      "x": 720,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "door",
+      "x": 140,
+      "y": 700,
+      "label": "Gable Door"
+    },
+    {
+      "id": "hearth",
+      "x": 140,
+      "y": 440,
+      "label": "Hearth"
+    },
+    {
+      "id": "arc",
+      "x": 400,
+      "y": 440,
+      "label": "Clock Arcade"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 220,
+      "kind": "shelter",
+      "label": "Arcade Hall"
+    },
+    {
+      "id": "east",
+      "x": 700,
+      "y": 700,
+      "label": "East Lane"
+    }
+  ],
+  "edges": [
+    {
+      "id": "w-door",
+      "a": "w",
+      "b": "door",
+      "label": "West Door"
+    },
+    {
+      "id": "m-arc",
+      "a": "m",
+      "b": "arc",
+      "label": "Mouth Arcade"
+    },
+    {
+      "id": "e-east",
+      "a": "e",
+      "b": "east",
+      "label": "East Rise"
+    },
+    {
+      "id": "door-hearth",
+      "a": "door",
+      "b": "hearth",
+      "block": "dark",
+      "label": "Gable Smoke"
+    },
+    {
+      "id": "hearth-arc",
+      "a": "hearth",
+      "b": "arc",
+      "label": "Hearth Arcade"
+    },
+    {
+      "id": "arc-hall",
+      "a": "arc",
+      "b": "hall",
+      "label": "Arcade Hall Lane"
+    },
+    {
+      "id": "east-arc",
+      "a": "east",
+      "b": "arc",
+      "label": "East Arcade"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "door-hall",
+      "a": "door",
+      "b": "hall",
+      "block": "debris",
+      "label": "Door Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "w"
+    },
+    {
+      "node": "m"
+    },
+    {
+      "node": "e"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "hearth",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "hearth",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 230,
+      "type": "spread",
+      "from": "hearth",
+      "to": "arc"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "arc"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 330,
+  "goldTicks": 261,
+  "decor": [
+    "gable:80,200,240,180",
+    "smoke:80,200,240,180",
+    "cobble:360,360,280,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "m",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "medic",
+        "node": "w",
+        "gear": "floodlight"
+      },
+      {
+        "role": "scout",
+        "node": "e"
+      }
+    ],
+    "commands": [],
+    "ticks": 261,
+    "hash": "a26d0b49"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 78,
+    "setupsWon": 54,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "id": "M055",
+  "revision": 1,
+  "world": 2,
+  "slot": 25,
+  "title": "Fog Forks",
+  "brief": "South Bell must be reachable from North Fork. Both west eaves and east gable are unlit, and callers are hidden on both. Light them, then open a tower road.",
+  "tutorial": [
+    "Uncertain visibility on both forks. Juno or Floodlight.",
+    "Revealing both forks is the inspect job. The tower road can use either."
+  ],
+  "strategies": [
+    "Juno west, Floodlight on Bea east, Rosa and Tomi escort.",
+    "Juno both forks; others wait at the fork."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "floodlight",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "nf",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "North Fork"
+    },
+    {
+      "id": "wp",
+      "x": 80,
+      "y": 200,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "ep",
+      "x": 720,
+      "y": 200,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "fork",
+      "x": 400,
+      "y": 280,
+      "kind": "junction",
+      "label": "Fog Fork"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 560,
+      "label": "Fog Eaves"
+    },
+    {
+      "id": "east",
+      "x": 660,
+      "y": 560,
+      "label": "Fog Gable"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 900,
+      "kind": "lookout",
+      "label": "South Bell"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 700,
+      "kind": "shelter",
+      "label": "Fork Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "nf-fork",
+      "a": "nf",
+      "b": "fork",
+      "label": "North to Fork"
+    },
+    {
+      "id": "wp-west",
+      "a": "wp",
+      "b": "west",
+      "label": "West Drop"
+    },
+    {
+      "id": "ep-east",
+      "a": "ep",
+      "b": "east",
+      "label": "East Drop"
+    },
+    {
+      "id": "fork-west",
+      "a": "fork",
+      "b": "west",
+      "block": "dark",
+      "label": "West Fog"
+    },
+    {
+      "id": "fork-east",
+      "a": "fork",
+      "b": "east",
+      "block": "dark",
+      "label": "East Fog"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "block": "dark",
+      "label": "West Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "block": "dark",
+      "label": "East Hall"
+    },
+    {
+      "id": "fork-hall",
+      "a": "fork",
+      "b": "hall",
+      "label": "Fork Hall Lane"
+    },
+    {
+      "id": "hall-bell",
+      "a": "hall",
+      "b": "bell",
+      "label": "Hall Bell"
+    },
+    {
+      "id": "west-bell",
+      "a": "west",
+      "b": "bell",
+      "block": "debris",
+      "label": "West Bell"
+    },
+    {
+      "id": "east-bell",
+      "a": "east",
+      "b": "bell",
+      "block": "debris",
+      "label": "East Bell"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "nf",
+      "capacity": 2
+    },
+    {
+      "node": "wp"
+    },
+    {
+      "node": "ep"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "west",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "east",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "fork-west",
+        "fork-east"
+      ]
+    },
+    {
+      "type": "routeOpen",
+      "a": "nf",
+      "b": "bell"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 287,
+  "goldTicks": 209,
+  "decor": [
+    "eaves:40,360,200,200",
+    "gable:560,360,200,200",
+    "smoke:240,200,320,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "ep",
+        "gear": "cutter"
+      },
+      {
+        "role": "medic",
+        "node": "nf",
+        "gear": "floodlight"
+      },
+      {
+        "role": "engineer",
+        "node": "nf"
+      },
+      {
+        "role": "scout",
+        "node": "wp"
+      }
+    ],
+    "commands": [],
+    "ticks": 209,
+    "hash": "6bf156e8"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 252,
+    "setupsWon": 252,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

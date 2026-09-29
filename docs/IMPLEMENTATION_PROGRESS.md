@@ -1,26 +1,30 @@
 # Tiny Rescue Team v2 — Progress
 
-29 September 2026: Harbor District M001–M030 is playable offline with solver witnesses. The v1 grid puzzle is not used. **This is not a production-ready 365-mission release.**
+29 September 2026: Harbor M001–M030 and Old Town M031–M060 are playable offline with solver witnesses. The v1 grid puzzle is not used. **This is not a production-ready 365-mission release.**
 
 | Count | Number | Evidence |
 |---|---|---|
 | Briefed | 365 | `docs/MISSIONS_001_365.json` `design_brief_only` |
-| Scene-authored | 30 | `tool/content/slice.dart` + `tool/content/harbor_w01.dart` → `assets/missions/M001.json`–`M030.json` |
-| Solver-validated | 30 | `dart run tool/export_missions.dart` (30/30) and `dart run tool/validate_content.dart` (0 errors, 0 warnings) |
+| Scene-authored | 60 | `tool/content/slice.dart` + `harbor_w01.dart` + `old_town_intro.dart` + `old_town_rest.dart` → `assets/missions/M001.json`–`M060.json` |
+| Solver-validated | 60 | `dart run tool/export_missions.dart` (60/60) and `dart run tool/validate_content.dart` (0 errors, 0 warnings) |
 | Human-played | 0 | No uncoached player session recorded |
-| Art-complete (slice bar) | 2 roles + Harbor card | Rosa and Tomi portraits + in-engine animation. Bea (Engineer) uses the shared silhouette until her portrait exists |
-| Release-ready | 0 | Privacy/ads, signing, device FPS, M031–M365, remaining role art, name clearance open |
+| Art-complete (slice bar) | 2 roles + Harbor card | Rosa and Tomi portraits + in-engine animation. Bea and Juno (Scout, unlocks M031) use the shared silhouette until portraits exist |
+| Release-ready | 0 | Privacy/ads, signing, device FPS, M061–M365, remaining role art, name clearance open |
 
-Harbor free roster is three roles (Rosa, Tomi, Bea). CSV `team_size` 4 on slots 21–30 cannot be unique free roles until Scout unlocks at M031, so authored scenes use team size 3.
+Harbor free roster is three roles (Rosa, Tomi, Bea). CSV `team_size` 4 on Harbor slots 21–30 cannot be unique free roles until Scout unlocks at M031, so authored Harbor scenes use team size 3.
 
-M028 is the only Harbor mission the solver tagged `moderate`; the rest are `straightforward`.
+Old Town intro/practice (M031–M040) uses team size 2 with Juno Park plus Rosa or Tomi. Synergy (M041–M050) uses 3. Advanced and the district finale (M051–M060) use all four free roles.
+
+M028 (Harbor) and M036 (Old Town) are the only solver-tagged `moderate` missions in the authored set; the rest are `straightforward`.
+
+CSV duplicate phrasing on M048 and M058 is authored as two distinct corridors each, not a copied objective.
 
 ## Tests actually run this batch
 
 - `dart format` on touched files
 - `flutter analyze --no-fatal-infos` — no errors
-- `flutter test` — 12 passed, including Harbor M001–M030 witnesses
-- `dart run tool/validate_content.dart` — `briefs=365 authored=30 solver_validated=30 warnings=0 errors=0`
+- `flutter test` — includes Harbor M001–M030 and Old Town M031–M060 witnesses
+- `dart run tool/validate_content.dart` — `briefs=365 authored=60 solver_validated=60 warnings=0 errors=0`
 - Android debug APK: previously failed on Kotlin incremental caches for plugin modules; not re-run this batch
 - iOS: not built (Windows host)
 - Device FPS: not measured
@@ -28,7 +32,7 @@ M028 is the only Harbor mission the solver tagged `moderate`; the rest are `stra
 
 ## Not claimed
 
-- 365 playable encounters (M031–M365 still briefs)
+- 365 playable encounters (M061–M365 still briefs; next district is Riverside)
 - Production art/audio mix
 - Human QA or 60 FPS
 - Store submission, paid assets, or production ad IDs

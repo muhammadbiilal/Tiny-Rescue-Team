@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "id": "M036",
+  "revision": 1,
+  "world": 2,
+  "slot": 6,
+  "title": "Chapel Door and the Tiny Well",
+  "brief": "Chapel doors are jammed. The Tiny Well holds only one person and is already open. A second caller waits in the smoke. Repair the chapel before the well fills and leaves them outside.",
+  "tutorial": [
+    "A number on a shelter is its seats. Tiny Well seats one.",
+    "Rosa with a Toolkit can repair. Juno opens the smoky path to the second caller."
+  ],
+  "strategies": [
+    "Toolkit on Rosa at Chapel Gate. Juno at Smoke Stair.",
+    "Repair first, then both escort. The well is only a spare seat."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "rescuer"
+  ],
+  "gear": [
+    "toolkit"
+  ],
+  "nodes": [
+    {
+      "id": "cg",
+      "x": 160,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Chapel Gate"
+    },
+    {
+      "id": "ss",
+      "x": 680,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Smoke Stair"
+    },
+    {
+      "id": "sq",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Chapel Square"
+    },
+    {
+      "id": "chapel",
+      "x": 400,
+      "y": 420,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    },
+    {
+      "id": "tiny",
+      "x": 160,
+      "y": 420,
+      "kind": "shelter",
+      "label": "Tiny Well"
+    },
+    {
+      "id": "smoke",
+      "x": 680,
+      "y": 500,
+      "label": "Smoke Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "cg-sq",
+      "a": "cg",
+      "b": "sq",
+      "label": "Chapel Road"
+    },
+    {
+      "id": "ss-smoke",
+      "a": "ss",
+      "b": "smoke",
+      "label": "Stair Court"
+    },
+    {
+      "id": "sq-chapel",
+      "a": "sq",
+      "b": "chapel",
+      "label": "Chapel Steps"
+    },
+    {
+      "id": "sq-tiny",
+      "a": "sq",
+      "b": "tiny",
+      "label": "Well Cut"
+    },
+    {
+      "id": "smoke-chapel",
+      "a": "smoke",
+      "b": "chapel",
+      "block": "dark",
+      "label": "Smoke Chapel"
+    },
+    {
+      "id": "smoke-tiny",
+      "a": "smoke",
+      "b": "tiny",
+      "block": "dark",
+      "label": "Smoke Well"
+    },
+    {
+      "id": "tiny-chapel",
+      "a": "tiny",
+      "b": "chapel",
+      "label": "Well Chapel"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "cg"
+    },
+    {
+      "node": "ss"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "sq"
+    },
+    {
+      "id": "c2",
+      "node": "smoke",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "chapel",
+      "broken": true
+    },
+    {
+      "node": "tiny",
+      "capacity": 1
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "chapel"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 402,
+  "goldTicks": 267,
+  "decor": [
+    "gable:280,80,240,120",
+    "smoke:520,400,220,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "ss",
+        "gear": "toolkit"
+      },
+      {
+        "role": "rescuer",
+        "node": "cg"
+      }
+    ],
+    "commands": [],
+    "ticks": 267,
+    "hash": "e2a4b314"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 6,
+    "setupsWon": 2,
+    "difficulty": "moderate",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

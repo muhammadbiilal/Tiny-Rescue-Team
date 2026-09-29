@@ -1,0 +1,270 @@
+{
+  "schema": 1,
+  "id": "M041",
+  "revision": 1,
+  "world": 2,
+  "slot": 11,
+  "title": "Flour and the Kiln Draft",
+  "brief": "The miller needs care in the loft. Two flour sacks must reach Lane Clinic. The kiln fire will drift with the wind onto Flour Walk if it is not put out.",
+  "tutorial": [
+    "Three on the team now. Juno lights, Tomi cares, Rosa hauls.",
+    "Wind is a forecast, not a blocker. The spread after it is the real clock."
+  ],
+  "strategies": [
+    "Sled and Extinguisher split: Rosa hauls, whoever is nearest the kiln carries water.",
+    "Tomi stays with the miller until the loft smoke is open."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "cargoSled",
+    "extinguisher",
+    "firstAid"
+  ],
+  "nodes": [
+    {
+      "id": "mg",
+      "x": 100,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Mill Gate"
+    },
+    {
+      "id": "kg",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Kiln Gate"
+    },
+    {
+      "id": "cg",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Clinic Gate"
+    },
+    {
+      "id": "loft",
+      "x": 120,
+      "y": 680,
+      "label": "Mill Loft"
+    },
+    {
+      "id": "dep",
+      "x": 120,
+      "y": 480,
+      "kind": "depot",
+      "label": "Flour Bay"
+    },
+    {
+      "id": "kiln",
+      "x": 400,
+      "y": 620,
+      "label": "Kiln Mouth"
+    },
+    {
+      "id": "walk",
+      "x": 400,
+      "y": 400,
+      "label": "Flour Walk"
+    },
+    {
+      "id": "clinic",
+      "x": 700,
+      "y": 400,
+      "kind": "need",
+      "label": "Lane Clinic"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 200,
+      "kind": "shelter",
+      "label": "Mill Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "mg-loft",
+      "a": "mg",
+      "b": "loft",
+      "label": "Mill Rise"
+    },
+    {
+      "id": "kg-kiln",
+      "a": "kg",
+      "b": "kiln",
+      "label": "Kiln Rise"
+    },
+    {
+      "id": "cg-clinic",
+      "a": "cg",
+      "b": "clinic",
+      "label": "Clinic Rise"
+    },
+    {
+      "id": "loft-dep",
+      "a": "loft",
+      "b": "dep",
+      "block": "dark",
+      "label": "Loft Bay"
+    },
+    {
+      "id": "loft-kiln",
+      "a": "loft",
+      "b": "kiln",
+      "label": "Loft Kiln"
+    },
+    {
+      "id": "kiln-walk",
+      "a": "kiln",
+      "b": "walk",
+      "label": "Kiln Walk"
+    },
+    {
+      "id": "walk-clinic",
+      "a": "walk",
+      "b": "clinic",
+      "label": "Walk Clinic"
+    },
+    {
+      "id": "dep-walk",
+      "a": "dep",
+      "b": "walk",
+      "label": "Bay Walk"
+    },
+    {
+      "id": "walk-hall",
+      "a": "walk",
+      "b": "hall",
+      "label": "Walk Hall"
+    },
+    {
+      "id": "clinic-hall",
+      "a": "clinic",
+      "b": "hall",
+      "label": "Clinic Hall"
+    },
+    {
+      "id": "kiln-hall",
+      "a": "kiln",
+      "b": "hall",
+      "block": "debris",
+      "label": "Kiln Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "mg"
+    },
+    {
+      "node": "kg"
+    },
+    {
+      "node": "cg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "loft",
+      "needsCare": true,
+      "critical": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "depots": [
+    {
+      "node": "dep",
+      "stock": 2
+    }
+  ],
+  "needs": [
+    {
+      "id": "need_clinic",
+      "node": "clinic",
+      "count": 2
+    }
+  ],
+  "fires": [
+    {
+      "node": "kiln",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 90,
+      "type": "wind",
+      "note": "Draft turns onto Flour Walk"
+    },
+    {
+      "at": 220,
+      "type": "spread",
+      "from": "kiln",
+      "to": "walk"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "stabilized",
+      "target": "c1"
+    },
+    {
+      "type": "delivered",
+      "count": 2,
+      "target": "need_clinic"
+    },
+    {
+      "type": "contained"
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 467,
+  "goldTicks": 265,
+  "decor": [
+    "smoke:80,200,200,180",
+    "cobble:400,700,320,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "kg",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "medic",
+        "node": "mg"
+      },
+      {
+        "role": "scout",
+        "node": "cg",
+        "gear": "cargoSled"
+      }
+    ],
+    "commands": [],
+    "ticks": 265,
+    "hash": "beab2442"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 204,
+    "setupsWon": 126,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

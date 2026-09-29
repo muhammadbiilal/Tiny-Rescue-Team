@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "id": "M057",
+  "revision": 1,
+  "world": 2,
+  "slot": 27,
+  "title": "Two Roads to the Chapel",
+  "brief": "Chapel door is jammed. A loft caller is hidden up a dark stair. West shutters and east smoke are two real roads to the chapel. Loft work does not open those roads by itself.",
+  "tutorial": [
+    "Dependent: loft stair is a separate job from the chapel roads.",
+    "Two viable roads. You only need one plus the loft."
+  ],
+  "strategies": [
+    "Bea chapel via west. Juno loft. Rosa and Tomi east or west.",
+    "All east through smoke; Bea still has to reach the door."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "wp",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "lp",
+      "x": 280,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Loft Post"
+    },
+    {
+      "id": "mp",
+      "x": 520,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Mid Post"
+    },
+    {
+      "id": "ep",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "west",
+      "x": 120,
+      "y": 320,
+      "label": "West Shutters"
+    },
+    {
+      "id": "loft",
+      "x": 280,
+      "y": 360,
+      "label": "Loft Stair"
+    },
+    {
+      "id": "east",
+      "x": 680,
+      "y": 320,
+      "label": "East Smoke"
+    },
+    {
+      "id": "chapel",
+      "x": 400,
+      "y": 620,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 900,
+      "kind": "shelter",
+      "label": "South Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "wp-west",
+      "a": "wp",
+      "b": "west",
+      "label": "West Drop"
+    },
+    {
+      "id": "lp-loft",
+      "a": "lp",
+      "b": "loft",
+      "label": "Loft Drop"
+    },
+    {
+      "id": "mp-chapel",
+      "a": "mp",
+      "b": "chapel",
+      "block": "debris",
+      "label": "Mid Chapel"
+    },
+    {
+      "id": "ep-east",
+      "a": "ep",
+      "b": "east",
+      "label": "East Drop"
+    },
+    {
+      "id": "west-chapel",
+      "a": "west",
+      "b": "chapel",
+      "block": "debris",
+      "label": "West Chapel"
+    },
+    {
+      "id": "east-chapel",
+      "a": "east",
+      "b": "chapel",
+      "block": "dark",
+      "label": "East Chapel"
+    },
+    {
+      "id": "loft-chapel",
+      "a": "loft",
+      "b": "chapel",
+      "block": "dark",
+      "label": "Loft Chapel"
+    },
+    {
+      "id": "chapel-hall",
+      "a": "chapel",
+      "b": "hall",
+      "label": "Chapel Hall"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "label": "West Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "block": "dark",
+      "label": "East Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "wp"
+    },
+    {
+      "node": "lp"
+    },
+    {
+      "node": "mp"
+    },
+    {
+      "node": "ep"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "loft",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "west",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "chapel",
+      "broken": true
+    },
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "shelterOpen",
+      "target": "chapel"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 420,
+  "goldTicks": 245,
+  "decor": [
+    "eaves:40,200,180,200",
+    "smoke:560,200,200,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "wp",
+        "gear": "toolkit"
+      },
+      {
+        "role": "medic",
+        "node": "lp"
+      },
+      {
+        "role": "engineer",
+        "node": "mp"
+      },
+      {
+        "role": "scout",
+        "node": "ep"
+      }
+    ],
+    "commands": [],
+    "ticks": 245,
+    "hash": "7b20f0f3"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 260,
+    "setupsWon": 242,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

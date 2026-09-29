@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "id": "M053",
+  "revision": 1,
+  "world": 2,
+  "slot": 23,
+  "title": "Changing Wind on Kiln Row",
+  "brief": "Kiln fire will follow the wind onto Kiln Row, which must stay open, then onto Well Court. The wind turns twice. One Extinguisher.",
+  "tutorial": [
+    "Two wind notes, two spreads. Put the kiln out before the first or stand on Kiln Row.",
+    "Juno is here for the smoke cut behind the kiln."
+  ],
+  "strategies": [
+    "Extinguisher on Bea or Rosa at Kiln Post. Tomi escorts. Juno opens the back cut.",
+    "If the first spread lands, stand on Kiln Row with the Extinguisher."
+  ],
+  "teamSize": 4,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "kp",
+      "x": 80,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Kiln Post"
+    },
+    {
+      "id": "mp",
+      "x": 400,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Row Post"
+    },
+    {
+      "id": "bp",
+      "x": 720,
+      "y": 80,
+      "kind": "deploy",
+      "label": "Back Post"
+    },
+    {
+      "id": "kiln",
+      "x": 140,
+      "y": 360,
+      "label": "Kiln"
+    },
+    {
+      "id": "row",
+      "x": 400,
+      "y": 360,
+      "label": "Kiln Row"
+    },
+    {
+      "id": "back",
+      "x": 680,
+      "y": 360,
+      "label": "Back Cut"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 720,
+      "kind": "shelter",
+      "label": "Well Court"
+    }
+  ],
+  "edges": [
+    {
+      "id": "kp-kiln",
+      "a": "kp",
+      "b": "kiln",
+      "label": "Kiln Drop"
+    },
+    {
+      "id": "mp-row",
+      "a": "mp",
+      "b": "row",
+      "label": "Row Drop"
+    },
+    {
+      "id": "bp-back",
+      "a": "bp",
+      "b": "back",
+      "label": "Back Drop"
+    },
+    {
+      "id": "kiln-row",
+      "a": "kiln",
+      "b": "row",
+      "label": "Kiln to Row"
+    },
+    {
+      "id": "row-back",
+      "a": "row",
+      "b": "back",
+      "block": "dark",
+      "label": "Row Smoke"
+    },
+    {
+      "id": "kiln-hall",
+      "a": "kiln",
+      "b": "hall",
+      "label": "Kiln Hall"
+    },
+    {
+      "id": "row-hall",
+      "a": "row",
+      "b": "hall",
+      "label": "Row Hall"
+    },
+    {
+      "id": "back-hall",
+      "a": "back",
+      "b": "hall",
+      "label": "Back Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "kp"
+    },
+    {
+      "node": "mp",
+      "capacity": 2
+    },
+    {
+      "node": "bp"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "back",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "row",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "fires": [
+    {
+      "node": "kiln",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 70,
+      "type": "wind",
+      "note": "Wind turns onto Kiln Row"
+    },
+    {
+      "at": 180,
+      "type": "spread",
+      "from": "kiln",
+      "to": "row"
+    },
+    {
+      "at": 240,
+      "type": "wind",
+      "note": "Wind turns onto Well Court"
+    },
+    {
+      "at": 320,
+      "type": "spread",
+      "from": "row",
+      "to": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "row"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 304,
+  "goldTicks": 184,
+  "decor": [
+    "smoke:80,240,200,200",
+    "cobble:360,480,280,80"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "bp"
+      },
+      {
+        "role": "medic",
+        "node": "mp"
+      },
+      {
+        "role": "engineer",
+        "node": "kp",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "scout",
+        "node": "mp"
+      }
+    ],
+    "commands": [],
+    "ticks": 184,
+    "hash": "c438bf5e"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 60,
+    "setupsWon": 48,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

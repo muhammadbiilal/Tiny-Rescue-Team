@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "id": "M045",
+  "revision": 1,
+  "world": 2,
+  "slot": 15,
+  "title": "Look, Then Cut",
+  "brief": "Bell Tower must be reachable from South Gate. Callers are hidden on both the west eaves and the east gable. West is shutters; east is smoke. Either road works once opened.",
+  "tutorial": [
+    "Inspect first: the hidden callers are the reason to open a road, not a side job.",
+    "Two viable routes to the tower. You do not need both."
+  ],
+  "strategies": [
+    "Juno east, Rosa west. Tomi escorts whoever appears first.",
+    "All east: ignore shutters and walk the smoke road."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "sg",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "South Gate"
+    },
+    {
+      "id": "wg",
+      "x": 80,
+      "y": 880,
+      "kind": "deploy",
+      "label": "West Post"
+    },
+    {
+      "id": "eg",
+      "x": 720,
+      "y": 880,
+      "kind": "deploy",
+      "label": "East Post"
+    },
+    {
+      "id": "fork",
+      "x": 400,
+      "y": 760,
+      "kind": "junction",
+      "label": "Look Fork"
+    },
+    {
+      "id": "west",
+      "x": 140,
+      "y": 480,
+      "label": "West Eaves"
+    },
+    {
+      "id": "east",
+      "x": 660,
+      "y": 480,
+      "label": "East Gable"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 160,
+      "kind": "lookout",
+      "label": "Bell Tower"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Look Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "sg-fork",
+      "a": "sg",
+      "b": "fork",
+      "label": "South Fork"
+    },
+    {
+      "id": "wg-west",
+      "a": "wg",
+      "b": "west",
+      "label": "West Post Lane"
+    },
+    {
+      "id": "eg-east",
+      "a": "eg",
+      "b": "east",
+      "label": "East Post Lane"
+    },
+    {
+      "id": "fork-west",
+      "a": "fork",
+      "b": "west",
+      "block": "debris",
+      "label": "West Shutters"
+    },
+    {
+      "id": "fork-east",
+      "a": "fork",
+      "b": "east",
+      "block": "dark",
+      "label": "East Smoke"
+    },
+    {
+      "id": "west-bell",
+      "a": "west",
+      "b": "bell",
+      "block": "debris",
+      "label": "West Bell"
+    },
+    {
+      "id": "east-bell",
+      "a": "east",
+      "b": "bell",
+      "block": "dark",
+      "label": "East Bell"
+    },
+    {
+      "id": "fork-hall",
+      "a": "fork",
+      "b": "hall",
+      "label": "Fork Hall"
+    },
+    {
+      "id": "west-hall",
+      "a": "west",
+      "b": "hall",
+      "label": "West Hall"
+    },
+    {
+      "id": "east-hall",
+      "a": "east",
+      "b": "hall",
+      "label": "East Hall"
+    },
+    {
+      "id": "hall-bell",
+      "a": "hall",
+      "b": "bell",
+      "label": "Hall Bell"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "sg",
+      "capacity": 2
+    },
+    {
+      "node": "wg"
+    },
+    {
+      "node": "eg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "west",
+      "hidden": true
+    },
+    {
+      "id": "c2",
+      "node": "east",
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "revealed",
+      "nodes": [
+        "fork-west",
+        "fork-east"
+      ]
+    },
+    {
+      "type": "routeOpen",
+      "a": "sg",
+      "b": "bell"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 272,
+  "goldTicks": 178,
+  "decor": [
+    "eaves:40,200,200,200",
+    "gable:560,200,200,200"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "sg",
+        "gear": "cutter"
+      },
+      {
+        "role": "medic",
+        "node": "wg"
+      },
+      {
+        "role": "scout",
+        "node": "sg"
+      }
+    ],
+    "commands": [],
+    "ticks": 178,
+    "hash": "878cdee1"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 48,
+    "setupsWon": 48,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

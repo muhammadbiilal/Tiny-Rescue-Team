@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "id": "M039",
+  "revision": 1,
+  "world": 2,
+  "slot": 9,
+  "title": "Two Calls, Tired Legs",
+  "brief": "A gable keeper and a well keeper both need care, on opposite sides of town. Long climbs tire the team: after two jobs a responder rests.",
+  "tutorial": [
+    "Two calls at once. Tomi is the only one who can steady them without a kit.",
+    "Fatigue after two finished tasks. Juno can only open smoke and wait."
+  ],
+  "strategies": [
+    "Tomi at Well Gate, Juno at Gable Gate. Tomi cares both; Juno lights the gable.",
+    "Both at Well Gate: the gable wait is longer because of the rest."
+  ],
+  "teamSize": 2,
+  "allowedRoles": [
+    "scout",
+    "medic"
+  ],
+  "nodes": [
+    {
+      "id": "wg",
+      "x": 120,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Well Gate"
+    },
+    {
+      "id": "gg",
+      "x": 680,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Gable Gate"
+    },
+    {
+      "id": "wk",
+      "x": 140,
+      "y": 640,
+      "label": "Well Keeper"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 640,
+      "kind": "junction",
+      "label": "Lane Mid"
+    },
+    {
+      "id": "gk",
+      "x": 660,
+      "y": 480,
+      "label": "Gable Keeper"
+    },
+    {
+      "id": "hall",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Lane Hall"
+    }
+  ],
+  "edges": [
+    {
+      "id": "wg-wk",
+      "a": "wg",
+      "b": "wk",
+      "label": "Well Rise"
+    },
+    {
+      "id": "gg-gk",
+      "a": "gg",
+      "b": "gk",
+      "label": "Gable Rise"
+    },
+    {
+      "id": "wk-mid",
+      "a": "wk",
+      "b": "mid",
+      "label": "Keeper Mid"
+    },
+    {
+      "id": "gk-mid",
+      "a": "gk",
+      "b": "mid",
+      "block": "dark",
+      "label": "Gable Smoke"
+    },
+    {
+      "id": "mid-hall",
+      "a": "mid",
+      "b": "hall",
+      "label": "Mid Hall"
+    },
+    {
+      "id": "wk-hall",
+      "a": "wk",
+      "b": "hall",
+      "label": "Well Hall"
+    },
+    {
+      "id": "gk-hall",
+      "a": "gk",
+      "b": "hall",
+      "block": "dark",
+      "label": "Gable Hall"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "wg"
+    },
+    {
+      "node": "gg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "wk",
+      "needsCare": true
+    },
+    {
+      "id": "c2",
+      "node": "gk",
+      "needsCare": true,
+      "hidden": true,
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "hall"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "fatigueJobs": 2,
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 551,
+  "goldTicks": 412,
+  "decor": [
+    "gable:520,160,220,140",
+    "cobble:80,700,240,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "scout",
+        "node": "gg"
+      },
+      {
+        "role": "medic",
+        "node": "wg"
+      }
+    ],
+    "commands": [],
+    "ticks": 412,
+    "hash": "e4c15378"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 2,
+    "setupsWon": 2,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

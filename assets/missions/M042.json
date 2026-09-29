@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "id": "M042",
+  "revision": 1,
+  "world": 2,
+  "slot": 12,
+  "title": "One Toolkit on Bell Road",
+  "brief": "Bell Tower must be reachable from North Gate, and Lane Chapel's door is jammed. Only one Toolkit is in the van.",
+  "tutorial": [
+    "Bea can repair without the Toolkit, slowly. Rosa needs it.",
+    "One tool, two jobs if you spend it on the door and Rapid Access on debris."
+  ],
+  "strategies": [
+    "Toolkit on Bea at Chapel Side. Rosa and Juno open Bell Road.",
+    "Toolkit on Rosa for the door. Bea clears Bell Shutters."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "engineer",
+    "scout"
+  ],
+  "gear": [
+    "toolkit",
+    "cutter"
+  ],
+  "nodes": [
+    {
+      "id": "ng",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "North Gate"
+    },
+    {
+      "id": "cs",
+      "x": 120,
+      "y": 820,
+      "kind": "deploy",
+      "label": "Chapel Side"
+    },
+    {
+      "id": "es",
+      "x": 680,
+      "y": 820,
+      "kind": "deploy",
+      "label": "Eaves Side"
+    },
+    {
+      "id": "shut",
+      "x": 400,
+      "y": 760,
+      "label": "Bell Shutters"
+    },
+    {
+      "id": "mid",
+      "x": 400,
+      "y": 520,
+      "kind": "junction",
+      "label": "Bell Road"
+    },
+    {
+      "id": "bell",
+      "x": 400,
+      "y": 160,
+      "kind": "lookout",
+      "label": "Bell Tower"
+    },
+    {
+      "id": "chapel",
+      "x": 160,
+      "y": 400,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    },
+    {
+      "id": "eaves",
+      "x": 660,
+      "y": 400,
+      "label": "Eaves Cut"
+    }
+  ],
+  "edges": [
+    {
+      "id": "ng-shut",
+      "a": "ng",
+      "b": "shut",
+      "label": "Gate Shutters"
+    },
+    {
+      "id": "cs-chapel",
+      "a": "cs",
+      "b": "chapel",
+      "label": "Side Chapel"
+    },
+    {
+      "id": "es-eaves",
+      "a": "es",
+      "b": "eaves",
+      "label": "Side Eaves"
+    },
+    {
+      "id": "shut-mid",
+      "a": "shut",
+      "b": "mid",
+      "block": "debris",
+      "label": "Bell Shutters"
+    },
+    {
+      "id": "mid-bell",
+      "a": "mid",
+      "b": "bell",
+      "label": "Bell Rise"
+    },
+    {
+      "id": "cs-mid",
+      "a": "cs",
+      "b": "mid",
+      "label": "Chapel Bell"
+    },
+    {
+      "id": "eaves-mid",
+      "a": "eaves",
+      "b": "mid",
+      "block": "dark",
+      "label": "Eaves Smoke"
+    },
+    {
+      "id": "chapel-mid",
+      "a": "chapel",
+      "b": "mid",
+      "label": "Chapel Mid"
+    },
+    {
+      "id": "eaves-bell",
+      "a": "eaves",
+      "b": "bell",
+      "block": "dark",
+      "label": "Eaves Bell"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "ng",
+      "capacity": 2
+    },
+    {
+      "node": "cs"
+    },
+    {
+      "node": "es"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "eaves",
+      "hidden": true
+    }
+  ],
+  "shelters": [
+    {
+      "node": "chapel",
+      "broken": true
+    }
+  ],
+  "objectives": [
+    {
+      "type": "routeOpen",
+      "a": "ng",
+      "b": "bell"
+    },
+    {
+      "type": "shelterOpen",
+      "target": "chapel"
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 1
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 343,
+  "goldTicks": 240,
+  "decor": [
+    "gable:300,60,200,90",
+    "cobble:60,800,680,180"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "es",
+        "gear": "cutter"
+      },
+      {
+        "role": "engineer",
+        "node": "ng"
+      },
+      {
+        "role": "scout",
+        "node": "cs",
+        "gear": "toolkit"
+      }
+    ],
+    "commands": [],
+    "ticks": 240,
+    "hash": "9188fdc7"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 156,
+    "setupsWon": 156,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}

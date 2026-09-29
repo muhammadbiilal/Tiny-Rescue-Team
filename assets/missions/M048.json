@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "id": "M048",
+  "revision": 1,
+  "world": 2,
+  "slot": 18,
+  "title": "Two Arcades, One Bench",
+  "brief": "Clock Arcade and Bell Walk must both stay clear of fire. Tiny Well seats one person and is open now; Lane Chapel opens at eighteen seconds. A hearth in Gable House feeds both corridors if it is not put out.",
+  "tutorial": [
+    "Two corridors, not one copied job. Fire on either arcade fails the mission.",
+    "Tiny Well holds one. The second neighbour waits for the chapel clock."
+  ],
+  "strategies": [
+    "Extinguisher on the gable starter. Tomi escorts the first neighbour to the well. Juno lights the house.",
+    "Put the fire out before walking anyone past the arcades."
+  ],
+  "teamSize": 3,
+  "allowedRoles": [
+    "rescuer",
+    "medic",
+    "scout"
+  ],
+  "gear": [
+    "extinguisher"
+  ],
+  "nodes": [
+    {
+      "id": "gg",
+      "x": 80,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Gable Gate"
+    },
+    {
+      "id": "ag",
+      "x": 400,
+      "y": 1000,
+      "kind": "deploy",
+      "label": "Arcade Gate"
+    },
+    {
+      "id": "bg",
+      "x": 720,
+      "y": 980,
+      "kind": "deploy",
+      "label": "Bell Gate"
+    },
+    {
+      "id": "hearth",
+      "x": 140,
+      "y": 640,
+      "label": "Gable Hearth"
+    },
+    {
+      "id": "arc",
+      "x": 400,
+      "y": 480,
+      "label": "Clock Arcade"
+    },
+    {
+      "id": "bw",
+      "x": 680,
+      "y": 480,
+      "label": "Bell Walk"
+    },
+    {
+      "id": "tiny",
+      "x": 400,
+      "y": 280,
+      "kind": "shelter",
+      "label": "Tiny Well"
+    },
+    {
+      "id": "chapel",
+      "x": 680,
+      "y": 220,
+      "kind": "shelter",
+      "label": "Lane Chapel"
+    }
+  ],
+  "edges": [
+    {
+      "id": "gg-hearth",
+      "a": "gg",
+      "b": "hearth",
+      "label": "Gable Rise"
+    },
+    {
+      "id": "ag-arc",
+      "a": "ag",
+      "b": "arc",
+      "label": "Arcade Rise"
+    },
+    {
+      "id": "bg-bw",
+      "a": "bg",
+      "b": "bw",
+      "label": "Bell Rise"
+    },
+    {
+      "id": "hearth-arc",
+      "a": "hearth",
+      "b": "arc",
+      "label": "Hearth Arcade"
+    },
+    {
+      "id": "arc-bw",
+      "a": "arc",
+      "b": "bw",
+      "label": "Arcade Bell"
+    },
+    {
+      "id": "arc-tiny",
+      "a": "arc",
+      "b": "tiny",
+      "label": "Arcade Well"
+    },
+    {
+      "id": "bw-chapel",
+      "a": "bw",
+      "b": "chapel",
+      "label": "Walk Chapel"
+    },
+    {
+      "id": "tiny-chapel",
+      "a": "tiny",
+      "b": "chapel",
+      "label": "Well Chapel"
+    },
+    {
+      "id": "hearth-tiny",
+      "a": "hearth",
+      "b": "tiny",
+      "block": "dark",
+      "label": "Hearth Well"
+    }
+  ],
+  "deploy": [
+    {
+      "node": "gg"
+    },
+    {
+      "node": "ag"
+    },
+    {
+      "node": "bg"
+    }
+  ],
+  "civilians": [
+    {
+      "id": "c1",
+      "node": "arc"
+    },
+    {
+      "id": "c2",
+      "node": "bw",
+      "look": 1
+    }
+  ],
+  "shelters": [
+    {
+      "node": "tiny",
+      "capacity": 1
+    },
+    {
+      "node": "chapel",
+      "openAt": 180
+    }
+  ],
+  "fires": [
+    {
+      "node": "hearth",
+      "intensity": 1
+    }
+  ],
+  "hazards": [
+    {
+      "at": 200,
+      "type": "spread",
+      "from": "hearth",
+      "to": "arc"
+    },
+    {
+      "at": 280,
+      "type": "spread",
+      "from": "arc",
+      "to": "bw"
+    }
+  ],
+  "objectives": [
+    {
+      "type": "contained"
+    },
+    {
+      "type": "protect",
+      "nodes": [
+        "arc",
+        "bw"
+      ]
+    },
+    {
+      "type": "civiliansSafe",
+      "count": 2
+    }
+  ],
+  "rules": {
+    "abilityCharges": 1,
+    "redirects": 1
+  },
+  "parTicks": 268,
+  "goldTicks": 226,
+  "decor": [
+    "cobble:200,300,400,60",
+    "gable:80,400,160,160"
+  ],
+  "witness": {
+    "loadout": [
+      {
+        "role": "rescuer",
+        "node": "bg"
+      },
+      {
+        "role": "medic",
+        "node": "ag",
+        "gear": "extinguisher"
+      },
+      {
+        "role": "scout",
+        "node": "gg"
+      }
+    ],
+    "commands": [],
+    "ticks": 226,
+    "hash": "e394435c"
+  },
+  "review": {
+    "authoring": "hand",
+    "solver": "solver_validated",
+    "setupsTried": 24,
+    "setupsWon": 14,
+    "difficulty": "straightforward",
+    "editorial": "approved_slice",
+    "human": "not_played"
+  }
+}
